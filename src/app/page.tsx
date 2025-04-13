@@ -19,7 +19,7 @@ export default function Home() {
       <div className='relative bg-white overflow-hidden'>
         <div className='max-w-7xl mx-auto'>
           <div className='relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32'>
-            <div className='pt-10 sm:pt-16 lg:pt-8 xl:pt-16'>
+            <div className='pt-10 px-4 sm:px-6 md:px-8 sm:pt-16 lg:pt-8 xl:pt-16'>
               <div className='sm:text-center lg:text-left'>
                 <h1 className='text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl'>
                   <span className='block xl:inline'>{t('home.hero.title.main')}</span>{' '}
@@ -51,14 +51,14 @@ export default function Home() {
           </div>
         </div>
         <div className='lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
-          <Image
+          {/* <Image
             src='/images/hero-car.jpg'
             alt='Car with euro towbar installation'
             width={1920}
             height={1080}
             className='h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full'
             priority
-          />
+          /> */}
         </div>
       </div>
 
