@@ -2,16 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from '@/utils/i18n';
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Euro Towbar Installation', href: '/euro-towbar-installation' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'home', href: '/' },
+  { name: 'installation', href: '/euro-towbar-installation' },
+  { name: 'blog', href: '/blog' },
+  { name: 'contact', href: '/contact' },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   return (
     <header className='bg-white'>
@@ -19,8 +21,8 @@ export default function Navbar() {
         <div className='flex w-full items-center justify-between border-b border-gray-200 py-6 lg:border-none'>
           <div className='flex items-center'>
             <Link href='/'>
-              <span className='sr-only'>Euro Towbar Installation</span>
-              <span className='text-2xl font-bold text-gray-900'>Euro Towbar</span>
+              <span className='sr-only'>{t('common.companyName')}</span>
+              <span className='text-2xl font-bold text-gray-900'>{t('common.companyName')}</span>
             </Link>
           </div>
           <div className='ml-10 space-x-8'>
@@ -32,7 +34,7 @@ export default function Navbar() {
                   pathname === link.href ? 'text-red-600' : 'text-gray-500 hover:text-gray-900'
                 }`}
               >
-                {link.name}
+                {t(`navigation.${link.name}`)}
               </Link>
             ))}
           </div>

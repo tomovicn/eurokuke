@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { useTranslation } from '@/utils/i18n';
 
 const navigation = {
   main: [
-    { name: 'Home', href: '/' },
-    { name: 'Euro Towbar Installation', href: '/euro-towbar-installation' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'home', href: '/' },
+    { name: 'installation', href: '/euro-towbar-installation' },
+    { name: 'blog', href: '/blog' },
+    { name: 'contact', href: '/contact' },
   ],
   social: [
     {
@@ -38,6 +39,8 @@ const navigation = {
 };
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className='bg-white'>
       <div className='mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8'>
@@ -45,7 +48,7 @@ export default function Footer() {
           {navigation.main.map((item) => (
             <div key={item.name} className='pb-6'>
               <Link href={item.href} className='text-sm leading-6 text-gray-600 hover:text-gray-900'>
-                {item.name}
+                {t(`navigation.${item.name}`)}
               </Link>
             </div>
           ))}
@@ -59,12 +62,12 @@ export default function Footer() {
           ))}
         </div>
         <p className='mt-10 text-center text-xs leading-5 text-gray-500'>
-          &copy; {new Date().getFullYear()} Euro Towbar Installation. All rights reserved.
+          {t('footer.copyright', { year: new Date().getFullYear().toString() })}
         </p>
         <div className='mt-4 text-center text-xs leading-5 text-gray-500'>
-          <p>Address: 123 Example Street, Belgrade, Serbia</p>
-          <p>Phone: +381 60 123 4567</p>
-          <p>Email: info@eurotowbar.rs</p>
+          <p>{t('common.address')}</p>
+          <p>{t('common.phone')}</p>
+          <p>{t('common.email')}</p>
         </div>
       </div>
     </footer>
