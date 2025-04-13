@@ -97,24 +97,6 @@ export const sr = {
       title: 'Proces Montaže',
       subtitle: 'Kako se izvodi montaža euro kuke',
       description: 'Naš stručni tim koristi najnovije tehnike i alate za brzu i kvalitetnu montažu.',
-      steps: [
-        {
-          title: 'Pregled Vozila',
-          description: 'Detaljna provera kompatibilnosti i stanja vozila.',
-        },
-        {
-          title: 'Priprema',
-          description: 'Priprema vozila i potrebnih delova za montažu.',
-        },
-        {
-          title: 'Montaža',
-          description: 'Profesionalna montaža euro kuke od strane sertifikovanih tehničara.',
-        },
-        {
-          title: 'Testiranje',
-          description: 'Testiranje funkcionalnosti i bezbednosti nakon montaže.',
-        },
-      ],
       steps: {
         inspection: {
           title: 'Pregled Vozila',
