@@ -1,0 +1,32 @@
+{
+  "name": "eurokuke",
+  "version": "0.1.0",
+  "description": "A modern static website built with Next.js, Tailwind CSS, and React",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "next": "13.5.6",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=16.8.0"
+  }
+}
