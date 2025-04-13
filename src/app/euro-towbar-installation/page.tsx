@@ -140,50 +140,8 @@ export default function EuroTowbarInstallation() {
           </div>
 
           <div className='mt-10'>
-            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-              <div className='bg-white rounded-lg shadow-lg overflow-hidden'>
-                <div className='px-6 py-8'>
-                  <h3 className='text-2xl font-medium text-gray-900'>{t('installation.pricing.plans.basic.title')}</h3>
-                  <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.basic.price')}</p>
-                  <ul className='mt-6 space-y-4'>
-                    {(t('installation.pricing.plans.basic.features') as unknown as string[]).map((feature: string) => (
-                      <li key={feature} className='flex items-start'>
-                        <div className='flex-shrink-0'>
-                          <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
-                          </svg>
-                        </div>
-                        <p className='ml-3 text-base text-gray-500'>{feature}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className='bg-white rounded-lg shadow-lg overflow-hidden'>
-                <div className='px-6 py-8'>
-                  <h3 className='text-2xl font-medium text-gray-900'>
-                    {t('installation.pricing.plans.premium.title')}
-                  </h3>
-                  <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.premium.price')}</p>
-                  <ul className='mt-6 space-y-4'>
-                    {(t('installation.pricing.plans.premium.features') as unknown as string[]).map(
-                      (feature: string) => (
-                        <li key={feature} className='flex items-start'>
-                          <div className='flex-shrink-0'>
-                            <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
-                            </svg>
-                          </div>
-                          <p className='ml-3 text-base text-gray-500'>{feature}</p>
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
-              </div>
-
-              <div className='bg-white rounded-lg shadow-lg overflow-hidden'>
+            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center'>
+              <div className='bg-white rounded-lg shadow-lg overflow-hidden max-w-md mx-auto col-span-1 sm:col-span-2 lg:col-span-3'>
                 <div className='px-6 py-8'>
                   <h3 className='text-2xl font-medium text-gray-900'>{t('installation.pricing.plans.custom.title')}</h3>
                   <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.custom.price')}</p>

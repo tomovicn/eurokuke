@@ -123,7 +123,7 @@ export const sr = {
     pricing: {
       title: 'Cenovnik',
       subtitle: 'Transparentne cene bez skrivenih troškova',
-      description: 'Izaberite paket koji odgovara vašim potrebama i budžetu',
+      description: 'Cena paketa zavisi od modela kuke i težine tereta',
       plans: {
         basic: {
           title: 'Osnovni Paket',
@@ -146,7 +146,7 @@ export const sr = {
           features: [
             'Montaža euro kuke',
             'Kompletna provera vozila',
-            'Garancija 3 godine',
+            'Garancija 2 godine',
             'Redovne kontrole',
             '24/7 podrška',
           ],
@@ -159,12 +159,12 @@ export const sr = {
       questions: {
         duration: {
           question: 'Koliko traje montaža euro kuke?',
-          answer: 'Standardna montaža traje 2-3 sata, u zavisnosti od modela vozila.',
+          answer: 'Standardna montaža traje 3-4 sata, u zavisnosti od modela vozila.',
         },
         bumper: {
           question: 'Da li je potrebno modifikovati branik?',
           answer:
-            'U većini slučajeva nije potrebno. Naši tehničari koriste metode koje minimalno utiču na izgled vozila.',
+            'U većini slučajeva je potrebno. Naši tehničari koriste metode koje minimalno utiču na izgled vozila.',
         },
         certification: {
           question: 'Da li je potrebna registracija nakon montaže?',

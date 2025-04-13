@@ -46,7 +46,7 @@ export default function BlogIndex() {
             <div key={post.slug} className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
               <div className='flex-shrink-0'>
                 <Image
-                  src={`/images/blog/${post.slug}.jpg`}
+                  src={`/images/blog/post.png`}
                   alt={post.title}
                   width={400}
                   height={225}

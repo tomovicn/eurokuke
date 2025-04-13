@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { getAllPosts } from "@/lib/blog";
-import { getPostsByCategory } from "@/lib/blog";
+import { getAllPosts } from '@/lib/blog';
+import { getPostsByCategory } from '@/lib/blog';
 
 const categories = {
   legal: {
@@ -111,7 +111,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
               <div key={post.id} className='group relative'>
                 <div className='relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64'>
                   <Image
-                    src={`/images/blog/${post.id}.jpg`}
+                    src={`/images/blog/post.png`}
                     alt={post.title}
                     className='h-full w-full object-cover object-center'
                     width={400}

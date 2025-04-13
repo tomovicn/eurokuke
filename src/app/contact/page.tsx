@@ -67,7 +67,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className='mt-6 flex'>
+                {/* <div className='mt-6 flex'>
                   <div className='flex-shrink-0'>
                     <svg className='h-6 w-6 text-gray-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
                       <path
@@ -81,7 +81,7 @@ export default function Contact() {
                   <div className='ml-3 text-base text-gray-500'>
                     <p>{t('contact.email')}</p>
                   </div>
-                </div>
+                </div> */}
 
 
               </div>
