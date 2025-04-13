@@ -96,11 +96,11 @@ export default function Home() {
           </div>
           <div className='lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
             <Image
-              src='/images/hero-car.jpg'
+              src='/images/hero/eurokuka.jpg'
               alt='Ugradnja euro kuke u Beogradu - Profesionalna montaža za sve marke vozila'
-              width={1920}
-              height={1080}
-              className='h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full'
+              width={600}
+              height={400}
+              className=''
               priority
             />
           </div>
