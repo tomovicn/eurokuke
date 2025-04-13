@@ -146,7 +146,7 @@ export default function EuroTowbarInstallation() {
                   <h3 className='text-2xl font-medium text-gray-900'>{t('installation.pricing.plans.basic.title')}</h3>
                   <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.basic.price')}</p>
                   <ul className='mt-6 space-y-4'>
-                    {t('installation.pricing.plans.basic.features').map((feature: string) => (
+                    {(t('installation.pricing.plans.basic.features') as unknown as string[]).map((feature: string) => (
                       <li key={feature} className='flex items-start'>
                         <div className='flex-shrink-0'>
                           <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
@@ -167,16 +167,18 @@ export default function EuroTowbarInstallation() {
                   </h3>
                   <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.premium.price')}</p>
                   <ul className='mt-6 space-y-4'>
-                    {t('installation.pricing.plans.premium.features').map((feature: string) => (
-                      <li key={feature} className='flex items-start'>
-                        <div className='flex-shrink-0'>
-                          <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
-                          </svg>
-                        </div>
-                        <p className='ml-3 text-base text-gray-500'>{feature}</p>
-                      </li>
-                    ))}
+                    {(t('installation.pricing.plans.premium.features') as unknown as string[]).map(
+                      (feature: string) => (
+                        <li key={feature} className='flex items-start'>
+                          <div className='flex-shrink-0'>
+                            <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
+                            </svg>
+                          </div>
+                          <p className='ml-3 text-base text-gray-500'>{feature}</p>
+                        </li>
+                      )
+                    )}
                   </ul>
                 </div>
               </div>
@@ -186,7 +188,7 @@ export default function EuroTowbarInstallation() {
                   <h3 className='text-2xl font-medium text-gray-900'>{t('installation.pricing.plans.custom.title')}</h3>
                   <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.custom.price')}</p>
                   <ul className='mt-6 space-y-4'>
-                    {t('installation.pricing.plans.custom.features').map((feature: string) => (
+                    {(t('installation.pricing.plans.custom.features') as unknown as string[]).map((feature: string) => (
                       <li key={feature} className='flex items-start'>
                         <div className='flex-shrink-0'>
                           <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>

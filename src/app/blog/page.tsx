@@ -19,11 +19,13 @@ interface BlogPost {
   };
 }
 
+type BlogPosts = Record<string, BlogPost>;
+
 export default function BlogIndex() {
   const { t } = useTranslation();
 
   // Get all posts from all categories
-  const posts = Object.entries(t('blog.posts') as unknown as Record<string, BlogPost>).map(([slug, post]) => ({
+  const posts = Object.entries(t('blog.posts') as unknown as BlogPosts).map(([slug, post]) => ({
     slug,
     ...post,
   }));
