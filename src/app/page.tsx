@@ -4,6 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from '@/utils/i18n';
 
+interface Testimonial {
+  name: string;
+  role: string;
+  text: string;
+}
+
 export default function Home() {
   const { t } = useTranslation();
 
@@ -222,73 +228,34 @@ export default function Home() {
       <div className='bg-gray-50 py-12'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>Testimonials</h2>
+            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
+              {t('home.testimonials.title')}
+            </h2>
             <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              What Our Customers Say
+              {t('home.testimonials.subtitle')}
             </p>
           </div>
 
           <div className='mt-10'>
             <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-              {/* Testimonial 1 */}
-              <div className='bg-white rounded-lg shadow-lg p-6'>
-                <div className='flex items-center mb-4'>
-                  <Image
-                    src='/images/testimonial-1.jpg'
-                    alt='Customer photo'
-                    width={48}
-                    height={48}
-                    className='rounded-full'
-                  />
-                  <div className='ml-4'>
-                    <h4 className='text-lg font-medium text-gray-900'>Marko Petrović</h4>
-                    <p className='text-gray-500'>Volkswagen Golf Owner</p>
+              {(t('home.testimonials.items') as unknown as Testimonial[]).map((testimonial, index) => (
+                <div key={index} className='bg-white rounded-lg shadow-lg p-6'>
+                  <div className='flex items-center mb-4'>
+                    <Image
+                      src={`/images/testimonial-${index + 1}.jpg`}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className='rounded-full'
+                    />
+                    <div className='ml-4'>
+                      <h4 className='text-lg font-medium text-gray-900'>{testimonial.name}</h4>
+                      <p className='text-gray-500'>{testimonial.role}</p>
+                    </div>
                   </div>
+                  <p className='text-gray-600'>{testimonial.text}</p>
                 </div>
-                <p className='text-gray-600'>
-                  "Professional service, quick installation, and great after-sales support. Highly recommended!"
-                </p>
-              </div>
-
-              {/* Testimonial 2 */}
-              <div className='bg-white rounded-lg shadow-lg p-6'>
-                <div className='flex items-center mb-4'>
-                  <Image
-                    src='/images/testimonial-2.jpg'
-                    alt='Customer photo'
-                    width={48}
-                    height={48}
-                    className='rounded-full'
-                  />
-                  <div className='ml-4'>
-                    <h4 className='text-lg font-medium text-gray-900'>Ana Jovanović</h4>
-                    <p className='text-gray-500'>BMW X5 Owner</p>
-                  </div>
-                </div>
-                <p className='text-gray-600'>
-                  "The installation was done perfectly, and the team was very professional. Great experience!"
-                </p>
-              </div>
-
-              {/* Testimonial 3 */}
-              <div className='bg-white rounded-lg shadow-lg p-6'>
-                <div className='flex items-center mb-4'>
-                  <Image
-                    src='/images/testimonial-3.jpg'
-                    alt='Customer photo'
-                    width={48}
-                    height={48}
-                    className='rounded-full'
-                  />
-                  <div className='ml-4'>
-                    <h4 className='text-lg font-medium text-gray-900'>Ivan Nikolić</h4>
-                    <p className='text-gray-500'>Mercedes Owner</p>
-                  </div>
-                </div>
-                <p className='text-gray-600'>
-                  "Excellent service, fair pricing, and the towbar works perfectly. Will definitely recommend!"
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

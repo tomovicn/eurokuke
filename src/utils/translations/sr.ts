@@ -63,6 +63,27 @@ export const sr = {
         description: 'Svi naši tehničari su sertifikovani i stalno se usavršavaju.',
       },
     },
+    testimonials: {
+      title: 'Iskustva Klijenata',
+      subtitle: 'Šta Kažu Naši Klijenti',
+      items: [
+        {
+          name: 'Marko Petrović',
+          role: 'Vlasnik Volkswagena Golfa',
+          text: 'Profesionalna usluga, brza montaža i odlična podrška nakon prodaje. Toplo preporučujem!',
+        },
+        {
+          name: 'Ana Jovanović',
+          role: 'Vlasnik BMW X5',
+          text: 'Montaža je izvedena savršeno, a tim je bio veoma profesionalan. Odlično iskustvo!',
+        },
+        {
+          name: 'Ivan Nikolić',
+          role: 'Vlasnik Mercedesa',
+          text: 'Izuzetna usluga, fer cene, i euro kuka radi savršeno. Definitivno ću preporučiti!',
+        },
+      ],
+    },
   },
   installation: {
     title: 'Montaža Euro Kuke',
