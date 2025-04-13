@@ -7,19 +7,14 @@ import Footer from '@/components/Footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Euro Towbar - Profesionalna Montaža Euro Kuka u Srbiji',
+  title: 'Euro Kuka | Profesionalna Ugradnja Euro Kuka u Beogradu',
   description:
-    'Profesionalna montaža euro kuka za sve marke automobila. Certifikovani tehničari, kvalitetna usluga i konkurentne cene u Beogradu i Srbiji.',
-  keywords:
-    'euro kuka, montaža kuke, euro towbar, montaža kuke beograd, certifikovana kuka, atest kuke, montaža kuke srbija',
+    'Stručna ugradnja euro kuka za sve marke vozila. Brza montaža, povoljne cene, garancija kvaliteta. Pozovite nas danas za besplatnu konsultaciju.',
+  keywords: 'ugradnja euro kuka, auto kuka, kuka za vuču, montaža kuke, bosal, oris, steinhof, beograd',
   openGraph: {
-    title: 'Euro Towbar - Profesionalna Montaža Euro Kuka u Srbiji',
-    description:
-      'Profesionalna montaža euro kuka za sve marke automobila. Certifikovani tehničari, kvalitetna usluga i konkurentne cene.',
-    url: 'https://eurotowbar.rs',
-    siteName: 'Euro Towbar',
-    locale: 'sr_RS',
-    type: 'website',
+    title: 'Euro Kuka | Profesionalna Ugradnja Euro Kuka u Beogradu',
+    description: 'Stručna ugradnja euro kuka za sve marke vozila. Brza montaža, povoljne cene, garancija kvaliteta.',
+    images: ['/images/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
