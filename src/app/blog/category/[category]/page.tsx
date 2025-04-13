@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import { getAllPosts } from "@/lib/blog";
+import { getPostsByCategory } from "@/lib/blog";
 
 const categories = {
   legal: {
