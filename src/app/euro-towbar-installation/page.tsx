@@ -270,7 +270,7 @@ export default function EuroTowbarInstallation() {
           <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
             <div className='inline-flex rounded-md shadow'>
               <Link
-                href='/contact'
+                href='tel:+381638066462'
                 className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-red-50'
               >
                 {t('installation.cta.button')}

@@ -1,26 +1,26 @@
 export const sr = {
   common: {
-    companyName: 'Euro Kuka',
+    companyName: 'Ugradnja Euro Kuka',
     address: 'Beograd, Srbija',
-    phone: '+381 60 123 4567',
+    phone: '+381 63 8066462',
     email: 'info@eurokuka.rs',
   },
   navigation: {
     home: 'Početna',
-    installation: 'Montaža',
+    installation: 'Ugradnja',
     blog: 'Blog',
     contact: 'Kontakt',
   },
   footer: {
-    copyright: '© {year} Euro Kuka. Sva prava zadržana.',
+    copyright: '© {year} Ugradnja Euro Kuka. Sva prava zadržana.',
   },
   home: {
     hero: {
       title: {
-        main: 'Profesionalna Euro Kuka',
-        sub: 'Montaža za Vaše Vozilo',
+        main: 'Profesionalna montaža',
+        sub: 'Euro Kuka za sve tipove vozila',
       },
-      description: 'Pružamo vrhunsku uslugu montaže euro kuke sa garancijom kvaliteta i brzom instalacijom.',
+      description: 'Vaša sigurnost je naš prioritet! Nudimo vrhunsku ugradnju euro kuka uz brzu instalaciju, fabričke ateste i usklađenost sa evropskim standardima.',
       trust: {
         quality: 'Garancija Kvaliteta',
         warranty: 'Dugoročna Garancija',
