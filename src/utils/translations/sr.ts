@@ -16,7 +16,10 @@ export const sr = {
   },
   home: {
     hero: {
-      title: 'Profesionalna Montaža Euro Kuke',
+      title: {
+        main: 'Profesionalna Euro Kuka',
+        sub: 'Montaža za Vaše Vozilo',
+      },
       description: 'Pružamo vrhunsku uslugu montaže euro kuke sa garancijom kvaliteta i brzom instalacijom.',
       trust: {
         quality: 'Garancija Kvaliteta',

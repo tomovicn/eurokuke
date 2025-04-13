@@ -10,90 +10,130 @@ export default function Home() {
   return (
     <div className='bg-white'>
       {/* Hero section */}
-      <div className='relative isolate overflow-hidden bg-gradient-to-b from-gray-50 to-white'>
-        {/* Content container */}
-        <div className='mx-auto max-w-7xl px-6 lg:px-8 pt-20 pb-24 sm:pb-32 lg:pt-32'>
-          <div className='mx-auto max-w-2xl lg:max-w-none'>
-            <div className='grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 lg:items-center'>
-              {/* Text content */}
-              <div className='lg:pr-8'>
-                <div className='lg:max-w-lg'>
-                  {/* Trust indicators */}
-                  <div className='flex items-center gap-x-6 text-sm text-gray-600 mb-8'>
-                    <div className='flex items-center gap-x-2'>
-                      <svg className='h-5 w-5 text-red-600' fill='currentColor' viewBox='0 0 20 20'>
-                        <path
-                          fillRule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clipRule='evenodd'
-                        />
-                      </svg>
-                      {t('home.hero.trust.quality')}
-                    </div>
-                    <div className='flex items-center gap-x-2'>
-                      <svg className='h-5 w-5 text-red-600' fill='currentColor' viewBox='0 0 20 20'>
-                        <path
-                          fillRule='evenodd'
-                          d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
-                          clipRule='evenodd'
-                        />
-                      </svg>
-                      {t('home.hero.trust.warranty')}
-                    </div>
-                  </div>
-
-                  {/* Main content */}
-                  <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
-                    {t('home.hero.title')}
-                  </h1>
-                  <p className='mt-6 text-lg leading-8 text-gray-600'>{t('home.hero.description')}</p>
-
-                  {/* CTA Buttons */}
-                  <div className='mt-10 flex items-center gap-x-6'>
-                    <Link
-                      href='/euro-towbar-installation'
-                      className='group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-white transition-all bg-gradient-to-r from-red-600 to-red-500 rounded-lg hover:from-red-700 hover:to-red-600 focus:ring-4 focus:ring-red-300 focus:outline-none'
-                    >
-                      <span className='relative'>{t('home.hero.cta.book')}</span>
-                      <span className='ml-2 transition-transform group-hover:translate-x-1'>→</span>
-                    </Link>
+      <div className='relative bg-white overflow-hidden'>
+        <div className='max-w-7xl mx-auto'>
+          <div className='relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32'>
+            <div className='pt-10 sm:pt-16 lg:pt-8 xl:pt-16'>
+              <div className='sm:text-center lg:text-left'>
+                <h1 className='text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl'>
+                  <span className='block xl:inline'>{t('home.hero.title.main')}</span>{' '}
+                  <span className='block text-red-600 xl:inline'>{t('home.hero.title.sub')}</span>
+                </h1>
+                <p className='mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0'>
+                  {t('home.hero.description')}
+                </p>
+                <div className='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
+                  <div className='rounded-md shadow'>
                     <Link
                       href='/contact'
-                      className='group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-gray-900 transition-all rounded-lg hover:text-red-600 focus:ring-4 focus:ring-gray-300 focus:outline-none'
+                      className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10'
                     >
-                      <span className='relative'>{t('home.hero.cta.call')}</span>
-                      <span className='ml-2 transition-transform group-hover:translate-x-1'>→</span>
+                      {t('home.hero.cta.book')}
                     </Link>
                   </div>
+                  <div className='mt-3 sm:mt-0 sm:ml-3'>
+                    <Link
+                      href='tel:+381601234567'
+                      className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10'
+                    >
+                      {t('home.hero.cta.call')}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
+          <Image
+            src='/images/hero-car.jpg'
+            alt='Car with euro towbar installation'
+            width={1920}
+            height={1080}
+            className='h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full'
+            priority
+          />
+        </div>
+      </div>
 
-                  {/* Social proof */}
-                  <div className='mt-16 flex items-center gap-x-6'>
-                    <div className='flex -space-x-4'>
-                      {[1, 2, 3, 4].map((i) => (
-                        <div
-                          key={i}
-                          className='inline-block h-10 w-10 rounded-full ring-2 ring-white bg-gradient-to-r from-red-100 to-red-50'
-                        />
-                      ))}
+      {/* Services Overview */}
+      <div className='py-12 bg-gray-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='lg:text-center'>
+            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>{t('home.services.title')}</h2>
+            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+              {t('home.services.subtitle')}
+            </p>
+          </div>
+
+          <div className='mt-10'>
+            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+              <div className='pt-6'>
+                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
+                  <div className='-mt-6'>
+                    <div>
+                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
+                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M13 10V3L4 14h7v7l9-11h-7z'
+                          />
+                        </svg>
+                      </span>
                     </div>
-                    <div className='text-sm text-gray-600'>
-                      <span className='font-semibold text-gray-900'>1000+</span> {t('home.hero.socialProof')}
-                    </div>
+                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
+                      {t('home.services.quickInstallation.title')}
+                    </h3>
+                    <p className='mt-5 text-base text-gray-500'>{t('home.services.quickInstallation.description')}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Image container */}
-              <div className='relative'>
-                <div className='relative mx-auto w-full max-w-md rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10 bg-gray-50'>
-                  <Image
-                    src='/images/hero/towbar.png'
-                    alt='Euro Towbar Installation'
-                    width={600}
-                    height={600}
-                    className='w-full h-auto object-cover'
-                    priority
-                  />
+              <div className='pt-6'>
+                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
+                  <div className='-mt-6'>
+                    <div>
+                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
+                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
+                      {t('home.services.certifiedQuality.title')}
+                    </h3>
+                    <p className='mt-5 text-base text-gray-500'>{t('home.services.certifiedQuality.description')}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className='pt-6'>
+                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
+                  <div className='-mt-6'>
+                    <div>
+                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
+                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
+                      {t('home.services.expertSupport.title')}
+                    </h3>
+                    <p className='mt-5 text-base text-gray-500'>{t('home.services.expertSupport.description')}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,79 +141,176 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Services section */}
-      <div className='mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32'>
-        <div className='mx-auto max-w-2xl lg:text-center'>
-          <h2 className='text-base font-semibold leading-7 text-red-600'>{t('home.services.title')}</h2>
-          <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-            {t('home.services.subtitle')}
-          </p>
-        </div>
-        <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
-          <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3'>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.services.quickInstallation.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.services.quickInstallation.description')}</p>
-              </dd>
-            </div>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.services.certifiedQuality.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.services.certifiedQuality.description')}</p>
-              </dd>
-            </div>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.services.expertSupport.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.services.expertSupport.description')}</p>
-              </dd>
-            </div>
-          </dl>
+      {/* Why Choose Us */}
+      <div className='bg-white py-12'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='lg:text-center'>
+            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
+              {t('home.whyChooseUs.title')}
+            </h2>
+            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+              {t('home.whyChooseUs.subtitle')}
+            </p>
+          </div>
+
+          <div className='mt-10'>
+            <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10'>
+              <div className='relative'>
+                <dt>
+                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
+                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                      />
+                    </svg>
+                  </div>
+                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
+                    {t('home.whyChooseUs.fastService.title')}
+                  </p>
+                </dt>
+                <dd className='mt-2 ml-16 text-base text-gray-500'>{t('home.whyChooseUs.fastService.description')}</dd>
+              </div>
+
+              <div className='relative'>
+                <dt>
+                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
+                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
+                      />
+                    </svg>
+                  </div>
+                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
+                    {t('home.whyChooseUs.warranty.title')}
+                  </p>
+                </dt>
+                <dd className='mt-2 ml-16 text-base text-gray-500'>{t('home.whyChooseUs.warranty.description')}</dd>
+              </div>
+
+              <div className='relative'>
+                <dt>
+                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
+                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+                      />
+                    </svg>
+                  </div>
+                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
+                    {t('home.whyChooseUs.certifications.title')}
+                  </p>
+                </dt>
+                <dd className='mt-2 ml-16 text-base text-gray-500'>
+                  {t('home.whyChooseUs.certifications.description')}
+                </dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
 
-      {/* Why choose us section */}
-      <div className='mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32'>
-        <div className='mx-auto max-w-2xl lg:text-center'>
-          <h2 className='text-base font-semibold leading-7 text-red-600'>{t('home.whyChooseUs.title')}</h2>
-          <p className='mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-            {t('home.whyChooseUs.subtitle')}
-          </p>
+      {/* Testimonials */}
+      <div className='bg-gray-50 py-12'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='lg:text-center'>
+            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>Testimonials</h2>
+            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
+              What Our Customers Say
+            </p>
+          </div>
+
+          <div className='mt-10'>
+            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
+              {/* Testimonial 1 */}
+              <div className='bg-white rounded-lg shadow-lg p-6'>
+                <div className='flex items-center mb-4'>
+                  <Image
+                    src='/images/testimonial-1.jpg'
+                    alt='Customer photo'
+                    width={48}
+                    height={48}
+                    className='rounded-full'
+                  />
+                  <div className='ml-4'>
+                    <h4 className='text-lg font-medium text-gray-900'>Marko Petrović</h4>
+                    <p className='text-gray-500'>Volkswagen Golf Owner</p>
+                  </div>
+                </div>
+                <p className='text-gray-600'>
+                  "Professional service, quick installation, and great after-sales support. Highly recommended!"
+                </p>
+              </div>
+
+              {/* Testimonial 2 */}
+              <div className='bg-white rounded-lg shadow-lg p-6'>
+                <div className='flex items-center mb-4'>
+                  <Image
+                    src='/images/testimonial-2.jpg'
+                    alt='Customer photo'
+                    width={48}
+                    height={48}
+                    className='rounded-full'
+                  />
+                  <div className='ml-4'>
+                    <h4 className='text-lg font-medium text-gray-900'>Ana Jovanović</h4>
+                    <p className='text-gray-500'>BMW X5 Owner</p>
+                  </div>
+                </div>
+                <p className='text-gray-600'>
+                  "The installation was done perfectly, and the team was very professional. Great experience!"
+                </p>
+              </div>
+
+              {/* Testimonial 3 */}
+              <div className='bg-white rounded-lg shadow-lg p-6'>
+                <div className='flex items-center mb-4'>
+                  <Image
+                    src='/images/testimonial-3.jpg'
+                    alt='Customer photo'
+                    width={48}
+                    height={48}
+                    className='rounded-full'
+                  />
+                  <div className='ml-4'>
+                    <h4 className='text-lg font-medium text-gray-900'>Ivan Nikolić</h4>
+                    <p className='text-gray-500'>Mercedes Owner</p>
+                  </div>
+                </div>
+                <p className='text-gray-600'>
+                  "Excellent service, fair pricing, and the towbar works perfectly. Will definitely recommend!"
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none'>
-          <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3'>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.whyChooseUs.fastService.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.whyChooseUs.fastService.description')}</p>
-              </dd>
+      </div>
+
+      {/* CTA Section */}
+      <div className='bg-red-600'>
+        <div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between'>
+          <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
+            <span className='block'>{t('installation.cta.title')}</span>
+            <span className='block text-red-200'>{t('installation.cta.subtitle')}</span>
+          </h2>
+          <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
+            <div className='inline-flex rounded-md shadow'>
+              <Link
+                href='/contact'
+                className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-red-50'
+              >
+                {t('installation.cta.button')}
+              </Link>
             </div>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.whyChooseUs.warranty.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.whyChooseUs.warranty.description')}</p>
-              </dd>
-            </div>
-            <div className='flex flex-col'>
-              <dt className='flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900'>
-                {t('home.whyChooseUs.certifications.title')}
-              </dt>
-              <dd className='mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600'>
-                <p className='flex-auto'>{t('home.whyChooseUs.certifications.description')}</p>
-              </dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </div>
     </div>
