@@ -30,20 +30,20 @@ export default function Home() {
                 </p>
                 <div className='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
                   <div className='rounded-md shadow'>
-                    <Link
+                    <a
                       href='tel:+381638066462'
                       className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10'
                     >
                       {t('home.hero.cta.book')}
-                    </Link>
+                    </a>
                   </div>
                   <div className='mt-3 sm:mt-0 sm:ml-3'>
-                    <Link
+                    <a
                       href='tel:+381638066462'
                       className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10'
                     >
                       {t('home.hero.cta.call')}
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -303,12 +303,12 @@ export default function Home() {
           </h2>
           <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
             <div className='inline-flex rounded-md shadow'>
-              <Link
+              <a
                 href='tel:+381638066462'
                 className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-red-50'
               >
                 {t('installation.cta.button')}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
