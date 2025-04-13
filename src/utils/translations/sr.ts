@@ -349,8 +349,8 @@ export const sr = {
       description: 'Imate pitanja? Naš tim je tu da vam pomogne. Kontaktirajte nas i dobićete brz odgovor.',
     },
     title: 'Kontakt Informacije',
-    description: 'Javite nam se putem telefona, email-a ili posetite našu radionicu.',
-    phone: '+381 60 123 4567',
+    description: 'Javite nam se putem telefona',
+    phone: '+381 63 806 6462',
     email: 'info@eurokuka.rs',
     address: 'Beograd, Srbija',
     form: {
@@ -370,7 +370,7 @@ export const sr = {
     info: {
       title: 'Kontakt Informacije',
       address: 'Beograd, Srbija',
-      phone: '+381 60 123 4567',
+      phone: '+381 63 806 6462',
       email: 'info@eurokuka.rs',
       workingHours: 'Radno vreme: Ponedeljak - Petak: 08:00 - 20:00',
     },

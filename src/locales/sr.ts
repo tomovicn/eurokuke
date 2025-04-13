@@ -2,7 +2,7 @@ export const sr = {
   common: {
     companyName: 'Euro Towbar',
     address: '123 Primer Ulica, Beograd, Srbija',
-    phone: '+381 60 123 4567',
+    phone: '+381 63 806 6462',
     email: 'info@eurotowbar.rs',
     workingHours: {
       weekdays: 'Ponedeljak - Petak: 9:00 - 18:00',
@@ -18,7 +18,7 @@ export const sr = {
   },
   home: {
     hero: {
-      title: 'Profesionalna Montaža Euro Kuke',
+      title: 'Profesionalna Ugradnja Euro Kuke',
       subtitle: 'Za Vaše Vozilo',
       description: 'Stručna montaža euro kuka u Srbiji. Certifikovani tehničari, kvalitetna usluga i konkurentne cene.',
       cta: {

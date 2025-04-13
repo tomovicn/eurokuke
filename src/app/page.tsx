@@ -62,6 +62,46 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Brand Logos */}
+      <div className='py-8 bg-white'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center mb-6'>
+            <p className='text-sm font-medium text-gray-500 uppercase tracking-wider'>
+              Sarađujemo sa vodećim proizvođačima
+            </p>
+          </div>
+          <div className='flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-12'>
+            <div className='w-32 h-16 flex items-center justify-center'>
+              <Image
+                src='/bosal.svg'
+                alt='Bosal'
+                width={120}
+                height={48}
+                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300'
+              />
+            </div>
+            <div className='w-32 h-16 flex items-center justify-center'>
+              <Image
+                src='/oris.jpg'
+                alt='Oris'
+                width={120}
+                height={48}
+                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300'
+              />
+            </div>
+            <div className='w-32 h-16 flex items-center justify-center'>
+              <Image
+                src='/steinhof.svg'
+                alt='Steinhof'
+                width={120}
+                height={48}
+                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300 bg-gray-300'
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Services Overview */}
       <div className='py-12 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -241,14 +281,7 @@ export default function Home() {
               {(t('home.testimonials.items') as unknown as Testimonial[]).map((testimonial, index) => (
                 <div key={index} className='bg-white rounded-lg shadow-lg p-6'>
                   <div className='flex items-center mb-4'>
-                    <Image
-                      src={`/images/testimonial-${index + 1}.jpg`}
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                      className='rounded-full'
-                    />
-                    <div className='ml-4'>
+                    <div className='ml-0'>
                       <h4 className='text-lg font-medium text-gray-900'>{testimonial.name}</h4>
                       <p className='text-gray-500'>{testimonial.role}</p>
                     </div>
