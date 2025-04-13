@@ -338,8 +338,15 @@ export const sr = {
     },
   },
   contact: {
-    title: 'Kontaktirajte Nas',
-    description: 'Imate pitanja? Javite nam se i naš tim će vam pomoći.',
+    hero: {
+      title: 'Kontaktirajte Nas',
+      description: 'Imate pitanja? Naš tim je tu da vam pomogne. Kontaktirajte nas i dobićete brz odgovor.',
+    },
+    title: 'Kontakt Informacije',
+    description: 'Javite nam se putem telefona, email-a ili posetite našu radionicu.',
+    phone: '+381 60 123 4567',
+    email: 'info@eurokuka.rs',
+    address: 'Beograd, Srbija',
     form: {
       name: 'Ime i prezime',
       email: 'Email adresa',
@@ -348,6 +355,11 @@ export const sr = {
       submit: 'Pošalji poruku',
       success: 'Hvala na poruci! Kontaktiraćemo vas uskoro.',
       error: 'Došlo je do greške. Molimo pokušajte ponovo.',
+    },
+    map: {
+      title: 'Kako do nas',
+      embedUrl:
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.893371443454!2d20.457972776266095!3d44.81350437107897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7a9609031735%3A0x9c75611af2d66583!2sEuro%20Kuka%20Beograd!5e0!3m2!1sen!2srs!4v1709766543210!5m2!1sen!2srs',
     },
     info: {
       title: 'Kontakt Informacije',
