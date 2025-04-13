@@ -185,4 +185,176 @@ export const sr = {
       ],
     },
   },
+  blog: {
+    title: 'Blog',
+    description: 'Saznajte više o montaži euro kuke i održavanju vašeg vozila',
+    latestArticles: 'Najnoviji Članci',
+    backButton: 'Nazad na Blog',
+    notFound: {
+      title: 'Post Nije Pronađen',
+      description: 'Traženi blog post nije pronađen.',
+      backButton: 'Nazad na Blog',
+    },
+    categories: {
+      legal: {
+        title: 'Pravne Informacije',
+        description: 'Sve što treba da znate o zakonskim regulativama i dokumentaciji',
+      },
+      guide: {
+        title: 'Vodiči',
+        description: 'Korak po korak uputstva za održavanje i korišćenje euro kuke',
+      },
+      safety: {
+        title: 'Bezbednost',
+        description: 'Saveti i preporuke za bezbednu vožnju sa euro kukom',
+      },
+    },
+    posts: {
+      'euro-towbar-certification': {
+        title: 'Razumevanje Zahteva za Certifikaciju Euro Kuke',
+        description:
+          'Saznajte sve o zahtevima za certifikaciju euro kuke u Srbiji i zašto su važni za vašu bezbednost.',
+        date: '16. Mart 2024',
+        datetime: '2024-03-16',
+        category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
+        author: {
+          name: 'Marko Petrović',
+          role: 'Sertifikovani Montažer',
+        },
+        content: `
+          <h2>Zašto je Certifikacija Važna</h2>
+          <p>Certifikacija euro kuke nije samo zakonski zahtev u Srbiji - to je ključna bezbednosna mera. Sertifikovane euro kuke obezbeđuju da vaše vozilo može bezbedno da vuče terete bez ugrožavanja strukturalnog integriteta ili bezbednosti drugih učesnika u saobraćaju.</p>
+
+          <h2>Proces Certifikacije</h2>
+          <p>Proces certifikacije uključuje nekoliko koraka:</p>
+          <ul>
+            <li>Montaža od strane sertifikovanih tehničara</li>
+            <li>Detaljna provera instalacije</li>
+            <li>Testiranje nosivosti euro kuke</li>
+            <li>Dokumentovanje procesa instalacije</li>
+            <li>Izdavanje zvanične certifikacije</li>
+          </ul>
+
+          <h2>Zakonski Zahtevi</h2>
+          <p>U Srbiji, sve instalacije euro kuke moraju biti sertifikovane prema EU standardima. Ova certifikacija je potrebna za:</p>
+          <ul>
+            <li>Registraciju vozila</li>
+            <li>Periodične tehničke preglede</li>
+            <li>Pokriće osiguranja</li>
+          </ul>
+
+          <h2>Izbor Sertifikovanog Montažera</h2>
+          <p>Prilikom izbora montažera, obratite pažnju da imaju:</p>
+          <ul>
+            <li>Odgovarajuću certifikaciju i obuku</li>
+            <li>Iskustvo sa markom i modelom vašeg vozila</li>
+            <li>Pristup kvalitetnim, sertifikovanim komponentama</li>
+            <li>Dokazane uspešne instalacije</li>
+          </ul>
+        `,
+      },
+      'choosing-right-towbar': {
+        title: 'Kako Izabrati Pravi Model Euro Kuke za Vaše Vozilo',
+        description:
+          'Sveobuhvatan vodič za izbor savršene euro kuke za vaše vozilo, uzimajući u obzir težinu, tip i kompatibilnost.',
+        date: '10. Mart 2024',
+        datetime: '2024-03-10',
+        category: { title: 'Vodič', href: '/blog/category/guide' },
+        author: {
+          name: 'Ana Jovanović',
+          role: 'Tehnički Stručnjak',
+        },
+        content: `
+          <h2>Razumevanje Tipova Euro Kuke</h2>
+          <p>Postoji nekoliko tipova euro kuke, od kojih je svaki pogodan za različite potrebe:</p>
+          <ul>
+            <li>Fiksne euro kuke - trajna instalacija</li>
+            <li>Raskidive euro kuke - mogu se ukloniti kada se ne koriste</li>
+            <li>Uvučive euro kuke - sklanjaju se kada nisu potrebne</li>
+            <li>Specijalizovane euro kuke - za specifične tipove vozila</li>
+          </ul>
+
+          <h2>Razmatranje Težine</h2>
+          <p>Prilikom izbora euro kuke, uzmite u obzir:</p>
+          <ul>
+            <li>Maksimalnu vučnu sposobnost vašeg vozila</li>
+            <li>Težinu tereta koji ćete vući</li>
+            <li>Vertikalno opterećenje na euro kuku</li>
+            <li>Maksimalnu dozvoljenu težinu vozila (GVWR)</li>
+          </ul>
+
+          <h2>Provera Kompatibilnosti</h2>
+          <p>Proverite da li je euro kuka kompatibilna sa vašim vozilom:</p>
+          <ul>
+            <li>Marku, model i godinu proizvodnje vozila</li>
+            <li>Postojeće modifikacije na vozilu</li>
+            <li>Tip i dizajn branika</li>
+            <li>Zahteve električnog sistema</li>
+          </ul>
+        `,
+      },
+      'professional-installation': {
+        title: 'Važnost Profesionalne Montaže Euro Kuke',
+        description:
+          'Otkrijte zašto je profesionalna montaža ključna za performanse vaše euro kuke i bezbednost vašeg vozila.',
+        date: '5. Mart 2024',
+        datetime: '2024-03-05',
+        category: { title: 'Bezbednost', href: '/blog/category/safety' },
+        author: {
+          name: 'Ivan Nikolić',
+          role: 'Inspektor Bezbednosti',
+        },
+        content: `
+          <h2>Zašto je Profesionalna Montaža Važna</h2>
+          <p>Profesionalna montaža obezbeđuje:</p>
+          <ul>
+            <li>Pravilno poravnanje i postavljanje</li>
+            <li>Ispravne električne veze</li>
+            <li>Strukturalni integritet vašeg vozila</li>
+            <li>Usaglašenost sa bezbednosnim standardima</li>
+            <li>Važeće garancije</li>
+          </ul>
+
+          <h2>Proces Montaže</h2>
+          <p>Profesionalna montaža uključuje:</p>
+          <ul>
+            <li>Pregled i pripremu vozila</li>
+            <li>Pravilno montiranje i osiguravanje</li>
+            <li>Integraciju električnog sistema</li>
+            <li>Testiranje i kontrolu kvaliteta</li>
+            <li>Dokumentaciju i certifikaciju</li>
+          </ul>
+
+          <h2>Bezbednosna Razmatranja</h2>
+          <p>Profesionalni montažeri obezbeđuju:</p>
+          <ul>
+            <li>Pravilnu raspodelu opterećenja</li>
+            <li>Sigurne tačke pričvršćivanja</li>
+            <li>Ispravno ožičenje i veze</li>
+            <li>Usaglašenost sa bezbednosnim propisima</li>
+          </ul>
+        `,
+      },
+    },
+  },
+  contact: {
+    title: 'Kontaktirajte Nas',
+    description: 'Imate pitanja? Javite nam se i naš tim će vam pomoći.',
+    form: {
+      name: 'Ime i prezime',
+      email: 'Email adresa',
+      phone: 'Broj telefona',
+      message: 'Vaša poruka',
+      submit: 'Pošalji poruku',
+      success: 'Hvala na poruci! Kontaktiraćemo vas uskoro.',
+      error: 'Došlo je do greške. Molimo pokušajte ponovo.',
+    },
+    info: {
+      title: 'Kontakt Informacije',
+      address: 'Beograd, Srbija',
+      phone: '+381 60 123 4567',
+      email: 'info@eurokuka.rs',
+      workingHours: 'Radno vreme: Ponedeljak - Petak: 08:00 - 20:00',
+    },
+  },
 };
