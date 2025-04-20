@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Euro Towbar - Profesionalna Montaža Euro Kuka u Srbiji',
+    title: 'Euro Kuka - Profesionalna Montaža Euro Kuka u Srbiji',
     description:
       'Profesionalna montaža euro kuka za sve marke automobila. Certifikovani tehničari, kvalitetna usluga i konkurentne cene.',
   },
   alternates: {
-    canonical: 'https://eurotowbar.rs',
+    canonical: 'https://ugradnjaeurokuka.rs',
   },
   robots: {
     index: true,

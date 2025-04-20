@@ -24,9 +24,9 @@ export default function Home() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'AutoRepair',
-            name: 'Euro Kuka',
+            name: 'Ugradnja Euro Kuka',
             description: 'Profesionalna ugradnja euro kuka za sve marke vozila u Beogradu',
-            image: '/images/hero-car.jpg',
+            image: '/images/hero/eurokuka.jpg',
             address: {
               '@type': 'PostalAddress',
               addressLocality: 'Beograd',
@@ -37,7 +37,7 @@ export default function Home() {
               latitude: '44.786568',
               longitude: '20.448922',
             },
-            url: 'https://eurokuka.rs',
+            url: 'https://ugradnjaeurokuka.rs',w
             telephone: '+381638066462',
             priceRange: '$$',
             openingHoursSpecification: [
