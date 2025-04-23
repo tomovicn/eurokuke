@@ -6,7 +6,7 @@ import { useTranslation } from '@/utils/i18n';
 
 const navigation = [
   { name: 'home', href: '/' },
-  { name: 'installation', href: '/euro-towbar-installation' },
+  { name: 'installation', href: '/installation' },
   { name: 'blog', href: '/blog' },
   { name: 'contact', href: '/contact' },
 ];

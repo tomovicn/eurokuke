@@ -20,7 +20,8 @@ export const sr = {
         main: 'Profesionalna montaža',
         sub: 'Euro Kuka za sve tipove vozila',
       },
-      description: 'Vaša sigurnost je naš prioritet! Nudimo vrhunsku ugradnju euro kuka uz brzu instalaciju, fabričke ateste i usklađenost sa evropskim standardima.',
+      description:
+        'Vaša sigurnost je naš prioritet! Nudimo vrhunsku ugradnju euro kuka uz brzu instalaciju, fabričke ateste i usklađenost sa evropskim standardima.',
       trust: {
         quality: 'Garancija Kvaliteta',
         warranty: 'Dugoročna Garancija',
@@ -216,7 +217,75 @@ export const sr = {
       },
     },
     posts: {
-      'euro-towbar-certification': {
+      'atest-euro-kuke': {
+        title: 'Atest Euro Kuke',
+        description: 'Sve što treba da znate o atestu euro kuke',
+        date: '16. Mart 2024',
+        datetime: '2024-03-16',
+        category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
+        author: {
+          name: 'Marko Petrović',
+          role: 'Sertifikovani Montažer',
+        },
+        content: `
+          <h2>📝 Da li je potreban atest za euro kuku u Srbiji?</h2>
+
+          <p>Ugradnja euro kuke na automobil postala je sve popularnija u Srbiji, bilo da je reč o vuči prikolice, nosača za bicikle ili druge opreme. Međutim, jedno od najčešćih pitanja koje naši klijenti postavljaju jeste: „Da li je potreban atest za euro kuku?"</p>
+
+          <h2>✅ Kratak odgovor: Da, atest je potreban.</h2>
+
+          <p>Prema važećim zakonima u Srbiji, svaka naknadna izmena na vozilu koja utiče na njegovu konstrukciju ili bezbednost mora biti atestirana. To uključuje i ugradnju vučne kuke (euro kuke), bez obzira na to da li je fabrička ili naknadno ugrađena.</p>
+
+          <h2>🧾 Šta kaže zakon?</h2>
+
+          <p>U skladu sa Pravilnikom o podeli motornih i priključnih vozila i tehničkim uslovima, atest je obavezan u sledećim slučajevima:</p>
+          <ul>
+            <li>Ako je kuka ugrađena nakon prve registracije vozila.</li>
+            <li>Ako nije ušla u standardnu homologaciju vozila u Srbiji.</li>
+            <li>Ako nije ugrađena u ovlašćenom servisu sa validnim dokumentima.</li>
+          </ul>
+
+          <h2>📄 Koje papire treba da imate?</h2>
+
+          <p>Nakon ugradnje euro kuke, potrebno je:</p>
+          <ol>
+            <li>Potvrda o stručnoj ugradnji (od firme koja je ugradila kuku)</li>
+            <li>Uputstvo i atest proizvođača (Bosal, Oris, Steinhof…)</li>
+            <li>Račun sa nazivom i šifrom dela</li>
+            <li>Potvrda o ispitivanju u AMSS ili akreditovanom telu (tehnički pregled)</li>
+          </ol>
+
+          <h2>🛠️ Da li sve kuke mogu da se atestiraju?</h2>
+
+          <p>Ne. Samo sertifikovane i homologovane kuke — koje ispunjavaju evropske standarde — mogu dobiti atest.
+          Zato je važno da kupite i ugradite euro kuku kod proverenog servisa, koji vam može izdati svu potrebnu dokumentaciju.</p>
+
+          <h2>💡 Šta ako ne uradite atest?</h2>
+          <ul>
+            <li>Kazna može iznositi od 10.000 do 50.000 RSD.</li>
+            <li>Nećete moći da prođete tehnički pregled.</li>
+            <li>U slučaju saobraćajne nezgode, osiguranje može odbiti isplatu štete.</li>
+          </ul>
+
+          <h2>✅ Kako da izbegnete probleme?</h2>
+
+          <p>Najbolji način da budete sigurni je da ugradnju poverite sertifikovanim stručnjacima, koji koriste atestirane proizvode i obezbeđuju kompletnu dokumentaciju.</p>
+          
+          <p>U našem servisu:</p>
+          <ul>
+            <li>Ugrađujemo proverene euro kuke (Bosal, Oris, Steinhof)</li>
+            <li>Dajemo garanciju na ugradnju</li>
+          </ul>
+
+          <h2>📞 Zakažite ugradnju već danas!</h2>
+
+          <p>Ne rizikujte kazne i probleme na tehničkom pregledu.
+          Kontaktirajte nas i obezbedite legalnu, sigurnu i profesionalnu ugradnju euro kuke po najvišim standardima.</p>
+          
+          <p>📱 Pozovite nas direktno: +381 63 8066462</p>
+        `,
+      },
+      'certifikacija-euro-kuke': {
         title: 'Razumevanje Zahteva za Certifikaciju Euro Kuke',
         description:
           'Saznajte sve o zahtevima za certifikaciju euro kuke u Srbiji i zašto su važni za vašu bezbednost.',
@@ -259,7 +328,7 @@ export const sr = {
           </ul>
         `,
       },
-      'choosing-right-towbar': {
+      'izbor-pravog-modela-euro-kuke': {
         title: 'Kako Izabrati Pravi Model Euro Kuke za Vaše Vozilo',
         description:
           'Sveobuhvatan vodič za izbor savršene euro kuke za vaše vozilo, uzimajući u obzir težinu, tip i kompatibilnost.',
@@ -299,7 +368,7 @@ export const sr = {
           </ul>
         `,
       },
-      'professional-installation': {
+      'profesionalna-montaza-euro-kuke': {
         title: 'Važnost Profesionalne Montaže Euro Kuke',
         description:
           'Otkrijte zašto je profesionalna montaža ključna za performanse vaše euro kuke i bezbednost vašeg vozila.',
