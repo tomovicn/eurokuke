@@ -1,25 +1,36 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "ugradnjaeurokuka.com"
         }
       ],
-      "destination": "https://www.ugradnjaeurokuka.com/:1",
+      "destination": "https://www.ugradnjaeurokuka.com/:path*",
       "permanent": true
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "http://www.ugradnjaeurokuka.com"
         }
       ],
-      "destination": "https://www.ugradnjaeurokuka.com/:1",
+      "destination": "https://www.ugradnjaeurokuka.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "http://ugradnjaeurokuka.com"
+        }
+      ],
+      "destination": "https://www.ugradnjaeurokuka.com/:path*",
       "permanent": true
     }
   ]
