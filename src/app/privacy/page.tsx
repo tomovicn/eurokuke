@@ -1,3 +1,12 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Politika Privatnosti | Ugradnja Euro Kuka',
+  description: 'Politika privatnosti sajta ugradnjaeurokuka.com — koje podatke prikupljamo i kako ih koristimo.',
+  alternates: { canonical: '/privacy' },
+  robots: { index: false, follow: true },
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className='bg-white'>
