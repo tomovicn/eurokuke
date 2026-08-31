@@ -176,20 +176,6 @@ export const sr = {
           answer: 'Koristimo samo originalne delove sa garancijom proizvođača.',
         },
       },
-      items: [
-        {
-          question: 'Koliko traje montaža euro kuke?',
-          answer: 'Standardna montaža traje 2-3 sata, u zavisnosti od modela vozila.',
-        },
-        {
-          question: 'Da li je potrebna registracija nakon montaže?',
-          answer: 'Da, nakon montaže je potrebno registrovati promenu na vozilu.',
-        },
-        {
-          question: 'Koje delove koristite?',
-          answer: 'Koristimo samo originalne delove sa garancijom proizvođača.',
-        },
-      ],
     },
   },
   blog: {

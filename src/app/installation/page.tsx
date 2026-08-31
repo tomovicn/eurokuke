@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from '@/utils/i18n';
+import { getInstallationFaq } from '@/lib/faq';
 
 export default function EuroTowbarInstallation() {
   const { t } = useTranslation();
+  const faq = getInstallationFaq();
 
   return (
     <div className='bg-white'>
@@ -178,41 +180,14 @@ export default function EuroTowbarInstallation() {
 
           <div className='mt-10'>
             <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10'>
-              <div className='relative'>
-                <dt>
-                  <p className='text-lg leading-6 font-medium text-gray-900'>
-                    {t('installation.faq.questions.duration.question')}
-                  </p>
-                </dt>
-                <dd className='mt-2 text-base text-gray-500'>{t('installation.faq.questions.duration.answer')}</dd>
-              </div>
-
-              <div className='relative'>
-                <dt>
-                  <p className='text-lg leading-6 font-medium text-gray-900'>
-                    {t('installation.faq.questions.bumper.question')}
-                  </p>
-                </dt>
-                <dd className='mt-2 text-base text-gray-500'>{t('installation.faq.questions.bumper.answer')}</dd>
-              </div>
-
-              <div className='relative'>
-                <dt>
-                  <p className='text-lg leading-6 font-medium text-gray-900'>
-                    {t('installation.faq.questions.certification.question')}
-                  </p>
-                </dt>
-                <dd className='mt-2 text-base text-gray-500'>{t('installation.faq.questions.certification.answer')}</dd>
-              </div>
-
-              <div className='relative'>
-                <dt>
-                  <p className='text-lg leading-6 font-medium text-gray-900'>
-                    {t('installation.faq.questions.warranty.question')}
-                  </p>
-                </dt>
-                <dd className='mt-2 text-base text-gray-500'>{t('installation.faq.questions.warranty.answer')}</dd>
-              </div>
+              {faq.map((entry) => (
+                <div key={entry.question} className='relative'>
+                  <dt>
+                    <p className='text-lg leading-6 font-medium text-gray-900'>{entry.question}</p>
+                  </dt>
+                  <dd className='mt-2 text-base text-gray-500'>{entry.answer}</dd>
+                </div>
+              ))}
             </dl>
           </div>
         </div>

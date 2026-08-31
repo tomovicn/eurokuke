@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { OG_IMAGE } from '@/lib/site';
+import { faqPageSchema, getInstallationFaq } from '@/lib/faq';
 
 export const metadata: Metadata = {
   title: 'Ugradnja Euro Kuke | Proces Montaže i Cene',
@@ -17,5 +18,13 @@ export const metadata: Metadata = {
 };
 
 export default function InstallationLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema(getInstallationFaq())) }}
+      />
+      {children}
+    </>
+  );
 }
