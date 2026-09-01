@@ -427,7 +427,7 @@ export const sr = {
       address: 'Beograd, Srbija',
       phone: '+381 63 806 6462',
       email: 'info@eurokuka.rs',
-      workingHours: 'Radno vreme: Ponedeljak - Petak: 08:00 - 20:00',
+      workingHours: 'Radno vreme: Ponedeljak - Petak: 08:00 - 20:00, Subota: 10:00 - 16:00',
     },
   },
 };
