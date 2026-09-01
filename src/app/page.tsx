@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from '@/utils/i18n';
-import Script from 'next/script';
+import { localBusinessSchema } from '@/lib/schema';
 
 interface Testimonial {
   name: string;
@@ -16,45 +16,9 @@ export default function Home() {
 
   return (
     <div className='bg-white'>
-      <Script
-        id='schema-markup'
+      <script
         type='application/ld+json'
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'AutoRepair',
-            name: 'Ugradnja Euro Kuka',
-            description: 'Profesionalna ugradnja euro kuka za sve marke vozila u Beogradu',
-            image: '/images/hero/eurokuka.jpg',
-            address: {
-              '@type': 'PostalAddress',
-              addressLocality: 'Beograd',
-              addressRegion: 'Srbija',
-            },
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: '44.786568',
-              longitude: '20.448922',
-            },
-            url: 'https://www.ugradnjaeurokuka.com',
-            telephone: '+381638066462',
-            priceRange: '$$',
-            openingHoursSpecification: [
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                opens: '09:00',
-                closes: '18:00',
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Saturday'],
-                opens: '10:00',
-                closes: '16:00',
-              },
-            ],
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
       />
 
       {/* Hero section */}
