@@ -6,13 +6,39 @@ import { TEL_HREF, VIBER_HREF } from '@/lib/contact';
 import { useTranslation } from '@/utils/i18n';
 
 /**
+ * Box-model classes shared by the fixed bar and its structural spacer clone
+ * below. Border, padding and the safe-area allowance live in exactly one
+ * place so the spacer's height can never drift out of sync with the bar —
+ * there is no hand-derived height number to keep in sync with this, or with
+ * Button's `SIZES.lg`.
+ */
+const BAR_BOX = 'border-t border-line-dark p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden';
+
+function CallBarButtons() {
+  const { t } = useTranslation();
+
+  return (
+    <div className='flex gap-3'>
+      <Button href={TEL_HREF} tone='accent' size='lg' className='flex-1'>
+        {t('actions.call')}
+      </Button>
+      <Button href={VIBER_HREF} tone='light' variant='ghost' size='lg' className='flex-1'>
+        {t('actions.viber')}
+      </Button>
+    </div>
+  );
+}
+
+/**
  * Fixed call bar below md. Hidden until the viewport has scrolled past roughly
  * one screen, so it never competes with the hero's own buttons.
  *
- * Renders its own spacer so the fixed bar cannot occlude the end of the footer.
+ * Renders an invisible structural clone of itself (same box classes, same
+ * button row) in normal flow as a spacer, so the fixed bar cannot occlude
+ * the end of the footer. The spacer matches the bar's height by
+ * construction — same classes, same content — not by arithmetic.
  */
 export default function MobileCallBar() {
-  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -24,32 +50,15 @@ export default function MobileCallBar() {
 
   return (
     <>
-      {/*
-        Spacer height must equal the bar's rendered height exactly, or the
-        footer's last line sits under the bar. The bar is: 1px border-top +
-        0.75rem padding-top (p-3) + 3.5rem content (h-14 Button) + a bottom
-        padding that is max(0.75rem, safe-area-inset-bottom) — not a fixed
-        value, since iPhones with a home indicator report ~34px there. A
-        static h-20 (5rem/80px) undershoots that case by over 20px, so the
-        spacer mirrors the same calc() instead of a fixed class.
-      */}
+      <div aria-hidden='true' className={visible ? `invisible ${BAR_BOX}` : 'hidden'}>
+        <CallBarButtons />
+      </div>
       <div
-        aria-hidden='true'
-        className={visible ? 'h-[calc(4.3125rem+max(0.75rem,env(safe-area-inset-bottom)))] md:hidden' : 'hidden'}
-      />
-      <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-line-dark bg-ink/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur transition-transform duration-150 md:hidden ${
+        className={`fixed inset-x-0 bottom-0 z-40 bg-ink/95 backdrop-blur transition-transform duration-150 ${BAR_BOX} ${
           visible ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
-        <div className='flex gap-3'>
-          <Button href={TEL_HREF} tone='accent' size='lg' className='flex-1'>
-            {t('actions.call')}
-          </Button>
-          <Button href={VIBER_HREF} tone='light' variant='ghost' size='lg' className='flex-1'>
-            {t('actions.viber')}
-          </Button>
-        </div>
+        <CallBarButtons />
       </div>
     </>
   );
