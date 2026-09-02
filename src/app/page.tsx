@@ -68,167 +68,75 @@ export default function Home() {
 
       <BrandStrip />
 
-      {/* Services Overview */}
-      <div className='py-12 bg-gray-50'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>{t('home.services.title')}</h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('home.services.subtitle')}
-            </p>
-          </div>
+      {/* Process */}
+      <section className='bg-ink py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('home.process.eyebrow')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] text-paper md:text-5xl'>
+            {t('home.process.title')}
+          </h2>
 
-          <div className='mt-10'>
-            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-              <div className='pt-6'>
-                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
-                  <div className='-mt-6'>
-                    <div>
-                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
-                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            d='M13 10V3L4 14h7v7l9-11h-7z'
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                      {t('home.services.quickInstallation.title')}
-                    </h3>
-                    <p className='mt-5 text-base text-gray-500'>{t('home.services.quickInstallation.description')}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className='pt-6'>
-                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
-                  <div className='-mt-6'>
-                    <div>
-                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
-                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                      {t('home.services.certifiedQuality.title')}
-                    </h3>
-                    <p className='mt-5 text-base text-gray-500'>{t('home.services.certifiedQuality.description')}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className='pt-6'>
-                <div className='flow-root bg-white rounded-lg px-6 pb-8'>
-                  <div className='-mt-6'>
-                    <div>
-                      <span className='inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg'>
-                        <svg className='h-6 w-6 text-white' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <h3 className='mt-8 text-lg font-medium text-gray-900 tracking-tight'>
-                      {t('home.services.expertSupport.title')}
-                    </h3>
-                    <p className='mt-5 text-base text-gray-500'>{t('home.services.expertSupport.description')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ol className='mt-14 grid gap-px overflow-hidden rounded-2xl bg-line-dark sm:grid-cols-2 lg:grid-cols-4'>
+            {(t('home.process.steps') as unknown as { title: string; description: string }[]).map(
+              (step, index) => (
+                <li key={step.title} className='bg-ink-2 p-7'>
+                  <span className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent'>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className='mt-5 font-display text-lg font-bold tracking-[-0.02em] text-paper'>
+                    {step.title}
+                  </h3>
+                  <p className='mt-2 text-sm leading-relaxed text-muted-dark'>{step.description}</p>
+                </li>
+              )
+            )}
+          </ol>
         </div>
-      </div>
+      </section>
 
-      {/* Why Choose Us */}
-      <div className='bg-white py-12'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('home.whyChooseUs.title')}
+      {/* Price */}
+      <section className='bg-paper py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <div className='rounded-2xl border border-line bg-paper-2 p-8 md:p-14'>
+            <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+              {t('home.price.eyebrow')}
+            </p>
+            <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+              {t('home.price.title')}
             </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('home.whyChooseUs.subtitle')}
+            <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted'>
+              {t('home.price.description')}
             </p>
-          </div>
-
-          <div className='mt-10'>
-            <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10'>
-              <div className='relative'>
-                <dt>
-                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-                      />
-                    </svg>
-                  </div>
-                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                    {t('home.whyChooseUs.fastService.title')}
-                  </p>
-                </dt>
-                <dd className='mt-2 ml-16 text-base text-gray-500'>{t('home.whyChooseUs.fastService.description')}</dd>
-              </div>
-
-              <div className='relative'>
-                <dt>
-                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-                      />
-                    </svg>
-                  </div>
-                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                    {t('home.whyChooseUs.warranty.title')}
-                  </p>
-                </dt>
-                <dd className='mt-2 ml-16 text-base text-gray-500'>{t('home.whyChooseUs.warranty.description')}</dd>
-              </div>
-
-              <div className='relative'>
-                <dt>
-                  <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                    <svg className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
-                      />
-                    </svg>
-                  </div>
-                  <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                    {t('home.whyChooseUs.certifications.title')}
-                  </p>
-                </dt>
-                <dd className='mt-2 ml-16 text-base text-gray-500'>
-                  {t('home.whyChooseUs.certifications.description')}
-                </dd>
-              </div>
-            </dl>
+            <ContactActions tone='light' size='lg' className='mt-8' />
+            <p className='mt-6 text-sm text-muted'>{t('home.price.note')}</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Guarantees */}
+      <section className='border-t border-line bg-paper-2 py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('home.guarantees.eyebrow')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('home.guarantees.title')}
+          </h2>
+
+          <dl className='mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2'>
+            {(t('home.guarantees.items') as unknown as { title: string; description: string }[]).map(
+              (item) => (
+                <div key={item.title} className='border-t border-line pt-6'>
+                  <dt className='font-display text-xl font-bold tracking-[-0.02em]'>{item.title}</dt>
+                  <dd className='mt-2 leading-relaxed text-muted'>{item.description}</dd>
+                </div>
+              )
+            )}
+          </dl>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <div className='bg-gray-50 py-12'>
