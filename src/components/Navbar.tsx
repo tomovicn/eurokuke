@@ -33,6 +33,18 @@ export default function Navbar() {
     };
   }, [open]);
 
+  // Keyboard users need a way to dismiss the modal overlay without a mouse.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
   return (
     <header className='sticky top-0 z-50 border-b border-line-dark bg-ink/90 backdrop-blur'>
       <nav className='mx-auto flex h-16 max-w-container items-center justify-between px-4 sm:px-6 lg:px-8' aria-label='Top'>
@@ -86,6 +98,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
+                onClick={() => setOpen(false)}
                 className={`border-b border-line-dark py-4 font-display text-2xl font-bold tracking-[-0.03em] ${
                   pathname === link.href ? 'text-accent' : 'text-paper'
                 }`}
