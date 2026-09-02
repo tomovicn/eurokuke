@@ -31,12 +31,15 @@ export const sr = {
   },
   home: {
     hero: {
+      eyebrow: 'Beograd · Sve marke vozila',
       title: {
-        main: 'Profesionalna montaža',
+        main: 'Ugradnja euro kuke',
         sub: 'Euro Kuka za sve tipove vozila',
+        accent: 'sa atestom',
       },
       description:
-        'Vaša sigurnost je naš prioritet! Nudimo vrhunsku ugradnju euro kuka uz brzu instalaciju, fabričke ateste i usklađenost sa evropskim standardima.',
+        'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
+      chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
       trust: {
         quality: 'Garancija Kvaliteta',
         warranty: 'Dugoročna Garancija',
@@ -49,6 +52,52 @@ export const sr = {
     },
     brands: {
       label: 'Ugrađujemo kuke proizvođača',
+    },
+    process: {
+      eyebrow: 'Proces montaže',
+      title: 'Kako izgleda ugradnja',
+      steps: [
+        { title: 'Pregled vozila', description: 'Proveravamo model, kompatibilnost i stanje vozila.' },
+        { title: 'Priprema', description: 'Pripremamo vozilo i biramo odgovarajuću kuku i elektro instalaciju.' },
+        { title: 'Montaža', description: 'Ugradnja po specifikaciji proizvođača, 3–4 sata u proseku.' },
+        { title: 'Atest i predaja', description: 'Testiramo instalaciju i izdajemo atest za registraciju.' },
+      ],
+    },
+    price: {
+      eyebrow: 'Cena',
+      title: 'Koliko košta ugradnja?',
+      description:
+        'Cena zavisi od modela vozila i tipa kuke — fiksne cene ne postoje, jer se svako vozilo razlikuje. Pozovite nas ili pošaljite model vozila na Viber i dobijate tačnu cenu.',
+      note: 'Bez obaveze. Cenu dobijate odmah, pre nego što zakažete termin.',
+    },
+    guarantees: {
+      eyebrow: 'Zašto kod nas',
+      title: 'Šta dobijate',
+      items: [
+        { title: 'Atest i registracija', description: 'Izdajemo atest koji vam je potreban za upis kuke u saobraćajnu dozvolu.' },
+        { title: 'Garancija 2 godine', description: 'Garancija pokriva i ugrađenu kuku i elektro instalaciju.' },
+        { title: 'Originalni delovi', description: 'Ugrađujemo kuke proizvođača Bosal, Oris i Steinhof.' },
+        { title: 'Termin u roku od 24 sata', description: 'Sama montaža traje 3–4 sata i vozilo istog dana vraćate u upotrebu.' },
+      ],
+    },
+    vehicles: {
+      eyebrow: 'Marke vozila',
+      title: 'Radimo sa svim popularnim modelima',
+      note: 'Ne vidite svoje vozilo? Pozovite — radimo i sa markama koje nisu na listi.',
+    },
+    faq: {
+      eyebrow: 'Česta pitanja',
+      title: 'Ono što nas najčešće pitaju',
+    },
+    visit: {
+      eyebrow: 'Radno vreme i lokacija',
+      title: 'Kada možete da dođete',
+      hoursTitle: 'Radno vreme',
+      mapTitle: 'Lokacija',
+    },
+    finalCta: {
+      title: 'Spremni da montirate euro kuku?',
+      description: 'Pozovite nas i dobijate cenu za svoje vozilo odmah.',
     },
     services: {
       title: 'Naše Usluge',
@@ -140,9 +189,10 @@ export const sr = {
       subtitle: 'Radimo sa svim popularnim modelima vozila',
     },
     pricing: {
-      title: 'Cenovnik',
-      subtitle: 'Transparentne cene bez skrivenih troškova',
-      description: 'Cena paketa zavisi od modela kuke i težine tereta',
+      title: 'Cena',
+      subtitle: 'Koliko košta ugradnja?',
+      description:
+        'Cena zavisi od modela vozila i tipa kuke. Pozovite nas i dobijate tačnu cenu za svoje vozilo, bez obaveze.',
       plans: {
         basic: {
           title: 'Osnovni Paket',
