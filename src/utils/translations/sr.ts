@@ -47,6 +47,9 @@ export const sr = {
       },
       socialProof: 'zadovoljnih klijenata',
     },
+    brands: {
+      label: 'Ugrađujemo kuke proizvođača',
+    },
     services: {
       title: 'Naše Usluge',
       subtitle: 'Šta Vam Nudimo',
