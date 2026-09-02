@@ -98,9 +98,17 @@ The existing `Inter({ subsets: ['latin'] })` omits Latin Extended-A, so every
 Serbian diacritic on the site (č ć š ž đ) currently renders from a fallback
 font. This is a live bug, not a preference.
 
-Eyebrows become small uppercase labels with positive letterspacing in the muted
-foreground colour, replacing the current bold-red eyebrow that repeats above
-every section.
+Eyebrows become small uppercase labels with positive letterspacing, replacing the
+current bold-red eyebrow that repeats above every section.
+
+*Amended after implementation:* this section originally specified a muted
+foreground for eyebrows. They shipped in the accent colour instead. The concern
+this rule existed to address was the old `text-base font-semibold` red eyebrow
+sitting above every section like a second heading; the shipped eyebrows are
+`text-xs` letterspaced caps doing a different job, and the accent carries the
+automotive energy the rebrand exists for. The one exception is `BrandStrip`'s
+label, which stays muted deliberately — accent there would collide with the red
+Bosal mark directly beneath it.
 
 ### Layout and rhythm
 
