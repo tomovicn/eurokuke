@@ -1744,7 +1744,38 @@ grep -rnE 'gray-[0-9]|red-[0-9]|(bg|text)-white([^/]|$)|text-black' src/app src/
 
 Expected: `clean`.
 
-- [ ] **Step 4: Confirm no fabricated content survives anywhere**
+- [ ] **Step 4: Replace the fabricated blog author bylines**
+
+The same three invented people removed from the homepage testimonials are also
+used as blog post authors in `src/utils/translations/sr.ts` — "Marko Petrović,
+Sertifikovani Montažer" (twice), "Ana Jovanović, Tehnički Stručnjak", "Ivan
+Nikolić, Inspektor Bezbednosti". Invented individuals with invented job titles.
+
+This is worse than a visual byline: `src/app/blog/[slug]/layout.tsx:32` feeds
+`post.author.name` into the OpenGraph `authors` metadata, so the fabricated
+attribution is published as structured data.
+
+Attribute the posts to the business instead. In `src/utils/translations/sr.ts`,
+replace each of the four `author` objects with:
+
+```ts
+        author: {
+          name: 'Ugradnja Euro Kuka',
+        },
+```
+
+Then drop `role` from the type and its two render sites:
+
+- `src/lib/posts.ts:10` → `author: { name: string };`
+- `src/app/blog/page.tsx:16` → same shape in the local type
+- `src/app/blog/[slug]/page.tsx:10` → same shape in the local type
+- Delete the `<p>{post.author.role}</p>` line at `src/app/blog/page.tsx:74` and
+  at `src/app/blog/[slug]/page.tsx:52`
+
+Leave `src/app/blog/[slug]/layout.tsx:32` reading `post.author.name` — it now
+carries the company name, which is accurate.
+
+- [ ] **Step 5: Confirm no fabricated content survives anywhere**
 
 ```bash
 grep -rni "testimonial\|Marko Petrović\|Ana Jovanović\|Ivan Nikolić\|Primer Ulica\|eurotowbar\|15.000\|20.000" src/ || echo "clean"
@@ -1752,7 +1783,7 @@ grep -rni "testimonial\|Marko Petrović\|Ana Jovanović\|Ivan Nikolić\|Primer U
 
 Expected: `clean`.
 
-- [ ] **Step 5: Confirm no runtime dependency changed**
+- [ ] **Step 6: Confirm no runtime dependency changed**
 
 ```bash
 git diff --stat main -- package.json package-lock.json
@@ -1760,7 +1791,7 @@ git diff --stat main -- package.json package-lock.json
 
 Expected: no change to the `dependencies` block.
 
-- [ ] **Step 6: Fix the 8 pre-existing lint errors in `src/app/privacy/page.tsx`**
+- [ ] **Step 7: Fix the 8 pre-existing lint errors in `src/app/privacy/page.tsx`**
 
 Task 2 repaired the ESLint config and surfaced 8 `react/no-unescaped-entities`
 errors that have been latent in this file since it was written (lines 21 and
@@ -1773,7 +1804,7 @@ ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src/app/privacy/page.tsx
 
 Expected: no errors.
 
-- [ ] **Step 7: Full gate**
+- [ ] **Step 8: Full gate**
 
 ```bash
 npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
@@ -1781,7 +1812,7 @@ npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/
 
 Expected: both exit 0.
 
-- [ ] **Step 8: Final visual pass**
+- [ ] **Step 9: Final visual pass**
 
 With `npm run dev`, walk `/`, `/installation`, `/contact`, `/blog`, `/privacy` and a 404 URL at 1440px and 390px. Confirm on each:
 - Header sticks, is dark, and shows the phone CTA.
@@ -1789,7 +1820,7 @@ With `npm run dev`, walk `/`, `/installation`, `/contact`, `/blog`, `/privacy` a
 - Serbian diacritics render in Archivo/Inter, not a fallback.
 - Browser console is free of errors.
 
-- [ ] **Step 9: Commit**
+- [ ] **Step 10: Commit**
 
 ```bash
 git add -A src/
