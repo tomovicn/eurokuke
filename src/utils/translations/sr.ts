@@ -100,59 +100,6 @@ export const sr = {
       title: 'Spremni da montirate euro kuku?',
       description: 'Pozovite nas i dobijate cenu za svoje vozilo odmah.',
     },
-    services: {
-      title: 'Naše Usluge',
-      subtitle: 'Šta Vam Nudimo',
-      quickInstallation: {
-        title: 'Brza Montaža',
-        description: 'Profesionalna montaža euro kuke u roku od jednog dana.',
-      },
-      certifiedQuality: {
-        title: 'Certifikovani Kvalitet',
-        description: 'Koristimo samo originalne delove sa garancijom proizvođača.',
-      },
-      expertSupport: {
-        title: 'Stručna Podrška',
-        description: 'Naši stručnjaci su vam na raspolaganju za sva pitanja i savete.',
-      },
-    },
-    whyChooseUs: {
-      title: 'Zašto Izabrati Nas',
-      subtitle: 'Prednosti Naših Usluga',
-      fastService: {
-        title: 'Brza Usluga',
-        description: 'Montaža u roku od 24 sata od zakazivanja termina.',
-      },
-      warranty: {
-        title: 'Garancija',
-        description: 'Dugoročna garancija na sve naše usluge i delove.',
-      },
-      certifications: {
-        title: 'Certifikati',
-        description: 'Svi naši tehničari su sertifikovani i stalno se usavršavaju.',
-      },
-    },
-    testimonials: {
-      title: 'Iskustva Klijenata',
-      subtitle: 'Šta Kažu Naši Klijenti',
-      items: [
-        {
-          name: 'Marko Petrović',
-          role: 'Vlasnik Volkswagena Golfa',
-          text: 'Profesionalna usluga, brza montaža i odlična podrška nakon prodaje. Toplo preporučujem!',
-        },
-        {
-          name: 'Ana Jovanović',
-          role: 'Vlasnik BMW X5',
-          text: 'Montaža je izvedena savršeno, a tim je bio veoma profesionalan. Odlično iskustvo!',
-        },
-        {
-          name: 'Ivan Nikolić',
-          role: 'Vlasnik Mercedesa',
-          text: 'Izuzetna usluga, fer cene, i euro kuka radi savršeno. Definitivno ću preporučiti!',
-        },
-      ],
-    },
   },
   installation: {
     title: 'Montaža Euro Kuke',

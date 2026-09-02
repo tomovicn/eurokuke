@@ -2,14 +2,12 @@
 
 import BrandStrip from '@/components/BrandStrip';
 import ContactActions from '@/components/ContactActions';
+import Button from '@/components/ui/Button';
+import { PHONE_DISPLAY, TEL_HREF } from '@/lib/contact';
+import { getInstallationFaq } from '@/lib/faq';
 import { localBusinessSchema } from '@/lib/schema';
+import { VEHICLE_BRANDS } from '@/lib/vehicles';
 import { useTranslation } from '@/utils/i18n';
-
-interface Testimonial {
-  name: string;
-  role: string;
-  text: string;
-}
 
 export default function Home() {
   const { t } = useTranslation();
@@ -138,55 +136,113 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <div className='bg-gray-50 py-12'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('home.testimonials.title')}
-            </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('home.testimonials.subtitle')}
-            </p>
-          </div>
+      {/* Vehicles */}
+      <section className='bg-ink py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('home.vehicles.eyebrow')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] text-paper md:text-5xl'>
+            {t('home.vehicles.title')}
+          </h2>
+          <ul className='mt-12 flex flex-wrap gap-3'>
+            {VEHICLE_BRANDS.map((brand) => (
+              <li
+                key={brand}
+                className='rounded-full border border-line-dark px-5 py-2 text-sm font-medium text-muted-dark'
+              >
+                {brand}
+              </li>
+            ))}
+          </ul>
+          <p className='mt-8 text-sm text-muted-dark'>{t('home.vehicles.note')}</p>
+        </div>
+      </section>
 
-          <div className='mt-10'>
-            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
-              {(t('home.testimonials.items') as unknown as Testimonial[]).map((testimonial, index) => (
-                <div key={index} className='bg-white rounded-lg shadow-lg p-6'>
-                  <div className='flex items-center mb-4'>
-                    <div className='ml-0'>
-                      <h4 className='text-lg font-medium text-gray-900'>{testimonial.name}</h4>
-                      <p className='text-gray-500'>{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className='text-gray-600'>{testimonial.text}</p>
-                </div>
-              ))}
-            </div>
+      {/* FAQ */}
+      <section className='bg-paper py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('home.faq.eyebrow')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('home.faq.title')}
+          </h2>
+          <div className='mt-12 border-t border-line'>
+            {getInstallationFaq().map((entry) => (
+              <details key={entry.question} className='group border-b border-line'>
+                <summary className='flex cursor-pointer list-none items-center justify-between gap-6 py-5 font-display text-lg font-bold tracking-[-0.02em] marker:hidden'>
+                  {entry.question}
+                  <span
+                    aria-hidden='true'
+                    className='shrink-0 text-2xl font-normal text-accent transition-transform duration-150 group-open:rotate-45'
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className='pb-6 pr-10 leading-relaxed text-muted'>{entry.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
-      <div className='bg-red-600'>
-        <div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between'>
-          <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
-            <span className='block'>{t('installation.cta.title')}</span>
-            <span className='block text-red-200'>{t('installation.cta.subtitle')}</span>
+      {/* Hours and location */}
+      <section className='border-t border-line bg-paper-2 py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('home.visit.eyebrow')}
+          </p>
+          <h2 className='mt-4 font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('home.visit.title')}
           </h2>
-          <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
-            <div className='inline-flex rounded-md shadow'>
+
+          <div className='mt-12 grid gap-10 lg:grid-cols-[20rem_1fr]'>
+            <div>
+              <h3 className='font-display text-lg font-bold tracking-[-0.02em]'>{t('home.visit.hoursTitle')}</h3>
+              <dl className='mt-4 space-y-2 text-muted'>
+                <div>{t('common.hours.weekdays')}</div>
+                <div>{t('common.hours.saturday')}</div>
+                <div>{t('common.hours.sunday')}</div>
+              </dl>
               <a
-                href='tel:+381638066462'
-                className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-red-50'
+                href={TEL_HREF}
+                className='mt-6 inline-block font-display text-2xl font-extrabold tracking-[-0.03em] text-accent'
               >
-                {t('installation.cta.button')}
+                {PHONE_DISPLAY}
               </a>
             </div>
+
+            <div className='overflow-hidden rounded-2xl border border-line'>
+              <iframe
+                src={t('contact.map.embedUrl')}
+                title={t('home.visit.mapTitle')}
+                width='100%'
+                height='360'
+                style={{ border: 0 }}
+                allowFullScreen
+                loading='lazy'
+                referrerPolicy='no-referrer-when-downgrade'
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className='bg-accent py-16 md:py-20'>
+        <div className='mx-auto flex max-w-container flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8'>
+          <div>
+            <h2 className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent-ink md:text-4xl'>
+              {t('home.finalCta.title')}
+            </h2>
+            <p className='mt-3 text-lg text-white/85'>{t('home.finalCta.description')}</p>
+          </div>
+          <Button href={TEL_HREF} tone='light' variant='solid' size='lg' className='shrink-0'>
+            {t('actions.callLong')}
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }
