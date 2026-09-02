@@ -964,6 +964,7 @@ them.
       description:
         'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
       chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
+      imageAlt: 'Euro kuka za vuču spremna za ugradnju',
     },
     // `brands.label` was already added in Task 5 — do not add it a second time.
     process: {
@@ -1127,11 +1128,11 @@ export default function Home() {
             what lets it sit on a dark section; it is also the drop-in slot for a
             real photograph or a transparent cutout later, with no relayout.
           */}
-          <div className='relative rounded-2xl bg-gradient-to-br from-white to-paper-2 p-6 shadow-2xl lg:rotate-1'>
+          <div className='relative rounded-2xl bg-gradient-to-br from-paper to-paper-2 p-6 shadow-2xl lg:rotate-1'>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src='/images/hero/eurokuka.jpg'
-              alt='Euro kuka za vuču spremna za ugradnju'
+              alt={t('home.hero.imageAlt')}
               width={600}
               height={519}
               className='h-auto w-full rounded-xl object-contain'
