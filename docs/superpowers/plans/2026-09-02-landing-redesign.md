@@ -447,13 +447,13 @@ export default function ContactActions({
 
 `tone` names the *background* the component sits on: `tone='dark'` means dark background, so ghost buttons get light borders.
 
-- [ ] **Step 5: Verify build and lint**
+- [ ] **Step 7: Verify the gate**
 
 ```bash
-npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src/lib src/components
 ```
 
-Expected: both exit 0. Nothing renders these yet; this step catches type errors only.
+Expected: all three exit 0. Nothing renders these components yet; this step catches type and lint errors only.
 
 - [ ] **Step 8: Commit**
 
