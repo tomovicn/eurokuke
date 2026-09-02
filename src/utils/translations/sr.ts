@@ -4,12 +4,19 @@ export const sr = {
     address: 'Beograd, Srbija',
     phone: '+381 63 8066462',
     email: 'info@eurokuka.rs',
+    area: 'Beograd i okolina',
+    hours: {
+      weekdays: 'Ponedeljak – Petak: 08:00 – 20:00',
+      saturday: 'Subota: 10:00 – 16:00',
+      sunday: 'Nedelja: zatvoreno',
+    },
   },
   navigation: {
     home: 'Početna',
     installation: 'Ugradnja',
     blog: 'Blog',
     contact: 'Kontakt',
+    privacy: 'Politika privatnosti',
   },
   actions: {
     call: 'Pozovi',

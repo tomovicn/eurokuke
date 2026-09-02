@@ -3,6 +3,7 @@ import { Archivo, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import MobileCallBar from '@/components/MobileCallBar';
 import { OG_IMAGE, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH, SITE_NAME, SITE_URL } from '@/lib/site';
 
 const inter = Inter({
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         {children}
         <Footer />
+        <MobileCallBar />
       </body>
     </html>
   );
