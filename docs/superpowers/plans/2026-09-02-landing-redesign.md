@@ -1670,6 +1670,15 @@ Inside `contact.info`:
 cannot be used as a heading. There is no street address to publish — the area
 served is what this block states, and it reads from `common.area`.
 
+Also delete `contact.info.workingHours` from `src/utils/translations/sr.ts`. This
+page now reads `common.hours.*`, so that key becomes dead — and it spells the
+same hours with plain hyphens where `common.hours.*` uses en dashes, which would
+leave two typographies for one fact. Confirm nothing else reads it first:
+
+```bash
+grep -rn "workingHours" src/ || echo "safe to delete"
+```
+
 - [ ] **Step 3: Verify build, lint and appearance**
 
 ```bash
