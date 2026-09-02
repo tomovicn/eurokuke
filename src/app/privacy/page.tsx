@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { PHONE_DISPLAY } from '@/lib/contact';
+import { sr } from '@/utils/translations/sr';
 
 export const metadata: Metadata = {
   title: 'Politika Privatnosti | Ugradnja Euro Kuka',
@@ -108,9 +110,9 @@ export default function PrivacyPolicy() {
             <h2>8. Contact Us</h2>
             <p>If you have any questions about this privacy policy, please contact us:</p>
             <ul>
-              <li>By email: info@eurokuke.com</li>
-              <li>By phone: +1 (555) 123-4567</li>
-              <li>By mail: 123 Main Street, Suite 200, San Francisco, CA 94107</li>
+              <li>By email: {sr.common.email}</li>
+              <li>By phone: {PHONE_DISPLAY}</li>
+              <li>Service area: {sr.common.address}</li>
             </ul>
           </div>
         </div>
