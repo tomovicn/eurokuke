@@ -2,27 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Solid colours are stored as space-separated RGB channels, not hex, so that
+ * Tailwind can inject an alpha value: `bg-ink/90` compiles to
+ * `rgb(11 12 14 / 0.9)`. With a plain `--ink: #0b0c0e` every `/NN` opacity
+ * modifier silently compiles to nothing, which would break the translucent
+ * header and the mobile call bar. Colours that are already translucent are
+ * stored whole and take no alpha modifier.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: 11 12 14;
+  --ink-2: 22 24 28;
+  --paper: 255 255 255;
+  --paper-2: 244 245 247;
+  --accent: 225 6 0;
+  --accent-ink: 255 255 255;
+  --line: 228 230 234;
+  --muted: 90 96 105;
+
+  --line-dark: rgb(255 255 255 / 0.1);
+  --muted-dark: rgb(255 255 255 / 0.66);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
 }
+
+/* The mobile call bar is fixed to the bottom edge below md.
+   MobileCallBar renders a matching spacer so the footer is never occluded. */

@@ -1,11 +1,22 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Archivo, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { OG_IMAGE, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH, SITE_NAME, SITE_URL } from '@/lib/site';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const archivo = Archivo({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['700', '800'],
+  variable: '--font-archivo',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +67,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='sr'>
+    <html lang='sr' className={`${inter.variable} ${archivo.variable}`}>
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link rel='icon' href='/favicon-16x16.png' type='image/png' sizes='16x16' />
@@ -66,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
       </head>
-      <body className={inter.className}>
+      <body className='bg-paper font-sans text-ink antialiased'>
         <Navbar />
         {children}
         <Footer />
