@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useTranslation } from '@/utils/i18n';
 
 interface BlogPost {
@@ -42,43 +41,23 @@ export default function BlogIndex() {
           <p className='mt-3 max-w-2xl mx-auto text-xl text-muted sm:mt-4'>{t('blog.description')}</p>
         </div>
 
-        <div className='mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12'>
+        <div className='mt-12 grid gap-6 pt-12 lg:grid-cols-3 lg:gap-8'>
           {sortedPosts.map((post) => (
-            <div key={post.slug} className='flex flex-col rounded-lg shadow-lg overflow-hidden'>
-              <div className='flex-shrink-0'>
-                <Image
-                  src={`/images/blog/post.png`}
-                  alt={post.title}
-                  width={400}
-                  height={225}
-                  className='h-48 w-full object-cover'
-                />
-              </div>
-              <div className='flex-1 bg-paper-2 p-6 flex flex-col justify-between'>
-                <div className='flex-1'>
-                  <p className='text-sm font-medium text-accent'>
-                    <Link href={post.category.href} className='hover:underline'>
-                      {post.category.title}
-                    </Link>
-                  </p>
-                  <Link href={`/blog/${post.slug}`} className='block mt-2'>
-                    <p className='text-xl font-semibold text-ink'>{post.title}</p>
-                    <p className='mt-3 text-base text-muted'>{post.description}</p>
-                  </Link>
-                </div>
-                <div className='mt-6 flex items-center'>
-                  <div className='flex-shrink-0'>
-                    <span className='sr-only'>{post.author.name}</span>
-                  </div>
-                  <div className='ml-0'>
-                    <p className='text-sm font-medium text-ink'>{post.author.name}</p>
-                  </div>
-                  <div className='ml-auto'>
-                    <time dateTime={post.datetime} className='text-sm text-muted'>
-                      {post.date}
-                    </time>
-                  </div>
-                </div>
+            <div key={post.slug} className='flex flex-col rounded-2xl border border-line bg-paper-2 p-7'>
+              <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+                <Link href={post.category.href} className='hover:underline'>
+                  {post.category.title}
+                </Link>
+              </p>
+              <Link href={`/blog/${post.slug}`} className='mt-3 block flex-1'>
+                <p className='font-display text-lg font-bold tracking-[-0.03em] text-ink'>{post.title}</p>
+                <p className='mt-2 text-sm leading-relaxed text-muted'>{post.description}</p>
+              </Link>
+              <div className='mt-6 flex items-center justify-between border-t border-line pt-4 text-sm'>
+                <span className='font-medium text-ink'>{post.author.name}</span>
+                <time dateTime={post.datetime} className='text-muted'>
+                  {post.date}
+                </time>
               </div>
             </div>
           ))}

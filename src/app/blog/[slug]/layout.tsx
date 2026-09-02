@@ -31,13 +31,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       publishedTime: post.datetime,
       authors: [post.author.name],
       section: post.category.title,
-      images: ['/images/blog/post.png'],
+      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: ['/images/blog/post.png'],
+      images: [OG_IMAGE],
     },
   };
 }

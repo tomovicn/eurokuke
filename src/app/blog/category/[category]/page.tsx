@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getCategories, getCategory, getPostsByCategory } from '@/lib/posts';
@@ -54,28 +53,22 @@ export default function CategoryPage({ params }: { params: { category: string } 
           <h1 className='font-display text-3xl font-bold tracking-[-0.03em] text-ink'>{category.title}</h1>
           <p className='mt-4 text-xl text-muted'>{category.description}</p>
 
-          <div className='mt-12 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0'>
+          <div className='mt-12 grid gap-6 lg:grid-cols-3 lg:gap-8'>
             {posts.map((post) => (
-              <div key={post.slug} className='group relative'>
-                <div className='relative h-80 w-full overflow-hidden rounded-lg bg-paper-2 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64'>
-                  <Image
-                    src={`/images/blog/post.png`}
-                    alt={post.title}
-                    className='h-full w-full object-cover object-center'
-                    width={400}
-                    height={300}
-                  />
-                </div>
-                <h2 className='mt-6 font-display text-lg font-semibold tracking-[-0.03em] text-ink'>
+              <div key={post.slug} className='group relative flex flex-col rounded-2xl border border-line bg-paper-2 p-7'>
+                <h2 className='font-display text-lg font-bold tracking-[-0.03em] text-ink'>
                   <Link href={`/blog/${post.slug}`}>
                     <span className='absolute inset-0' />
                     {post.title}
                   </Link>
                 </h2>
-                <p className='text-sm text-muted'>
-                  <time dateTime={post.datetime}>{post.date}</time>
-                </p>
-                <p className='mt-2 text-sm text-muted'>{post.description}</p>
+                <p className='mt-2 text-sm leading-relaxed text-muted'>{post.description}</p>
+                <div className='mt-6 flex items-center justify-between border-t border-line pt-4 text-sm'>
+                  <span className='font-medium text-ink'>{post.author.name}</span>
+                  <time dateTime={post.datetime} className='text-muted'>
+                    {post.date}
+                  </time>
+                </div>
               </div>
             ))}
           </div>

@@ -19,7 +19,7 @@ export default function BrandStrip() {
   const { t } = useTranslation();
 
   return (
-    <section className='border-b border-line bg-paper-2 py-10'>
+    <section className='border-b border-line bg-paper py-10'>
       <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
         <p className='text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted'>
           {t('home.brands.label')}

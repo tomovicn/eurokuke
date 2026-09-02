@@ -28,7 +28,7 @@ export default function Home() {
             </p>
             <h1 className='mt-5 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] text-paper md:text-6xl'>
               {t('home.hero.title.main')}{' '}
-              <span className='text-accent'>{t('home.hero.title.accent')}</span>
+              <span className='whitespace-nowrap text-accent'>{t('home.hero.title.accent')}</span>
             </h1>
             <p className='mt-6 max-w-xl text-lg leading-relaxed text-muted-dark'>
               {t('home.hero.description')}
