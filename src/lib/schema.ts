@@ -23,7 +23,6 @@ export function localBusinessSchema() {
     image: `${SITE_URL}${OG_IMAGE}`,
     telephone: '+381638066462',
     email: sr.common.email,
-    priceRange: '$$',
     currenciesAccepted: 'RSD',
     address: {
       '@type': 'PostalAddress',

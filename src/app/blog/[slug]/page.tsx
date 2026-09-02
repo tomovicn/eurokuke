@@ -1,21 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from '@/utils/i18n';
-
-interface BlogPost {
-  title: string;
-  date: string;
-  author: {
-    name: string;
-  };
-  content: string;
-}
+import { getBlogPost } from '@/lib/posts';
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const { t } = useTranslation();
-  const post = t(`blog.posts.${params.slug}`) as unknown as BlogPost;
+  const post = getBlogPost(params.slug);
 
   if (!post) {
     return (
@@ -36,7 +27,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <div className='bg-paper'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32'>
           <article>
             <header className='mb-8'>

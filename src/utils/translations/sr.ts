@@ -2,7 +2,6 @@ export const sr = {
   common: {
     companyName: 'Ugradnja Euro Kuka',
     address: 'Beograd, Srbija',
-    phone: '+381 63 8066462',
     email: 'info@eurokuka.rs',
     area: 'Beograd i okolina',
     hours: {
@@ -34,22 +33,12 @@ export const sr = {
       eyebrow: 'Beograd · Sve marke vozila',
       title: {
         main: 'Ugradnja euro kuke',
-        sub: 'Euro Kuka za sve tipove vozila',
         accent: 'sa atestom',
       },
       description:
         'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
       chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
       imageAlt: 'Euro kuka za vuču spremna za ugradnju',
-      trust: {
-        quality: 'Garancija Kvaliteta',
-        warranty: 'Dugoročna Garancija',
-      },
-      cta: {
-        book: 'Zakažite Termin',
-        call: 'Pozovite Nas',
-      },
-      socialProof: 'zadovoljnih klijenata',
     },
     brands: {
       label: 'Ugrađujemo kuke proizvođača',
@@ -89,6 +78,7 @@ export const sr = {
     faq: {
       eyebrow: 'Česta pitanja',
       title: 'Ono što nas najčešće pitaju',
+      moreLink: 'Pogledajte ceo proces montaže',
     },
     visit: {
       eyebrow: 'Radno vreme i lokacija',
@@ -169,7 +159,6 @@ export const sr = {
   blog: {
     title: 'Blog',
     description: 'Saznajte više o montaži euro kuke i održavanju vašeg vozila',
-    latestArticles: 'Najnoviji Članci',
     backButton: 'Nazad na Blog',
     notFound: {
       title: 'Post Nije Pronađen',
@@ -387,20 +376,6 @@ export const sr = {
       title: 'Kontaktirajte Nas',
       description: 'Imate pitanja? Naš tim je tu da vam pomogne. Kontaktirajte nas i dobićete brz odgovor.',
     },
-    title: 'Kontakt Informacije',
-    description: 'Javite nam se putem telefona',
-    phone: '+381 63 806 6462',
-    email: 'info@eurokuka.rs',
-    address: 'Beograd, Srbija',
-    form: {
-      name: 'Ime i prezime',
-      email: 'Email adresa',
-      phone: 'Broj telefona',
-      message: 'Vaša poruka',
-      submit: 'Pošalji poruku',
-      success: 'Hvala na poruci! Kontaktiraćemo vas uskoro.',
-      error: 'Došlo je do greške. Molimo pokušajte ponovo.',
-    },
     map: {
       title: 'Kako do nas',
       embedUrl:
@@ -408,9 +383,6 @@ export const sr = {
     },
     info: {
       title: 'Kontakt Informacije',
-      address: 'Beograd, Srbija',
-      phone: '+381 63 806 6462',
-      email: 'info@eurokuka.rs',
       areaTitle: 'Područje rada',
       hoursTitle: 'Radno vreme',
     },

@@ -33,7 +33,7 @@ export default function BlogIndex() {
 
   return (
     <div className='bg-paper'>
-      <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
+      <div className='max-w-container mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
         <div className='text-center'>
           <h1 className='font-display text-3xl font-extrabold tracking-[-0.03em] text-ink sm:text-4xl'>
             {t('blog.title')}

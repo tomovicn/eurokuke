@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <div className='bg-paper min-h-[70vh] flex items-center'>
-      <div className='max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
+      <div className='max-w-container mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center'>
           <h1 className='font-display text-4xl font-extrabold tracking-[-0.03em] text-ink sm:text-5xl'>
             {t('notFound.title')}

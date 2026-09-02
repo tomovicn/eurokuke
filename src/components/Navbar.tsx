@@ -92,7 +92,11 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className='fixed inset-x-0 bottom-0 top-16 z-50 bg-ink px-4 py-8 md:hidden'>
+        <div
+          role='dialog'
+          aria-modal='true'
+          className='fixed inset-x-0 bottom-0 top-16 z-50 bg-ink px-4 py-8 md:hidden'
+        >
           <div className='flex flex-col gap-1'>
             {navigation.map((link) => (
               <Link

@@ -1,5 +1,8 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+
 import BrandStrip from '@/components/BrandStrip';
 import ContactActions from '@/components/ContactActions';
 import Button from '@/components/ui/Button';
@@ -52,13 +55,13 @@ export default function Home() {
             real photograph or a transparent cutout later, with no relayout.
           */}
           <div className='relative rounded-2xl bg-gradient-to-br from-paper to-paper-2 p-6 shadow-2xl lg:rotate-1'>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src='/images/hero/eurokuka.jpg'
               alt={t('home.hero.imageAlt')}
               width={600}
               height={519}
               className='h-auto w-full rounded-xl object-contain'
+              priority
             />
           </div>
         </div>
@@ -184,6 +187,12 @@ export default function Home() {
               </details>
             ))}
           </div>
+          <Link
+            href='/installation'
+            className='mt-8 inline-block text-accent underline-offset-4 hover:underline'
+          >
+            {t('home.faq.moreLink')}
+          </Link>
         </div>
       </section>
 
@@ -200,11 +209,11 @@ export default function Home() {
           <div className='mt-12 grid gap-10 lg:grid-cols-[20rem_1fr]'>
             <div>
               <h3 className='font-display text-lg font-bold tracking-[-0.02em]'>{t('home.visit.hoursTitle')}</h3>
-              <dl className='mt-4 space-y-2 text-muted'>
-                <div>{t('common.hours.weekdays')}</div>
-                <div>{t('common.hours.saturday')}</div>
-                <div>{t('common.hours.sunday')}</div>
-              </dl>
+              <ul className='mt-4 space-y-2 text-muted'>
+                <li>{t('common.hours.weekdays')}</li>
+                <li>{t('common.hours.saturday')}</li>
+                <li>{t('common.hours.sunday')}</li>
+              </ul>
               <a
                 href={TEL_HREF}
                 className='mt-6 inline-block font-display text-2xl font-extrabold tracking-[-0.03em] text-accent'

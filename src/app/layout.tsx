@@ -26,19 +26,8 @@ export const metadata: Metadata = {
     'Stručna ugradnja euro kuka za sve marke vozila. Brza montaža, povoljne cene, garancija kvaliteta. Pozovite nas danas za besplatnu konsultaciju.',
   keywords: 'ugradnja euro kuka, auto kuka, kuka za vuču, montaža kuke, bosal, oris, steinhof, beograd',
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-    ],
+    icon: [{ url: '/favicon.ico', sizes: 'any' }],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-    other: [
-      {
-        rel: 'mask-icon',
-        url: '/safari-pinned-tab.svg',
-        color: '#5bbad5',
-      },
-    ],
   },
   manifest: '/site.webmanifest',
   openGraph: {
@@ -70,11 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='sr' className={`${inter.variable} ${archivo.variable}`}>
       <head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
-        <link rel='icon' href='/favicon-16x16.png' type='image/png' sizes='16x16' />
-        <link rel='icon' href='/favicon-32x32.png' type='image/png' sizes='32x32' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
       </head>

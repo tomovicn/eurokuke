@@ -48,7 +48,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
   return (
     <div className='bg-paper'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32'>
           <h1 className='font-display text-3xl font-bold tracking-[-0.03em] text-ink'>{category.title}</h1>
           <p className='mt-4 text-xl text-muted'>{category.description}</p>
