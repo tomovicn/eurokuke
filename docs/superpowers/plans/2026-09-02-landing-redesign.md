@@ -1540,14 +1540,27 @@ Expected: `safe to delete`. Then remove the entire `plans` object from
 `installation.pricing`. It holds `od 15.000 RSD` and `od 20.000 RSD`, figures the
 owner has said must not be published.
 
-- [ ] **Step 6: Apply tokens to the remaining sections**
+- [ ] **Step 6: Normalise the duration dash in the FAQ copy**
+
+`installation.faq.questions.duration.answer` in `src/utils/translations/sr.ts`
+reads `3-4 sata` with a plain hyphen, while all the copy added in Task 6 writes
+`3–4 sata` with an en dash (U+2013). Same fact, two typographies, and both now
+appear on this page. Change the hyphen to an en dash.
+
+```bash
+grep -n "3-4 sata" src/utils/translations/sr.ts || echo "normalised"
+```
+
+Expected after the edit: `normalised`.
+
+- [ ] **Step 7: Apply tokens to the remaining sections**
 
 Sweep the rest of the file using the colour mapping in Global Constraints above —
 every entry in that table, no exceptions. Section headings additionally take
 `font-display` and `tracking-[-0.03em]`; eyebrows become
 `text-xs font-semibold uppercase tracking-[0.18em] text-accent`.
 
-- [ ] **Step 7: Verify no stock colours remain**
+- [ ] **Step 8: Verify no stock colours remain**
 
 ```bash
 grep -nE 'gray-[0-9]|red-[0-9]|(bg|text)-white([^/]|$)|text-black' src/app/installation/page.tsx || echo "clean"
@@ -1555,7 +1568,7 @@ grep -nE 'gray-[0-9]|red-[0-9]|(bg|text)-white([^/]|$)|text-black' src/app/insta
 
 Expected: `clean`.
 
-- [ ] **Step 8: Verify build, lint and appearance**
+- [ ] **Step 9: Verify build, lint and appearance**
 
 ```bash
 npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
@@ -1563,7 +1576,7 @@ npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/
 
 Expected: both exit 0. Then open `http://localhost:3000/installation` and confirm no price figure appears anywhere on the page, and that the FAQ and its JSON-LD still match.
 
-- [ ] **Step 9: Commit**
+- [ ] **Step 10: Commit**
 
 ```bash
 git add src/app/installation/page.tsx src/utils/translations/sr.ts
