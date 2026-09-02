@@ -141,34 +141,6 @@ export const sr = {
       subtitle: 'Koliko košta ugradnja?',
       description:
         'Cena zavisi od modela vozila i tipa kuke. Pozovite nas i dobijate tačnu cenu za svoje vozilo, bez obaveze.',
-      plans: {
-        basic: {
-          title: 'Osnovni Paket',
-          price: 'od 15.000 RSD',
-          features: ['Montaža euro kuke', 'Osnovna provera vozila', 'Garancija 1 godina'],
-        },
-        premium: {
-          title: 'Premium Paket',
-          price: 'od 20.000 RSD',
-          features: [
-            'Montaža euro kuke',
-            'Detaljna provera vozila',
-            'Garancija 2 godine',
-            'Besplatna kontrola nakon 6 meseci',
-          ],
-        },
-        custom: {
-          title: 'Prilagođeni Paket',
-          price: 'Po dogovoru',
-          features: [
-            'Montaža euro kuke',
-            'Kompletna provera vozila',
-            'Garancija 2 godine',
-            'Redovne kontrole',
-            '24/7 podrška',
-          ],
-        },
-      },
     },
     faq: {
       title: 'Često Postavljana Pitanja',
@@ -176,7 +148,7 @@ export const sr = {
       questions: {
         duration: {
           question: 'Koliko traje montaža euro kuke?',
-          answer: 'Standardna montaža traje 3-4 sata, u zavisnosti od modela vozila.',
+          answer: 'Standardna montaža traje 3–4 sata, u zavisnosti od modela vozila.',
         },
         bumper: {
           question: 'Da li je potrebno modifikovati branik?',

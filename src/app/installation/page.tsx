@@ -1,217 +1,150 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useTranslation } from '@/utils/i18n';
+import ContactActions from '@/components/ContactActions';
+import Button from '@/components/ui/Button';
+import { TEL_HREF } from '@/lib/contact';
 import { getInstallationFaq } from '@/lib/faq';
+import { VEHICLE_BRANDS } from '@/lib/vehicles';
+import { useTranslation } from '@/utils/i18n';
 
 export default function EuroTowbarInstallation() {
   const { t } = useTranslation();
   const faq = getInstallationFaq();
 
   return (
-    <div className='bg-white'>
-      {/* Hero Section */}
-      <div className='relative bg-gray-900'>
-        <div className='absolute inset-0'>
-          <div className='absolute inset-0 bg-gray-900 mix-blend-multiply' />
-        </div>
-        <div className='relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl'>
+    <div className='bg-paper'>
+      {/* Hero */}
+      <section className='bg-ink'>
+        <div className='mx-auto max-w-container px-4 py-20 sm:px-6 md:py-28 lg:px-8'>
+          <h1 className='max-w-3xl font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] text-paper md:text-6xl'>
             {t('installation.title')}
           </h1>
-          <p className='mt-6 text-xl text-gray-300 max-w-3xl'>{t('installation.description')}</p>
+          <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted-dark'>
+            {t('installation.description')}
+          </p>
+          <ContactActions tone='dark' size='lg' className='mt-8' />
         </div>
-      </div>
+      </section>
 
       {/* Installation Process */}
-      <div className='py-16 bg-white overflow-hidden'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('installation.process.title')}
-            </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('installation.process.subtitle')}
-            </p>
-            <p className='mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto'>{t('installation.process.description')}</p>
-          </div>
+      <section className='bg-paper py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('installation.process.title')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('installation.process.subtitle')}
+          </h2>
+          <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted'>
+            {t('installation.process.description')}
+          </p>
 
-          <div className='mt-10'>
-            <div className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10'>
-              <div className='relative'>
-                <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                  <span className='text-lg font-bold'>1</span>
-                </div>
-                <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                  {t('installation.process.steps.inspection.title')}
-                </p>
-                <p className='mt-2 ml-16 text-base text-gray-500'>
-                  {t('installation.process.steps.inspection.description')}
-                </p>
-              </div>
-
-              <div className='relative'>
-                <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                  <span className='text-lg font-bold'>2</span>
-                </div>
-                <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                  {t('installation.process.steps.preparation.title')}
-                </p>
-                <p className='mt-2 ml-16 text-base text-gray-500'>
-                  {t('installation.process.steps.preparation.description')}
-                </p>
-              </div>
-
-              <div className='relative'>
-                <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                  <span className='text-lg font-bold'>3</span>
-                </div>
-                <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                  {t('installation.process.steps.installation.title')}
-                </p>
-                <p className='mt-2 ml-16 text-base text-gray-500'>
-                  {t('installation.process.steps.installation.description')}
-                </p>
-              </div>
-
-              <div className='relative'>
-                <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white'>
-                  <span className='text-lg font-bold'>4</span>
-                </div>
-                <p className='ml-16 text-lg leading-6 font-medium text-gray-900'>
-                  {t('installation.process.steps.testing.title')}
-                </p>
-                <p className='mt-2 ml-16 text-base text-gray-500'>
-                  {t('installation.process.steps.testing.description')}
-                </p>
-              </div>
-            </div>
-          </div>
+          <ol className='mt-14 grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-2 lg:grid-cols-4'>
+            {[
+              {
+                title: t('installation.process.steps.inspection.title'),
+                description: t('installation.process.steps.inspection.description'),
+              },
+              {
+                title: t('installation.process.steps.preparation.title'),
+                description: t('installation.process.steps.preparation.description'),
+              },
+              {
+                title: t('installation.process.steps.installation.title'),
+                description: t('installation.process.steps.installation.description'),
+              },
+              {
+                title: t('installation.process.steps.testing.title'),
+                description: t('installation.process.steps.testing.description'),
+              },
+            ].map((step, index) => (
+              <li key={step.title} className='bg-paper-2 p-7'>
+                <span className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent'>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className='mt-5 font-display text-lg font-bold tracking-[-0.02em]'>{step.title}</h3>
+                <p className='mt-2 text-sm leading-relaxed text-muted'>{step.description}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-      </div>
+      </section>
 
       {/* Supported Brands */}
-      <div className='bg-gray-50 py-16'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('installation.supportedBrands.title')}
-            </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('installation.supportedBrands.subtitle')}
-            </p>
-          </div>
-
-          <div className='mt-10'>
-            <div className='grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6'>
-              {[
-                'Volkswagen',
-                'BMW',
-                'Mercedes',
-                'Audi',
-                'Toyota',
-                'Ford',
-                'Opel',
-                'Peugeot',
-                'Renault',
-                'Citroen',
-                'Hyundai',
-                'Kia',
-              ].map((brand) => (
-                <div key={brand} className='col-span-1 flex justify-center py-8 px-8 bg-white rounded-lg shadow'>
-                  <p className='text-lg font-medium text-gray-900'>{brand}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Pricing */}
-      <div className='bg-white py-16'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('installation.pricing.title')}
-            </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('installation.pricing.subtitle')}
-            </p>
-            <p className='mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto'>{t('installation.pricing.description')}</p>
-          </div>
-
-          <div className='mt-10'>
-            <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center'>
-              <div className='bg-white rounded-lg shadow-lg overflow-hidden max-w-md mx-auto col-span-1 sm:col-span-2 lg:col-span-3'>
-                <div className='px-6 py-8'>
-                  <h3 className='text-2xl font-medium text-gray-900'>{t('installation.pricing.plans.custom.title')}</h3>
-                  <p className='mt-4 text-base text-gray-500'>{t('installation.pricing.plans.custom.price')}</p>
-                  <ul className='mt-6 space-y-4'>
-                    {(t('installation.pricing.plans.custom.features') as unknown as string[]).map((feature: string) => (
-                      <li key={feature} className='flex items-start'>
-                        <div className='flex-shrink-0'>
-                          <svg className='h-6 w-6 text-red-500' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
-                          </svg>
-                        </div>
-                        <p className='ml-3 text-base text-gray-500'>{feature}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className='bg-gray-50 py-16'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='lg:text-center'>
-            <h2 className='text-base text-red-600 font-semibold tracking-wide uppercase'>
-              {t('installation.faq.title')}
-            </h2>
-            <p className='mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {t('installation.faq.subtitle')}
-            </p>
-          </div>
-
-          <div className='mt-10'>
-            <dl className='space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10'>
-              {faq.map((entry) => (
-                <div key={entry.question} className='relative'>
-                  <dt>
-                    <p className='text-lg leading-6 font-medium text-gray-900'>{entry.question}</p>
-                  </dt>
-                  <dd className='mt-2 text-base text-gray-500'>{entry.answer}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className='bg-red-600'>
-        <div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between'>
-          <h2 className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'>
-            <span className='block'>{t('installation.cta.title')}</span>
-            <span className='block text-red-200'>{t('installation.cta.subtitle')}</span>
+      <section className='bg-paper-2 py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('installation.supportedBrands.title')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('installation.supportedBrands.subtitle')}
           </h2>
-          <div className='mt-8 flex lg:mt-0 lg:flex-shrink-0'>
-            <div className='inline-flex rounded-md shadow'>
-              <Link
-                href='tel:+381638066462'
-                className='inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-red-50'
+          <ul className='mt-12 flex flex-wrap gap-3'>
+            {VEHICLE_BRANDS.map((brand) => (
+              <li
+                key={brand}
+                className='rounded-full border border-line px-5 py-2 text-sm font-medium text-muted'
               >
-                {t('installation.cta.button')}
-              </Link>
-            </div>
+                {brand}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Price */}
+      <section className='bg-paper py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <div className='rounded-2xl border border-line bg-paper-2 p-8 md:p-14'>
+            <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+              {t('installation.pricing.title')}
+            </p>
+            <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+              {t('installation.pricing.subtitle')}
+            </h2>
+            <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted'>
+              {t('installation.pricing.description')}
+            </p>
+            <ContactActions tone='light' size='lg' className='mt-8' />
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* FAQ */}
+      <section className='bg-paper-2 py-20 md:py-28'>
+        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
+          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+            {t('installation.faq.title')}
+          </p>
+          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
+            {t('installation.faq.subtitle')}
+          </h2>
+
+          <dl className='mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2'>
+            {faq.map((entry) => (
+              <div key={entry.question}>
+                <dt className='font-display text-lg font-bold tracking-[-0.02em]'>{entry.question}</dt>
+                <dd className='mt-2 leading-relaxed text-muted'>{entry.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className='bg-accent py-16 md:py-20'>
+        <div className='mx-auto flex max-w-container flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8'>
+          <div>
+            <h2 className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent-ink md:text-4xl'>
+              {t('installation.cta.title')}
+            </h2>
+            <p className='mt-3 text-lg text-white/85'>{t('installation.cta.subtitle')}</p>
+          </div>
+          <Button href={TEL_HREF} tone='light' variant='solid' size='lg' className='shrink-0'>
+            {t('installation.cta.button')}
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }
