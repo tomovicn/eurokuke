@@ -40,6 +40,7 @@ export const sr = {
       description:
         'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
       chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
+      imageAlt: 'Euro kuka za vuču spremna za ugradnju',
       trust: {
         quality: 'Garancija Kvaliteta',
         warranty: 'Dugoročna Garancija',
