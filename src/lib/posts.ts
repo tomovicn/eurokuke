@@ -7,7 +7,7 @@ export type BlogPost = {
   date: string;
   datetime: string;
   category: { title: string; href: string };
-  author: { name: string; role: string };
+  author: { name: string };
   content: string;
 };
 

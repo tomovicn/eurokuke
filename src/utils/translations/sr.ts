@@ -198,8 +198,7 @@ export const sr = {
         datetime: '2024-03-16',
         category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
         author: {
-          name: 'Marko Petrović',
-          role: 'Sertifikovani Montažer',
+          name: 'Ugradnja Euro Kuka',
         },
         content: `
           <h2>📝 Da li je potreban atest za euro kuku u Srbiji?</h2>
@@ -267,8 +266,7 @@ export const sr = {
         datetime: '2024-03-16',
         category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
         author: {
-          name: 'Marko Petrović',
-          role: 'Sertifikovani Montažer',
+          name: 'Ugradnja Euro Kuka',
         },
         content: `
           <h2>Zašto je Certifikacija Važna</h2>
@@ -310,8 +308,7 @@ export const sr = {
         datetime: '2024-03-10',
         category: { title: 'Vodič', href: '/blog/category/guide' },
         author: {
-          name: 'Ana Jovanović',
-          role: 'Tehnički Stručnjak',
+          name: 'Ugradnja Euro Kuka',
         },
         content: `
           <h2>Razumevanje Tipova Euro Kuke</h2>
@@ -350,8 +347,7 @@ export const sr = {
         datetime: '2024-03-05',
         category: { title: 'Bezbednost', href: '/blog/category/safety' },
         author: {
-          name: 'Ivan Nikolić',
-          role: 'Inspektor Bezbednosti',
+          name: 'Ugradnja Euro Kuka',
         },
         content: `
           <h2>Zašto je Profesionalna Montaža Važna</h2>
@@ -418,5 +414,11 @@ export const sr = {
       areaTitle: 'Područje rada',
       hoursTitle: 'Radno vreme',
     },
+  },
+  notFound: {
+    title: 'Stranica nije pronađena',
+    description: 'Žao nam je, tražena stranica ne postoji ili je premeštena.',
+    homeButton: 'Nazad na početnu',
+    contactButton: 'Kontaktirajte nas',
   },
 };

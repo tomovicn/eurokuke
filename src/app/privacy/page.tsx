@@ -9,16 +9,18 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className='bg-white'>
+    <div className='bg-paper'>
       <div className='max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8'>
         <div className='max-w-2xl'>
-          <h1 className='text-3xl font-extrabold text-gray-900 sm:text-4xl'>Privacy Policy</h1>
-          <p className='mt-4 text-gray-500'>Last updated: {new Date().toLocaleDateString()}</p>
+          <h1 className='font-display text-3xl font-extrabold tracking-[-0.03em] text-ink sm:text-4xl'>
+            Privacy Policy
+          </h1>
+          <p className='mt-4 text-muted'>Last updated: {new Date().toLocaleDateString()}</p>
 
-          <div className='mt-8 prose prose-indigo prose-lg text-gray-500'>
+          <div className='mt-8 prose prose-lg text-muted'>
             <h2>1. Introduction</h2>
             <p>
-              Welcome to EuroKuke ("we," "our," or "us"). We respect your privacy and are committed to protecting your
+              Welcome to EuroKuke (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We respect your privacy and are committed to protecting your
               personal data. This privacy policy will inform you about how we look after your personal data when you
               visit our website and tell you about your privacy rights and how the law protects you.
             </p>
@@ -98,7 +100,7 @@ export default function PrivacyPolicy() {
             <h2>7. Changes to This Privacy Policy</h2>
             <p>
               We may update our privacy policy from time to time. We will notify you of any changes by posting the new
-              privacy policy on this page and updating the "Last updated" date at the top of this privacy policy. You
+              privacy policy on this page and updating the &quot;Last updated&quot; date at the top of this privacy policy. You
               are advised to review this privacy policy periodically for any changes. Changes to this privacy policy are
               effective when they are posted on this page.
             </p>
