@@ -874,7 +874,7 @@ Heights differ per logo deliberately — these three marks have very different c
 
 - [ ] **Step 4: Add the eslint exception if the build complains**
 
-`next/no-img-element` is a warning in `eslint-config-next`. If `npm run lint` reports it, add this comment directly above the `<img>` element rather than disabling the rule globally:
+`next/no-img-element` is a warning in `eslint-config-next`. If the lint gate reports it, add this comment directly above the `<img>` element rather than disabling the rule globally:
 
 ```tsx
             // eslint-disable-next-line @next/next/no-img-element
