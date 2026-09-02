@@ -12,7 +12,21 @@
 
 ## Global Constraints
 
-- **No test framework exists in this repo.** There is no `test` script, no runner, no test files. Do not add one — it is out of scope for this plan. Every task is gated on `npm run build`, `npm run lint`, and visual verification in a browser at 1440px and 390px.
+- **No test framework exists in this repo.** There is no `test` script, no runner, no test files. Do not add one — it is out of scope for this plan.
+- **The verification gate is these three commands.** Run all three; all three must pass.
+
+```bash
+npm run build
+npx tsc --noEmit
+ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
+```
+
+  `npm run lint` is NOT a gate and must not be used as one. `next lint` in Next
+  13.5.6 cannot read this repo's flat `eslint.config.mjs`; it prints
+  `ESLint output (JSON parse failed...)` and **exits 0 without running a single
+  rule**. Task 2 repairs the config; every task from Task 2 onward runs the three
+  commands above. Plus visual verification at 1440px and 390px where a task
+  names it.
 - **No new runtime dependencies.** `package.json` dependencies must be unchanged when this plan completes.
 - **No invented facts.** No price, star rating, review count, testimonial, street address, or social profile may appear on any page unless it already exists as real data in the repo. The only real trust signals available are: hours (Mon–Fri 08:00–20:00, Sat 10:00–16:00), the Google Maps listing for "Euro Kuka Beograd" at 44.813504/20.457973, and the three manufacturer brands.
 - **All user-facing Serbian copy lives in `src/utils/translations/sr.ts`** and is read through `useTranslation()`. No component hardcodes Serbian text.
@@ -182,10 +196,10 @@ and
       <body className='bg-paper font-sans text-ink antialiased'>
 ```
 
-- [ ] **Step 5: Verify build and lint**
+- [ ] **Step 7: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
@@ -232,7 +246,45 @@ Everything that can trigger a call funnels through here, so the phone number and
   - `<Button href tone variant size className children />` where `tone` is `'accent' | 'light' | 'dark'` and `variant` is `'solid' | 'ghost'`
   - `<ContactActions tone size showWhatsapp className />` where `tone` is `'dark' | 'light'`
 
-- [ ] **Step 1: Create `src/lib/contact.ts`**
+- [ ] **Step 1: Repair the ESLint config so the lint gate actually runs**
+
+`eslint.config.mjs` extends `next/typescript`, a config that does not exist in
+`eslint-config-next@13.5.6` — it was introduced in Next 15. The repo was
+scaffolded from a Next 15 template but pinned to Next 13.5. ESLint therefore
+dies with `couldn't find the config "next/typescript"`, and `next lint` swallows
+that and exits 0, so the project has had no working linter at all.
+
+Change the one line in `eslint.config.mjs`:
+
+```js
+const eslintConfig = [
+  ...compat.extends('next/core-web-vitals'),
+];
+```
+
+Do **not** add or upgrade any dependency to fix this — dropping the one
+unavailable config is sufficient and keeps the no-new-dependencies constraint.
+
+- [ ] **Step 2: Confirm the linter now runs, and record the pre-existing errors**
+
+```bash
+ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
+```
+
+Expected: it reports **8 `react/no-unescaped-entities` errors in
+`src/app/privacy/page.tsx`** (lines 21 and 101). These are pre-existing and are
+NOT yours to fix — Task 12 owns `/privacy` and fixes them there. Confirm the
+count is 8 and that every one is in `privacy/page.tsx`; if the linter reports
+errors in any other file, stop and report it, because that means this task's
+scope just changed.
+
+For the remainder of this task, run the gate against only the files you touch:
+
+```bash
+ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src/lib src/components
+```
+
+- [ ] **Step 3: Create `src/lib/contact.ts`**
 
 ```ts
 /**
@@ -252,7 +304,7 @@ export const VIBER_HREF = `viber://chat?number=${encodeURIComponent(PHONE_DIAL)}
 export const WHATSAPP_HREF = `https://wa.me/${PHONE_DIAL.replace('+', '')}?text=${encodeURIComponent(PREFILL)}`;
 ```
 
-- [ ] **Step 2: Add the `actions` copy block to `src/utils/translations/sr.ts`**
+- [ ] **Step 4: Add the `actions` copy block to `src/utils/translations/sr.ts`**
 
 Insert immediately after the `navigation` block:
 
@@ -267,7 +319,7 @@ Insert immediately after the `navigation` block:
   },
 ```
 
-- [ ] **Step 3: Create `src/components/ui/Button.tsx`**
+- [ ] **Step 5: Create `src/components/ui/Button.tsx`**
 
 ```tsx
 import Link from 'next/link';
@@ -339,7 +391,7 @@ export default function Button({
 }
 ```
 
-- [ ] **Step 4: Create `src/components/ContactActions.tsx`**
+- [ ] **Step 6: Create `src/components/ContactActions.tsx`**
 
 ```tsx
 'use client';
@@ -398,16 +450,16 @@ export default function ContactActions({
 - [ ] **Step 5: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. Nothing renders these yet; this step catches type errors only.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add src/lib/contact.ts src/components/ui/Button.tsx src/components/ContactActions.tsx src/utils/translations/sr.ts
-git commit -m "Contact deep-link module, Button and ContactActions primitives"
+git add eslint.config.mjs src/lib/contact.ts src/components/ui/Button.tsx src/components/ContactActions.tsx src/utils/translations/sr.ts
+git commit -m "Repair ESLint config; contact deep-link module, Button and ContactActions"
 ```
 
 ---
@@ -532,7 +584,7 @@ export default function Navbar() {
 - [ ] **Step 2: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
@@ -719,7 +771,7 @@ import MobileCallBar from '@/components/MobileCallBar';
 - [ ] **Step 6: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
@@ -831,7 +883,7 @@ Heights differ per logo deliberately — these three marks have very different c
 - [ ] **Step 5: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
@@ -983,7 +1035,7 @@ leave the `plans` object in place — `src/app/installation/page.tsx` still read
 - [ ] **Step 5: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. Because this task only adds keys and deletes a file
@@ -1100,7 +1152,7 @@ and 9 — but they still build, because Task 6 left their keys in place.
 - [ ] **Step 3: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. Open `http://localhost:3000` and confirm the new dark
@@ -1204,7 +1256,7 @@ Delete the existing "Services Overview" and "Why Choose Us" blocks — they stat
 - [ ] **Step 2: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
@@ -1374,7 +1426,7 @@ Expected: `safe to delete`. Then remove the `services`, `whyChooseUs` and
 - [ ] **Step 4: Verify build and lint**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. If the build reports a missing translation key, the `home` block from Task 6 Step 3 was not applied completely.
@@ -1505,7 +1557,7 @@ Expected: `clean`.
 - [ ] **Step 8: Verify build, lint and appearance**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. Then open `http://localhost:3000/installation` and confirm no price figure appears anywhere on the page, and that the FAQ and its JSON-LD still match.
@@ -1621,7 +1673,7 @@ served is what this block states, and it reads from `common.area`.
 - [ ] **Step 3: Verify build, lint and appearance**
 
 ```bash
-npm run build && npm run lint
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0. Open `http://localhost:3000/contact` at 1440px and 390px. Confirm there is no empty grid column and the map fills its side of the layout.
@@ -1685,15 +1737,28 @@ git diff --stat main -- package.json package-lock.json
 
 Expected: no change to the `dependencies` block.
 
-- [ ] **Step 6: Full build and lint**
+- [ ] **Step 6: Fix the 8 pre-existing lint errors in `src/app/privacy/page.tsx`**
+
+Task 2 repaired the ESLint config and surfaced 8 `react/no-unescaped-entities`
+errors that have been latent in this file since it was written (lines 21 and
+101). Replace each bare `"` inside JSX text with `&quot;`. Do not restructure
+the copy — only escape the quotes.
 
 ```bash
-npm run build && npm run lint
+ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src/app/privacy/page.tsx
+```
+
+Expected: no errors.
+
+- [ ] **Step 7: Full gate**
+
+```bash
+npm run build && npx tsc --noEmit && ESLINT_USE_FLAT_CONFIG=true ./node_modules/.bin/eslint src
 ```
 
 Expected: both exit 0.
 
-- [ ] **Step 7: Final visual pass**
+- [ ] **Step 8: Final visual pass**
 
 With `npm run dev`, walk `/`, `/installation`, `/contact`, `/blog`, `/privacy` and a 404 URL at 1440px and 390px. Confirm on each:
 - Header sticks, is dark, and shows the phone CTA.
@@ -1701,7 +1766,7 @@ With `npm run dev`, walk `/`, `/installation`, `/contact`, `/blog`, `/privacy` a
 - Serbian diacritics render in Archivo/Inter, not a fallback.
 - Browser console is free of errors.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add -A src/
