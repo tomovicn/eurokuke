@@ -11,6 +11,14 @@ export const sr = {
     blog: 'Blog',
     contact: 'Kontakt',
   },
+  actions: {
+    call: 'Pozovi',
+    callLong: 'Pozovi 063 806 6462',
+    viber: 'Viber',
+    whatsapp: 'WhatsApp',
+    openMenu: 'Otvori meni',
+    closeMenu: 'Zatvori meni',
+  },
   footer: {
     copyright: '© {year} Ugradnja Euro Kuka. Sva prava zadržana.',
   },
