@@ -69,17 +69,26 @@ Replaces the whole file. The `@media (prefers-color-scheme: dark)` block and the
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Solid colours are stored as space-separated RGB channels, not hex, so that
+ * Tailwind can inject an alpha value: `bg-ink/90` compiles to
+ * `rgb(11 12 14 / 0.9)`. With a plain `--ink: #0b0c0e` every `/NN` opacity
+ * modifier silently compiles to nothing, which would break the translucent
+ * header and the mobile call bar. Colours that are already translucent are
+ * stored whole and take no alpha modifier.
+ */
 :root {
-  --ink: #0b0c0e;
-  --ink-2: #16181c;
-  --paper: #ffffff;
-  --paper-2: #f4f5f7;
-  --line: #e4e6ea;
+  --ink: 11 12 14;
+  --ink-2: 22 24 28;
+  --paper: 255 255 255;
+  --paper-2: 244 245 247;
+  --accent: 225 6 0;
+  --accent-ink: 255 255 255;
+  --line: 228 230 234;
+  --muted: 90 96 105;
+
   --line-dark: rgb(255 255 255 / 0.1);
-  --muted: #5a6069;
   --muted-dark: rgb(255 255 255 / 0.66);
-  --accent: #e10600;
-  --accent-ink: #ffffff;
 }
 
 html {
@@ -88,8 +97,8 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
 }
 
 /* The mobile call bar is fixed to the bottom edge below md.
@@ -103,11 +112,20 @@ Replace the `theme.extend` block in `tailwind.config.js` with this. Keep the exi
 ```js
         extend: {
             colors: {
-                ink: { DEFAULT: 'var(--ink)', 2: 'var(--ink-2)' },
-                paper: { DEFAULT: 'var(--paper)', 2: 'var(--paper-2)' },
-                line: { DEFAULT: 'var(--line)', dark: 'var(--line-dark)' },
-                muted: { DEFAULT: 'var(--muted)', dark: 'var(--muted-dark)' },
-                accent: { DEFAULT: 'var(--accent)', ink: 'var(--accent-ink)' },
+                ink: {
+                    DEFAULT: 'rgb(var(--ink) / <alpha-value>)',
+                    2: 'rgb(var(--ink-2) / <alpha-value>)',
+                },
+                paper: {
+                    DEFAULT: 'rgb(var(--paper) / <alpha-value>)',
+                    2: 'rgb(var(--paper-2) / <alpha-value>)',
+                },
+                accent: {
+                    DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+                    ink: 'rgb(var(--accent-ink) / <alpha-value>)',
+                },
+                line: { DEFAULT: 'rgb(var(--line) / <alpha-value>)', dark: 'var(--line-dark)' },
+                muted: { DEFAULT: 'rgb(var(--muted) / <alpha-value>)', dark: 'var(--muted-dark)' },
             },
             fontFamily: {
                 sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
@@ -119,8 +137,8 @@ Replace the `theme.extend` block in `tailwind.config.js` with this. Keep the exi
             typography: {
                 DEFAULT: {
                     css: {
-                        color: 'var(--ink)',
-                        a: { color: 'var(--accent)', '&:hover': { color: 'var(--accent)' } },
+                        color: 'rgb(var(--ink))',
+                        a: { color: 'rgb(var(--accent))', '&:hover': { color: 'rgb(var(--accent))' } },
                     },
                 },
             },
@@ -180,7 +198,15 @@ npm run dev
 
 Open `http://localhost:3000`. Confirm "Šta Vam Nudimo" and "Zašto Izabrati Nas" render š and ž in the same typeface as the surrounding letters, with no weight or width jump. Before this task they fall back to a system font.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 7: Verify the alpha modifier compiles**
+
+In devtools, add `class="bg-ink/50"` to any element and confirm the computed
+`background-color` is `rgba(11, 12, 14, 0.5)`, not a fully opaque colour and not
+absent. If the alpha is ignored, the channel format in Step 1 was not applied
+correctly, and the sticky header and mobile call bar built in Tasks 3 and 4 will
+be opaque.
+
+- [ ] **Step 8: Commit**
 
 ```bash
 git add src/app/globals.css tailwind.config.js src/app/layout.tsx
@@ -887,9 +913,7 @@ them.
         'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
       chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
     },
-    brands: {
-      label: 'Ugrađujemo kuke proizvođača',
-    },
+    // `brands.label` was already added in Task 5 — do not add it a second time.
     process: {
       eyebrow: 'Proces montaže',
       title: 'Kako izgleda ugradnja',
@@ -978,7 +1002,7 @@ anywhere else, stop and resolve it before continuing.
 - [ ] **Step 7: Commit**
 
 ```bash
-git add -A src/utils/translations/sr.ts src/lib/vehicles.ts src/locales
+git add -A src/
 git commit -m "Add redesign copy keys, extract vehicle list, drop dead locale file"
 ```
 
@@ -996,6 +1020,10 @@ git commit -m "Add redesign copy keys, extract vehicle list, drop dead locale fi
 - [ ] **Step 1: Replace the top of `src/app/page.tsx`**
 
 Replace everything from the opening `<div className='bg-white'>` through the end of the brand-logos block with the following. Keep the JSON-LD script tag exactly as it is — it is server-rendered on purpose, as documented in `src/lib/schema.ts`.
+
+**Keep the `interface Testimonial` declaration** that currently sits above
+`export default function Home()`. The testimonials section still renders below
+until Task 9 and will not type-check without it. Task 9 removes both together.
 
 ```tsx
 'use client';
@@ -1219,7 +1247,7 @@ import Button from '@/components/ui/Button';
 
 - [ ] **Step 2: Replace the testimonials and CTA sections**
 
-Delete the "Testimonials" block entirely — those three customers are invented — and the existing "CTA Section", then append these four sections before the closing `</div>`:
+Delete the "Testimonials" block entirely — those three customers are invented — and the existing "CTA Section". Also delete the now-unused `interface Testimonial` declaration above `export default function Home()`, which Task 7 deliberately left in place. Then append these four sections before the closing `</div>`:
 
 ```tsx
       {/* Vehicles */}
@@ -1380,7 +1408,16 @@ git commit -m "Homepage vehicles, FAQ, hours and map, final CTA; drop invented t
 - Consumes: `VEHICLE_BRANDS`, `ContactActions`, `getInstallationFaq`, `installation.pricing.*`
 - Produces: nothing consumed by later tasks
 
-- [ ] **Step 1: Restyle the page hero to the dark band**
+- [ ] **Step 1: Add the imports this page now needs**
+
+```tsx
+import ContactActions from '@/components/ContactActions';
+import { VEHICLE_BRANDS } from '@/lib/vehicles';
+```
+
+Remove any `next/image` import if the page no longer renders an `Image`.
+
+- [ ] **Step 2: Restyle the page hero to the dark band**
 
 The page currently opens with a full-bleed black block with no eyebrow and no CTA. Replace the hero wrapper with:
 
@@ -1398,7 +1435,7 @@ The page currently opens with a full-bleed black block with no eyebrow and no CT
       </section>
 ```
 
-- [ ] **Step 2: Replace the pricing section**
+- [ ] **Step 3: Replace the pricing section**
 
 Delete the entire pricing block at `src/app/installation/page.tsx:143-165` — the grid that renders one of three tiers, off-centre, under a heading promising transparent prices. Replace it with the same quote block used on the homepage:
 
@@ -1421,7 +1458,7 @@ Delete the entire pricing block at `src/app/installation/page.tsx:143-165` — t
       </section>
 ```
 
-- [ ] **Step 3: Read the brand grid from the shared module**
+- [ ] **Step 4: Read the brand grid from the shared module**
 
 Replace the inline array of twelve brand names with `VEHICLE_BRANDS` from `@/lib/vehicles`, and restyle the cards as hairline chips matching the homepage:
 
@@ -1438,7 +1475,7 @@ Replace the inline array of twelve brand names with `VEHICLE_BRANDS` from `@/lib
           </ul>
 ```
 
-- [ ] **Step 4: Delete the unshown pricing tiers from `src/utils/translations/sr.ts`**
+- [ ] **Step 5: Delete the unshown pricing tiers from `src/utils/translations/sr.ts`**
 
 Nothing renders them now:
 
@@ -1450,14 +1487,14 @@ Expected: `safe to delete`. Then remove the entire `plans` object from
 `installation.pricing`. It holds `od 15.000 RSD` and `od 20.000 RSD`, figures the
 owner has said must not be published.
 
-- [ ] **Step 5: Apply tokens to the remaining sections**
+- [ ] **Step 6: Apply tokens to the remaining sections**
 
 Sweep the rest of the file using the colour mapping in Global Constraints above —
 every entry in that table, no exceptions. Section headings additionally take
 `font-display` and `tracking-[-0.03em]`; eyebrows become
 `text-xs font-semibold uppercase tracking-[0.18em] text-accent`.
 
-- [ ] **Step 6: Verify no stock colours remain**
+- [ ] **Step 7: Verify no stock colours remain**
 
 ```bash
 grep -nE 'gray-[0-9]|red-[0-9]|(bg|text)-white([^/]|$)|text-black' src/app/installation/page.tsx || echo "clean"
@@ -1465,7 +1502,7 @@ grep -nE 'gray-[0-9]|red-[0-9]|(bg|text)-white([^/]|$)|text-black' src/app/insta
 
 Expected: `clean`.
 
-- [ ] **Step 7: Verify build, lint and appearance**
+- [ ] **Step 8: Verify build, lint and appearance**
 
 ```bash
 npm run build && npm run lint
@@ -1473,7 +1510,7 @@ npm run build && npm run lint
 
 Expected: both exit 0. Then open `http://localhost:3000/installation` and confirm no price figure appears anywhere on the page, and that the FAQ and its JSON-LD still match.
 
-- [ ] **Step 8: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add src/app/installation/page.tsx src/utils/translations/sr.ts
@@ -1534,9 +1571,14 @@ export default function Contact() {
               {t('contact.email')}
             </a>
 
-            <h3 className='mt-10 font-display text-lg font-bold tracking-[-0.02em]'>{t('contact.info.address')}</h3>
+            <h3 className='mt-10 font-display text-lg font-bold tracking-[-0.02em]'>
+              {t('contact.info.areaTitle')}
+            </h3>
+            <p className='mt-3 text-muted'>{t('common.area')}</p>
 
-            <h3 className='mt-8 font-display text-lg font-bold tracking-[-0.02em]'>Radno vreme</h3>
+            <h3 className='mt-8 font-display text-lg font-bold tracking-[-0.02em]'>
+              {t('contact.info.hoursTitle')}
+            </h3>
             <div className='mt-3 space-y-1 text-muted'>
               <p>{t('common.hours.weekdays')}</p>
               <p>{t('common.hours.saturday')}</p>
@@ -1563,15 +1605,18 @@ export default function Contact() {
 }
 ```
 
-- [ ] **Step 2: Move the "Radno vreme" heading into the translation file**
+- [ ] **Step 2: Add the two heading keys to `src/utils/translations/sr.ts`**
 
-The heading above is hardcoded, which violates the global constraint. Add to `contact.info` in `src/utils/translations/sr.ts`:
+Inside `contact.info`:
 
 ```ts
+      areaTitle: 'Područje rada',
       hoursTitle: 'Radno vreme',
 ```
 
-and replace the literal with `{t('contact.info.hoursTitle')}`.
+`contact.info.address` holds the *value* `'Beograd, Srbija'`, not a label, so it
+cannot be used as a heading. There is no street address to publish — the area
+served is what this block states, and it reads from `common.area`.
 
 - [ ] **Step 3: Verify build, lint and appearance**
 

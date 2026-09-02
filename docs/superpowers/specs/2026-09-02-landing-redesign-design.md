@@ -69,6 +69,11 @@ hex value.
 | `--line` | `#E4E6EA` | hairline on light |
 | `--line-dark` | `rgb(255 255 255 / 0.10)` | hairline on dark |
 
+Values above are given as hex for readability. Solid tokens are stored as
+space-separated RGB channels (`--ink: 11 12 14`) and exposed to Tailwind as
+`rgb(var(--ink) / <alpha-value>)`, so opacity modifiers such as `bg-ink/90`
+compile correctly. Hex would make every `/NN` modifier a no-op.
+
 Sections alternate dark and light bands. The current page is a single
 undifferentiated white wall, which is the main reason it reads as a template.
 
