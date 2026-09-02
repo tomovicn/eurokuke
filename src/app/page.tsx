@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useTranslation } from '@/utils/i18n';
+import BrandStrip from '@/components/BrandStrip';
+import ContactActions from '@/components/ContactActions';
 import { localBusinessSchema } from '@/lib/schema';
+import { useTranslation } from '@/utils/i18n';
 
 interface Testimonial {
   name: string;
@@ -15,98 +15,58 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className='bg-white'>
+    <div className='bg-paper'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
       />
 
-      {/* Hero section */}
-      <div className='relative bg-white overflow-hidden'>
-        <div className='max-w-7xl mx-auto'>
-          <div className='relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32'>
-            <div className='pt-10 px-4 sm:px-6 md:px-8 sm:pt-16 lg:pt-8 xl:pt-16'>
-              <div className='sm:text-center lg:text-left'>
-                <h1 className='text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl'>
-                  <span className='block xl:inline'>Profesionalna Ugradnja</span>{' '}
-                  <span className='block text-red-600 xl:inline'>Euro Kuka</span>
-                </h1>
-                <p className='mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0'>
-                  {t('home.hero.description')}
-                </p>
-                <div className='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
-                  <div className='rounded-md shadow'>
-                    <a
-                      href='tel:+381638066462'
-                      className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10'
-                    >
-                      {t('home.hero.cta.book')}
-                    </a>
-                  </div>
-                  <div className='mt-3 sm:mt-0 sm:ml-3'>
-                    <a
-                      href='tel:+381638066462'
-                      className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10'
-                    >
-                      {t('home.hero.cta.call')}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
-          <Image
-            src='/images/hero/eurokuka.jpg'
-            alt='Ugradnja euro kuke u Beogradu - Profesionalna montaža za sve marke vozila'
-            width={600}
-            height={400}
-            className=''
-            priority
-          />
-        </div>
-      </div>
-
-      {/* Brand Logos */}
-      <div className='py-8 bg-white'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='text-center mb-6'>
-            <p className='text-sm font-medium text-gray-500 uppercase tracking-wider'>
-              Sarađujemo sa vodećim proizvođačima kuka za vuču
+      {/* Hero */}
+      <section className='bg-ink'>
+        <div className='mx-auto grid max-w-container items-center gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-2 lg:px-8'>
+          <div>
+            <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
+              {t('home.hero.eyebrow')}
             </p>
+            <h1 className='mt-5 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] text-paper md:text-6xl'>
+              {t('home.hero.title.main')}{' '}
+              <span className='text-accent'>{t('home.hero.title.accent')}</span>
+            </h1>
+            <p className='mt-6 max-w-xl text-lg leading-relaxed text-muted-dark'>
+              {t('home.hero.description')}
+            </p>
+
+            <ContactActions tone='dark' size='lg' className='mt-8' />
+
+            <ul className='mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-line-dark pt-6 text-sm text-muted-dark'>
+              {(t('home.hero.chips') as unknown as string[]).map((chip) => (
+                <li key={chip} className='flex items-center gap-2'>
+                  <span aria-hidden='true' className='h-1.5 w-1.5 rounded-full bg-accent' />
+                  {chip}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className='flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-12'>
-            <div className='w-32 h-16 flex items-center justify-center'>
-              <Image
-                src='/bosal.svg'
-                alt='Bosal - Originalne kuke za vuču'
-                width={120}
-                height={48}
-                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300'
-              />
-            </div>
-            <div className='w-32 h-16 flex items-center justify-center'>
-              <Image
-                src='/oris.jpg'
-                alt='Oris - Kvalitetne euro kuke'
-                width={120}
-                height={48}
-                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300'
-              />
-            </div>
-            <div className='w-32 h-16 flex items-center justify-center'>
-              <Image
-                src='/steinhof.svg'
-                alt='Steinhof - Profesionalne kuke za vozila'
-                width={120}
-                height={48}
-                className='h-8 md:h-10 w-auto object-contain grayscale-0 transition-all duration-300 bg-gray-300'
-              />
-            </div>
+
+          {/*
+            The hero render is a JPEG on a white background. The light plate is
+            what lets it sit on a dark section; it is also the drop-in slot for a
+            real photograph or a transparent cutout later, with no relayout.
+          */}
+          <div className='relative rounded-2xl bg-gradient-to-br from-white to-paper-2 p-6 shadow-2xl lg:rotate-1'>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src='/images/hero/eurokuka.jpg'
+              alt='Euro kuka za vuču spremna za ugradnju'
+              width={600}
+              height={519}
+              className='h-auto w-full rounded-xl object-contain'
+            />
           </div>
         </div>
-      </div>
+      </section>
+
+      <BrandStrip />
 
       {/* Services Overview */}
       <div className='py-12 bg-gray-50'>
