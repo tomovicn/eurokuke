@@ -15,6 +15,7 @@ export function useTranslation() {
       }
     }
 
+
     if (typeof value === 'string' && params) {
       return value.replace(/\{(\w+)\}/g, (_, param) => params[param] || '');
     }
