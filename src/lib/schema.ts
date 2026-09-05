@@ -1,7 +1,7 @@
 import type { FaqEntry } from './faq';
 import type { BlogPost } from './posts';
 import { PHONE_DIAL } from './contact';
-import { GEO, PHOTOS, SITE_NAME, SITE_URL } from './site';
+import { GEO, PHOTOS, PROFILES, SITE_NAME, SITE_URL } from './site';
 import { sr } from '@/utils/translations/sr';
 
 /**
@@ -36,6 +36,7 @@ export function localBusinessSchema() {
     // the share card. More than one gives it something to choose from.
     image: Object.values(PHOTOS).map((path) => `${SITE_URL}${path}`),
     telephone: PHONE_DIAL,
+    sameAs: [...PROFILES],
     currenciesAccepted: 'RSD',
     address: {
       '@type': 'PostalAddress',

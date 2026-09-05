@@ -82,6 +82,24 @@ export default function InstallationPage() {
             </ul>
             <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.types.note}</p>
 
+            {/* Which makers. People search the maker names directly and the
+                page had one sentence about all three. */}
+            <H2 className='mt-8 md:mt-14'>{t.brands.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.brands.description}
+            </p>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-3'>
+              {t.brands.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.brands.note}</p>
+
             {/* Atest */}
             <H2 className='mt-8 md:mt-14'>{t.atest.title}</H2>
             <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
@@ -106,6 +124,24 @@ export default function InstallationPage() {
                 ))}
               </ol>
             </Card>
+
+            {/* What moves the price. No numbers until there are published
+                ones, but the question is answered rather than ignored. */}
+            <H2 className='mt-8 md:mt-14'>{t.price.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.price.description}
+            </p>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-2'>
+              {t.price.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.price.note}</p>
 
             {/* FAQ */}
             <H2 className='mt-8 md:mt-14'>{t.faq.title}</H2>

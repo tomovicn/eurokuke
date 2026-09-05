@@ -244,6 +244,71 @@ export const sr = {
       note: 'Koja varijanta postoji za vaše vozilo, proveravamo na poziv.',
     },
 
+    // Search Console, six months to 2026-09-05: `bosal kuke`, `oris kuke`,
+    // `bosal auto kuke`, `oris auto kuke` and `oris kuka` together drew about
+    // twenty impressions at positions 7 to 12 with no clicks. The site named
+    // all three makers in a single sentence and had nothing else to show.
+    brands: {
+      title: 'Kuke koje ugrađujemo',
+      description:
+        'Radimo kuke tri evropska proizvođača. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
+      items: [
+        // TREBA POTVRDA PRE MERGE-A: ova lista je prepisana iz postojećeg
+        // teksta na sajtu. Oglas na KupujemProdajem navodi Bosal i AutoHak,
+        // ne Oris i Steinhof. Opisi zato drže samo poreklo proizvođača, što je
+        // tačno u svakom slučaju, i ne tvrde ništa o tome šta se drži na
+        // stanju. Kada se lista potvrdi, ovde idu i pokrivenost i varijante.
+        {
+          title: 'Bosal',
+          description: 'Holandski proizvođač i jedan od najvećih u Evropi.',
+        },
+        {
+          title: 'Oris',
+          description: 'Nemački proizvođač, fiksne i odvojive varijante.',
+        },
+        {
+          title: 'Steinhof',
+          description: 'Poljski proizvođač, sa dokumentacijom po tipu kuke.',
+        },
+      ],
+      note: 'Ako ste kuku već kupili negde drugde, recite oznaku tipa pre nego što dođete. Bez dokumentacije proizvođača atest se ne radi.',
+    },
+
+    // Same source: `ugradnja kuke sa atestom cena`, `ugradnja euro kuke cena`,
+    // `ugradnja kuke na auto cena`, `ugradnja auto kuke cena` and
+    // `cena ugradnje kuke za auto` drew impressions at positions 15 to 41 and
+    // no clicks, because the site did not carry the word `cena` anywhere near
+    // an explanation. This is the version without numbers; the day there are
+    // published prices, they go here.
+    price: {
+      title: 'Od čega zavisi cena',
+      description:
+        'Cena ugradnje nije ista za svako vozilo i zato je ne objavljujemo kao jedan broj. Ovo je sve što je pomera, da biste znali šta vas čeka pre nego što pozovete.',
+      items: [
+        {
+          title: 'Tip kuke',
+          description:
+            'Fiksna ima manje delova i po pravilu je povoljnija. Odvojiva nosi mehanizam koji se otključava, pa je skuplja.',
+        },
+        {
+          title: 'Broj pinova',
+          description:
+            'Instalacija sa 13 pinova ima više strujnih kola od one sa 7 i košta više. Bira se prema tome šta vučete, ne prema ceni.',
+        },
+        {
+          title: 'Marka, model i godište',
+          description:
+            'Od toga zavisi koji tipovi kuke uopšte postoje za vaše vozilo i koliko posla treba da se dođe do fabričkih tačaka za pričvršćivanje.',
+        },
+        {
+          title: 'Priprema na vozilu',
+          description:
+            'Kod nekih modela branik mora da se skine ili doradi. Neka vozila, opet, imaju fabričku pripremu za instalaciju, što skraćuje posao.',
+        },
+      ],
+      note: 'Atest i garancija od dve godine ulaze u cenu i ne naplaćuju se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+    },
+
     atest: {
       title: 'Atest i registracija',
       description:

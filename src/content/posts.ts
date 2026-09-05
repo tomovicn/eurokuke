@@ -22,9 +22,18 @@ export type PostContent = {
 
 export const POSTS: Record<string, PostContent> = {
   'atest-euro-kuke': {
-    title: 'Atest za euro kuku: šta je, kada vam treba i kako se upisuje',
+    /*
+     * `atest za kuku` is the single biggest query the site has: 112 impressions
+     * over six months at average position 7.47, and a click-through rate of
+     * 1.79%, which is roughly half of what that position normally returns. The
+     * old title spent its first three words on `Atest za euro kuku`, so the
+     * exact phrase people type never appeared, and at 60 characters the useful
+     * half was cut off in results anyway. The related queries `atest kuke`,
+     * `atest kuke za auto` and `atest za kuku na autu` all match the new one.
+     */
+    title: 'Atest za kuku: šta je, ko ga izdaje i kako se upisuje',
     description:
-      'Šta je atest za euro kuku, kada vam je potreban, kojim redom se rade ugradnja, atest, tehnički pregled i upis u saobraćajnu dozvolu u Srbiji.',
+      'Atest za kuku je potvrda da je kuka ugrađena po propisu. Šta sadrži, ko ga izdaje i kojim redom idu ugradnja, tehnički pregled i upis u saobraćajnu dozvolu.',
     date: '12. mart 2026.',
     datetime: '2026-03-12',
     readingTime: '8 min čitanja',

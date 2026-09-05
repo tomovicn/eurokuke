@@ -54,4 +54,9 @@ export const INSTALLATION_FAQ: FaqEntry[] = [
     question: 'Koliko unapred treba zakazati?',
     answer: 'Termin najčešće dobijate u roku od 24 sata od poziva.',
   },
+  {
+    question: 'Koliko košta ugradnja auto kuke?',
+    answer:
+      'Cena zavisi od tipa kuke, broja pinova na instalaciji i od samog vozila. Atest i garancija od dve godine su uključeni. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+  },
 ];
