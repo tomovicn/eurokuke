@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactActions from '@/components/ContactActions';
 import Faq from '@/components/Faq';
 import { SolidAction } from '@/components/ui/Actions';
-import { Card, Container, H2, MonoLabel, Section } from '@/components/ui/primitives';
+import { Card, Container, H2, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
 import { TEL_HREF } from '@/lib/contact';
 import { INSTALLATION_FAQ } from '@/lib/faq';
 import { PHOTO_HEIGHT, PHOTO_WIDTH, PHOTOS } from '@/lib/site';
@@ -82,6 +82,24 @@ export default function InstallationPage() {
             </ul>
             <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.types.note}</p>
 
+            {/* Which makers. People search the maker names directly and the
+                page had one sentence about all three. */}
+            <H2 className='mt-8 md:mt-14'>{t.brands.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.brands.description}
+            </p>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-3'>
+              {t.brands.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.brands.note}</p>
+
             {/* Atest */}
             <H2 className='mt-8 md:mt-14'>{t.atest.title}</H2>
             <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
@@ -106,6 +124,35 @@ export default function InstallationPage() {
                 ))}
               </ol>
             </Card>
+
+            {/* What moves the price. No numbers until there are published
+                ones, but the question is answered rather than ignored. */}
+            <H2 className='mt-8 md:mt-14'>{t.price.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.price.description}
+            </p>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-2'>
+              {t.price.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.price.note}</p>
+
+            {/* Sales and delivery outside Belgrade, which the site had never
+                mentioned even though it has been part of the business for
+                years. */}
+            <H2 className='mt-8 md:mt-14'>{t.shipping.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.shipping.description}
+            </p>
+            <p className='mt-3 text-sm md:mt-4 md:text-[15px]'>
+              <TextLink href='/prodaja-auto-kuka'>{t.shipping.linkLabel} &rarr;</TextLink>
+            </p>
 
             {/* FAQ */}
             <H2 className='mt-8 md:mt-14'>{t.faq.title}</H2>

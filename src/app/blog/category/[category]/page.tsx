@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Card, Container, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
-import { getCategories, getCategory, getPostsByCategory } from '@/lib/posts';
+import { getCategories, getCategory, getPostsByCategory, isCategoryIndexable } from '@/lib/posts';
 import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
 import { sr } from '@/utils/translations/sr';
 
@@ -25,6 +25,10 @@ export function generateMetadata({ params }: { params: { category: string } }): 
     title: `${category.title}: euro kuka i vuča prikolice`,
     description: category.description,
     alternates: { canonical: url },
+    // A category holding one article says nothing the article does not say
+    // better, and two URLs answering the same query split the ranking between
+    // them. `follow` stays on, so the post below still gets the link.
+    robots: isCategoryIndexable(category.slug) ? undefined : { index: false, follow: true },
     openGraph: {
       type: 'website',
       locale: SITE_LOCALE,

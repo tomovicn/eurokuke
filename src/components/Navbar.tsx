@@ -14,6 +14,7 @@ import { sr } from '@/utils/translations/sr';
 const NAVIGATION = [
   { key: 'home', href: '/', label: sr.navigation.home },
   { key: 'installation', href: '/installation', label: sr.navigation.installation },
+  { key: 'sales', href: '/prodaja-auto-kuka', label: sr.navigation.sales },
   { key: 'blog', href: '/blog', label: sr.navigation.blog },
   { key: 'contact', href: '/contact', label: sr.navigation.contact },
 ] as const;

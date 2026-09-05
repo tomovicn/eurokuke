@@ -7,6 +7,13 @@ export type PostContent = {
   description: string;
   date: string;
   datetime: string;
+  /**
+   * ISO date of the last substantive revision, when there has been one.
+   * Absent means the text has not been touched since publication, and
+   * `dateModified` in the markup then equals `datePublished` rather than
+   * claiming a freshness that did not happen.
+   */
+  updated?: string;
   readingTime: string;
   category: { title: string; href: string };
   author: { name: string };
@@ -15,9 +22,18 @@ export type PostContent = {
 
 export const POSTS: Record<string, PostContent> = {
   'atest-euro-kuke': {
-    title: 'Atest za euro kuku: šta je, kada vam treba i kako se upisuje',
+    /*
+     * `atest za kuku` is the single biggest query the site has: 112 impressions
+     * over six months at average position 7.47, and a click-through rate of
+     * 1.79%, which is roughly half of what that position normally returns. The
+     * old title spent its first three words on `Atest za euro kuku`, so the
+     * exact phrase people type never appeared, and at 60 characters the useful
+     * half was cut off in results anyway. The related queries `atest kuke`,
+     * `atest kuke za auto` and `atest za kuku na autu` all match the new one.
+     */
+    title: 'Atest za kuku: šta je, ko ga izdaje i kako se upisuje',
     description:
-      'Šta je atest za euro kuku, kada vam je potreban, kojim redom se rade ugradnja, atest, tehnički pregled i upis u saobraćajnu dozvolu u Srbiji.',
+      'Atest za kuku je potvrda da je kuka ugrađena po propisu. Šta sadrži, ko ga izdaje i kojim redom idu ugradnja, tehnički pregled i upis u saobraćajnu dozvolu.',
     date: '12. mart 2026.',
     datetime: '2026-03-12',
     readingTime: '8 min čitanja',
@@ -108,7 +124,7 @@ export const POSTS: Record<string, PostContent> = {
       <ul>
         <li>Da za vašu marku, model, godište i tip karoserije postoji odgovarajući tip kuke. Isti model u limuzini i u karavanu ne mora da nosi istu kuku.</li>
         <li>Da uz kuku ide dokumentacija proizvođača, sa oznakom tipa. Bez toga se atest ne radi.</li>
-        <li>Da se elektro-instalacija radi zajedno sa kukom, sa 7 ili 13 pinova, u zavisnosti od toga šta vučete.</li>
+        <li>Da se elektro-instalacija radi zajedno sa kukom, sa <a href="/blog/izbor-pravog-modela-euro-kuke">7 ili 13 pinova</a>, u zavisnosti od toga šta vučete.</li>
         <li>Ako je kuka polovna, da se tačno zna sa kog je vozila skinuta i da za nju postoje papiri.</li>
       </ul>
 
@@ -116,11 +132,11 @@ export const POSTS: Record<string, PostContent> = {
 
       <h2>Kako to izgleda u praksi kod nas</h2>
 
-      <p>Ugradnja kuke i elektro-instalacije traje 3-4 sata, pa vozilo preuzimate istog dana. Atest izdajemo uz svaku ugradnju, tako da odmah imate papir sa kojim možete na tehnički pregled i dalje na upis. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
+      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Atest izdajemo uz svaku ugradnju, tako da odmah imate papir sa kojim možete na tehnički pregled i dalje na upis. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
 
       <p>Radimo kuke proizvođača Bosal, Oris i Steinhof, u fiksnoj i odvojivoj varijanti, za sve popularne marke automobila. Termin se obično dobija u roku od 24 sata od poziva.</p>
 
-      <p>Ako niste sigurni koji tip kuke odgovara vašem vozilu, pozovite pre nego što bilo šta kupite.</p>
+      <p>Ako niste sigurni koji tip kuke odgovara vašem vozilu, <a href="/contact">pozovite</a> pre nego što bilo šta kupite.</p>
     `,
   },
   'izbor-pravog-modela-euro-kuke': {
@@ -141,7 +157,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Odvojiva kuka ima isti nosač ispod branika, ali se vrat sa kuglom vadi iz ležišta. Otključa se, izvuče, i iza branika ostaje samo ležište koje je kod većine modela jedva primetno. Skidanje i vraćanje traje nekoliko sekundi kada se uhoda. Skinuti deo se drži u gepeku, obično u torbici koja ide uz kuku.</p>
 
-      <p>Mehanički, oba tipa nose ono za šta su odobrena. Odvojiva nije slabija zato što se skida. Bitno je samo da se pravilno vrati u ležište i zaključa.</p>
+      <p>Mehanički, oba tipa nose <a href="/blog/vuca-prikolice-masa-i-kategorija">ono za šta su odobrena</a>. Odvojiva nije slabija zato što se skida. Bitno je samo da se pravilno vrati u ležište i zaključa.</p>
 
       <h2>Kada je fiksna dovoljna</h2>
 
@@ -169,7 +185,7 @@ export const POSTS: Record<string, PostContent> = {
       <p>Ovde ljudi često očekuju neku kvaku, pa da raščistimo odmah.</p>
 
       <ul>
-        <li><strong>Atest.</strong> I fiksna i odvojiva kuka su naknadna izmena na vozilu. Za obe se izdaje atest i obe se upisuju u saobraćajnu dozvolu. Odvojiva se ne prijavljuje manje zato što se skida.</li>
+        <li><strong>Atest.</strong> I fiksna i odvojiva kuka su naknadna izmena na vozilu. Za obe se izdaje <a href="/blog/atest-euro-kuke">atest</a> i obe se upisuju u saobraćajnu dozvolu. Odvojiva se ne prijavljuje manje zato što se skida.</li>
         <li><strong>Garancija.</strong> Kod nas je ista, 2 godine, i na kuku i na elektro-instalaciju, bez obzira na tip.</li>
         <li><strong>Elektro-instalacija.</strong> Obe varijante je zahtevaju. Prikolica mora da ima svetla, a svetla se napajaju iz vozila.</li>
         <li><strong>Vreme ugradnje.</strong> Posao traje 3-4 sata u oba slučaja.</li>
@@ -183,7 +199,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <h2>Sedam ili trinaest pinova</h2>
 
-      <p>Elektro-instalacija je drugi deo posla i tu je izbor jednostavniji nego što zvuči. Razlika je u tome koliko strujnih kola ide u prikolicu.</p>
+      <p><a href="/installation">Elektro-instalacija</a> je drugi deo posla i tu je izbor jednostavniji nego što zvuči. Razlika je u tome koliko strujnih kola ide u prikolicu.</p>
 
       <p><strong>Sedam pinova</strong> pokriva osnovno: pozicione lampe levo i desno, levi i desni žmigavac, stop svetla, zadnju maglenku i masu. To je sve što treba običnoj teretnoj prikolici ili nosaču bicikala sa svetlima.</p>
 
@@ -200,7 +216,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Kada na to dodate proveru šta uopšte postoji za vaš model, odluka se sama napravi.</p>
 
-      <p>Ako niste sigurni koje varijante uopšte postoje za vaš model i godište, pozovite pre kupovine.</p>
+      <p>Ako niste sigurni koje varijante uopšte postoje za vaš model i godište, <a href="/contact">pozovite</a> pre kupovine.</p>
     `,
   },
   'vuca-prikolice-masa-i-kategorija': {
@@ -255,19 +271,19 @@ export const POSTS: Record<string, PostContent> = {
         <li><strong>Premalo opterećenja.</strong> Ako je teret u prikolici pomeren unazad, opterećenje na kugli pada i prikolica počinje da se njiše levo-desno na većim brzinama. To je opasnije nego što zvuči.</li>
       </ul>
 
-      <p>Praktično, to znači da raspored tereta u prikolici nije stvar ukusa. Teži deo tereta ide napred, ispred osovine, ali ne toliko napred da se probije gornja granica opterećenja na kugli.</p>
+      <p>Praktično, to znači da <a href="/blog/kacenje-prikolice-provera">raspored tereta u prikolici</a> nije stvar ukusa. Teži deo tereta ide napred, ispred osovine, ali ne toliko napred da se probije gornja granica opterećenja na kugli.</p>
 
       <h2>Šta se dešava na tehničkom pregledu</h2>
 
       <p>Na pregledu se gleda i kuka i papirologija oko nje. Tri tipične situacije završe loše:</p>
 
       <ol>
-        <li><strong>Kuka je na vozilu, a nije upisana u saobraćajnu dozvolu.</strong> Nema atesta, nema upisa, nalaz je tu.</li>
+        <li><strong>Kuka je na vozilu, a nije upisana u saobraćajnu dozvolu.</strong> Nema <a href="/blog/atest-euro-kuke">atesta</a>, nema upisa, nalaz je tu.</li>
         <li><strong>Ugrađena je kuka za koju ne postoji dokumentacija za taj model vozila.</strong> Fizički stoji, ali nema šta da se potvrdi.</li>
         <li><strong>Podaci se ne slažu.</strong> Tip kuke na vozilu nije onaj iz papira, ili se deklarisane vrednosti ne poklapaju sa onim što je odobreno za to vozilo.</li>
       </ol>
 
-      <p>Sve tri se rešavaju istim redosledom: uredna ugradnja odgovarajućeg tipa kuke, atest, pa tehnički pregled, pa upis u saobraćajnu dozvolu. Ako se preskoči korak, vraća se na početak.</p>
+      <p>Sve tri se rešavaju istim redosledom: uredna <a href="/installation">ugradnja odgovarajućeg tipa kuke</a>, atest, pa tehnički pregled, pa upis u saobraćajnu dozvolu. Ako se preskoči korak, vraća se na početak.</p>
 
       <h2>Kratka lista pre kupovine prikolice</h2>
 
@@ -279,7 +295,7 @@ export const POSTS: Record<string, PostContent> = {
         <li>Tek onda birajte prikolicu.</li>
       </ol>
 
-      <p>Ako niste sigurni koji tip kuke odgovara vašem vozilu i koliko je odobren da nosi, pozovite pre nego što kupite prikolicu.</p>
+      <p>Ako niste sigurni koji tip kuke odgovara vašem vozilu i koliko je odobren da nosi, <a href="/contact">pozovite</a> pre nego što kupite prikolicu.</p>
     `,
   },
   'kacenje-prikolice-provera': {
@@ -334,7 +350,7 @@ export const POSTS: Record<string, PostContent> = {
         <li>Osvetljenje registarske tablice prikolice.</li>
       </ul>
 
-      <p>Sedmopinski konektor nosi pozicione lampe, oba žmigavca, stop svetla, zadnju maglenku i masu. Trinaestopinski nosi sve to plus svetlo za vožnju unazad i napajanja za potrošače u prikolici, sa odvojenim masama, što je bitno kamp prikolicama. Ako koristite adapter između dva standarda, njega proverite prvog, jer je najčešći uzrok kvara.</p>
+      <p><a href="/blog/izbor-pravog-modela-euro-kuke">Sedmopinski konektor</a> nosi pozicione lampe, oba žmigavca, stop svetla, zadnju maglenku i masu. Trinaestopinski nosi sve to plus svetlo za vožnju unazad i napajanja za potrošače u prikolici, sa odvojenim masama, što je bitno kamp prikolicama. Ako koristite adapter između dva standarda, njega proverite prvog, jer je najčešći uzrok kvara.</p>
 
       <p>Pre kačenja pogledajte i kontakte u utičnici. Zelenkasta naslaga i voda u utičnici su razlog zašto svetla rade dok stojite u dvorištu, a otkažu posle pola sata vožnje po kiši.</p>
 
@@ -360,7 +376,7 @@ export const POSTS: Record<string, PostContent> = {
         <li><strong>Sve mora da bude vezano.</strong> Teret koji se pomeri u vožnji menja raspored mase u sekundi. Kaiševi, a ne procena da se neće pomeriti.</li>
       </ol>
 
-      <p>Ako je težište iza osovine, prikolica ima premalo opterećenja na kugli i na brzini počinje da se njiše levo-desno. To njihanje se pojačava samo od sebe. Prvo se oseti kao lagano povlačenje volana, pa postaje sve izraženije.</p>
+      <p>Ako je težište iza osovine, prikolica ima premalo <a href="/blog/vuca-prikolice-masa-i-kategorija">opterećenja na kugli</a> i na brzini počinje da se njiše levo-desno. To njihanje se pojačava samo od sebe. Prvo se oseti kao lagano povlačenje volana, pa postaje sve izraženije.</p>
 
       <p><strong>Ako se prikolica zanjiše u vožnji:</strong> ne kočite naglo i ne trzajte volanom. Skinite nogu sa gasa, držite volan pravo i pustite da skup uspori sam. Kada se smiri, stanite na bezbednom mestu i preraspodelite teret. Naglo kočenje u trenutku njihanja je najčešći način da se prikolica potpuno izgubi.</p>
 
@@ -379,7 +395,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Posle prvih stotinak kilometara sa novom prikolicom stanite i proverite spoj, uže i vezivanje tereta. Tada se obično vidi šta se opustilo.</p>
 
-      <p>Ako na proveri nešto ne štima na samoj kuki ili na elektro-instalaciji, javite se pre nego što krenete na put.</p>
+      <p>Ako na proveri nešto ne štima na samoj kuki ili na <a href="/installation">elektro-instalaciji</a>, <a href="/contact">javite se</a> pre nego što krenete na put.</p>
     `,
   },
 };

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { getBlogPosts, getCategories } from '@/lib/posts';
+import { getBlogPosts, getCategories, isCategoryIndexable } from '@/lib/posts';
 import { SITE_URL } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,20 +12,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/installation`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE_URL}/prodaja-auto-kuka`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/contact`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/blog`, lastModified: latestPost, changeFrequency: 'weekly', priority: 0.7 },
   ];
 
-  const categoryRoutes: MetadataRoute.Sitemap = getCategories().map((category) => ({
-    url: `${SITE_URL}/blog/category/${category.slug}`,
-    lastModified: latestPost,
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  }));
+  // Categories that carry a single post are noindex, and a noindex URL in the
+  // sitemap is a Search Console warning rather than a ranking signal.
+  const categoryRoutes: MetadataRoute.Sitemap = getCategories()
+    .filter((category) => isCategoryIndexable(category.slug))
+    .map((category) => ({
+      url: `${SITE_URL}/blog/category/${category.slug}`,
+      lastModified: latestPost,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    }));
 
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.datetime),
+    lastModified: new Date(post.updated ?? post.datetime),
     changeFrequency: 'yearly',
     priority: 0.6,
   }));

@@ -41,6 +41,7 @@ export const sr = {
   navigation: {
     home: 'Početna',
     installation: 'Ugradnja',
+    sales: 'Prodaja',
     blog: 'Blog',
     contact: 'Kontakt',
     privacy: 'Politika privatnosti',
@@ -244,6 +245,84 @@ export const sr = {
       note: 'Koja varijanta postoji za vaše vozilo, proveravamo na poziv.',
     },
 
+    // Search Console, six months to 2026-09-05: `bosal kuke`, `oris kuke`,
+    // `bosal auto kuke`, `oris auto kuke` and `oris kuka` together drew about
+    // twenty impressions at positions 7 to 12 with no clicks. The site named
+    // all three makers in a single sentence and had nothing else to show.
+    brands: {
+      title: 'Kuke koje ugrađujemo',
+      description:
+        'Radimo kuke četiri evropska proizvođača: Bosal, AutoHak, Oris i Steinhof. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
+      // Lista je potvrđena. Ove četiri rečenice su namerno opšte i ne tvrde
+      // ništa o zalihama ili o tome koja marka pokriva koji model; to su
+      // podaci iz radionice, ne sa interneta. Zamenite ih čim stignu.
+      items: [
+        {
+          title: 'Bosal',
+          description: 'Najčešći izbor kod nas i jedan od najvećih evropskih proizvođača.',
+        },
+        {
+          title: 'AutoHak',
+          description: 'Široka pokrivenost putničkih vozila, u fiksnoj i odvojivoj varijanti.',
+        },
+        {
+          title: 'Oris',
+          description: 'Poznat po odvojivim kukama, sa mehanizmom koji se zaključava.',
+        },
+        {
+          title: 'Steinhof',
+          description: 'Dobra pokrivenost starijih modela i karavana.',
+        },
+      ],
+      note: 'Ako ste kuku već kupili negde drugde, recite oznaku tipa pre nego što dođete. Bez dokumentacije proizvođača atest se ne radi.',
+    },
+
+    // Same source: `ugradnja kuke sa atestom cena`, `ugradnja euro kuke cena`,
+    // `ugradnja kuke na auto cena`, `ugradnja auto kuke cena` and
+    // `cena ugradnje kuke za auto` drew impressions at positions 15 to 41 and
+    // no clicks, because the site did not carry the word `cena` anywhere near
+    // an explanation. This is the version without numbers; the day there are
+    // published prices, they go here.
+    price: {
+      title: 'Od čega zavisi cena',
+      description:
+        'Cena ugradnje nije ista za svako vozilo i zato je ne objavljujemo kao jedan broj. Ovo je sve što je pomera, da biste znali šta vas čeka pre nego što pozovete.',
+      items: [
+        {
+          title: 'Tip kuke',
+          description:
+            'Fiksna ima manje delova i po pravilu je povoljnija. Odvojiva nosi mehanizam koji se otključava, pa je skuplja.',
+        },
+        {
+          title: 'Broj pinova',
+          description:
+            'Instalacija sa 13 pinova ima više strujnih kola od one sa 7 i košta više. Bira se prema tome šta vučete, ne prema ceni.',
+        },
+        {
+          title: 'Marka, model i godište',
+          description:
+            'Od toga zavisi koji tipovi kuke uopšte postoje za vaše vozilo i koliko posla treba da se dođe do fabričkih tačaka za pričvršćivanje.',
+        },
+        {
+          title: 'Priprema na vozilu',
+          description:
+            'Kod nekih modela branik mora da se skine ili doradi. Neka vozila, opet, imaju fabričku pripremu za instalaciju, što skraćuje posao.',
+        },
+      ],
+      note: 'Atest i garancija od dve godine ulaze u cenu i ne naplaćuju se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+    },
+
+    // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama
+    // radi. Sajt je bio pisan kao da je jedini posao ugradnja u Beogradu.
+    // Kratko, i vodi na /prodaja-auto-kuka. Dve stranice koje pišu isto o
+    // slanju bi se takmičile za isti upit i podelile rangiranje.
+    shipping: {
+      title: 'Van Beograda',
+      description:
+        'Ugradnju radimo u Beogradu, ali kuka ne mora da se preuzima na licu mesta. Kupcima van Beograda šaljemo kuku pouzećem na adresu, sa dokumentacijom proizvođača i uputstvom za ugradnju.',
+      linkLabel: 'Prodaja i slanje kuka',
+    },
+
     atest: {
       title: 'Atest i registracija',
       description:
@@ -284,6 +363,112 @@ export const sr = {
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.893371443454!2d20.457972776266095!3d44.81350437107897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7a9609031735%3A0x9c75611af2d66583!2sEuro%20Kuka%20Beograd!5e0!3m2!1sen!2srs!4v1709766543210!5m2!1sen!2srs',
   },
 
+  /*
+   * The sales page. The rest of the site is written as though installing in
+   * Belgrade were the whole business, but hooks are sold and shipped across
+   * Serbia, which is a different service answering different searches. Every
+   * claim here comes from what the business has confirmed: four makers, new
+   * hooks with type approval, cash on delivery anywhere in Serbia, the
+   * manufacturer's paperwork and fitting instructions in the box, and fitting
+   * itself only in Belgrade.
+   *
+   * Deliberately absent, because they are not known yet: price, how long
+   * delivery takes, and whether a hook can be returned if it does not fit.
+   * Each of those is a section, and none of them can be guessed.
+   */
+  sales: {
+    title: 'Prodaja auto kuka, sa slanjem po celoj Srbiji',
+    description:
+      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris i Steinhof, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu. Ugradnju radimo u Beogradu.',
+    descriptionShort:
+      'Nove kuke sa homologacijom, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji.',
+
+    summary: {
+      label: 'Ukratko',
+      rows: [
+        { label: 'Proizvođači', value: 'Bosal · AutoHak · Oris · Steinhof' },
+        { label: 'Kuke', value: 'nove, sa homologacijom' },
+        { label: 'Slanje', value: 'cela Srbija, pouzećem' },
+        { label: 'Uz kuku', value: 'dokumentacija i uputstvo' },
+        { label: 'Ugradnja', value: 'u Beogradu' },
+      ],
+    },
+
+    includes: {
+      title: 'Šta dobijate uz kuku',
+      items: [
+        {
+          title: 'Kuka odobrenog tipa',
+          description:
+            'Nova kuka sa homologacijom i oznakom tipa proizvođača. To je uslov bez kojeg atest ne može da se uradi.',
+        },
+        {
+          title: 'Dokumentacija proizvođača',
+          description:
+            'Papiri koji povezuju taj tip kuke sa vašim modelom vozila. Bez njih ugradnja može biti uredna, a atest i dalje nemoguć.',
+        },
+        {
+          title: 'Uputstvo za ugradnju',
+          description:
+            'Detaljno uputstvo sa grafičkim prikazom, po kojem posao može da odradi i vaš majstor.',
+        },
+        {
+          title: 'Elektro-instalacija',
+          description:
+            'Instalaciju sa 7 ili 13 pinova biramo zajedno sa kukom, prema tome šta vučete.',
+        },
+      ],
+    },
+
+    choose: {
+      title: 'Kako se bira kuka za vaše vozilo',
+      description:
+        'Kuka se ne bira po ceni nego po vozilu. Za jedan isti model često postoji više odobrenih tipova, a ponekad nijedan, u zavisnosti od godišta i tipa karoserije. Zato pre porudžbine treba da znamo četiri stvari.',
+      items: ['Marka', 'Model', 'Godište', 'Tip karoserije'],
+      note: 'Novija vozila traže instalaciju koja se povezuje na fabričku elektroniku, takozvanu smart konekciju. I to se bira unapred, jer se ne rešava kablom nakalemljenim negde usput.',
+      warning:
+        'Najskuplja kuka je ona kupljena naslepo. Fizički stane, vijci ulaze, prikolica se kači, a onda se ispostavi da za taj tip nema dokumentacije za vaš model i ceo posao ide iz početka.',
+    },
+
+    order: {
+      title: 'Kako se poručuje',
+      steps: [
+        {
+          title: 'Javite podatke o vozilu',
+          description:
+            'Marka, model, godina i tip karoserije. Slika zadnjeg dela vozila pomaže, pošaljite je na Viber ili WhatsApp.',
+        },
+        {
+          title: 'Proveravamo tip',
+          description: 'Koji odobreni tipovi kuke postoje za to vozilo i koja mu instalacija treba.',
+        },
+        {
+          title: 'Šaljemo pouzećem',
+          description: 'Kuka stiže na vašu adresu, bilo gde u Srbiji, sa papirima i uputstvom.',
+        },
+      ],
+    },
+
+    install: {
+      title: 'Ugradnja u Beogradu',
+      description:
+        'Ako ste u Beogradu, kuku ne morate nigde da nosite. Ugradnju kuke i elektro-instalacije radimo sami, posao traje 3-4 sata, atest izdajemo uz svaku ugradnju i na sve ide garancija od dve godine.',
+      linkLabel: 'Kako teče ugradnja',
+    },
+
+    photoAlt: 'Odvojiva euro kuka sa zaštitnom kapom na kugli',
+    photoBadge: 'Naša ugradnja',
+
+    faq: {
+      title: 'Česta pitanja o kupovini',
+    },
+
+    cta: {
+      title: 'Recite koje vozilo imate',
+      description: 'Provera koji tip kuke postoji za vaš model traje minut. Poziv ne obavezuje.',
+    },
+  },
+
   blog: {
     title: 'Atest, zakon i vuča prikolice',
     description:
@@ -292,6 +477,8 @@ export const sr = {
     backButton: 'Svi tekstovi',
     authorLabel: 'Autor',
     publishedLabel: 'Objavljeno',
+    updatedLabel: 'Dopunjeno',
+    relatedTitle: 'Pročitajte i ovo',
     cta: {
       title: 'Imate pitanje o atestu za vaše vozilo?',
       description: 'Kraće je pitati telefonom nego čitati pet tekstova.',

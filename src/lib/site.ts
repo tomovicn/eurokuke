@@ -31,4 +31,18 @@ export const PHOTOS = {
 } as const;
 
 /** Matches the Google Maps embed, which resolves to the real listing. */
+/**
+ * Profiles the business runs elsewhere, for `sameAs` on the LocalBusiness.
+ * This is how Google decides that the site, the listing and the map pin are
+ * one business rather than three with similar names.
+ *
+ * The seller page, not a single advert: an advert expires and a `sameAs`
+ * pointing at a dead URL is worse than none. Tracking parameters are stripped
+ * for the same reason, they are not part of the identity of the page.
+ */
+export const PROFILES = [
+  'https://www.instagram.com/euro.kuke/',
+  'https://www.kupujemprodajem.com/nenad-zivkovic/svi-oglasi/452018/1',
+] as const;
+
 export const GEO = { latitude: '44.813504', longitude: '20.457973' } as const;
