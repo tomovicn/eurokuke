@@ -1,112 +1,87 @@
-'use client';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import HoursTable from '@/components/HoursTable';
+import { GhostAction } from '@/components/ui/Actions';
+import { Card, Container, MonoLabel, Section } from '@/components/ui/primitives';
+import { PHONE_DISPLAY, TEL_HREF, VIBER_HREF, WHATSAPP_HREF } from '@/lib/contact';
+import { sr } from '@/utils/translations/sr';
 
-import { useState } from 'react';
-import { useTranslation } from '@/utils/i18n';
+const t = sr.contact;
 
-export default function Contact() {
-  const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
+export default function ContactPage() {
   return (
-    <div className='bg-white'>
-      {/* Hero Section */}
-      <div className='relative bg-gray-900'>
-        <div className='absolute inset-0'>
-          <div className='absolute inset-0 bg-gray-900 mix-blend-multiply' />
-        </div>
-        <div className='relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl'>
-            {t('contact.hero.title')}
+    <>
+      <Breadcrumbs trail={[{ name: sr.navigation.contact, path: '/contact' }]} />
+
+      {/* No contact form, deliberately. The one that used to be here posted
+          nowhere; a phone call is also simply the faster channel for a job that
+          starts with "which car do you have". */}
+      <Section first>
+        <Container className='py-5 md:pb-0 md:pt-14'>
+          <h1 className='text-[34px] font-semibold leading-[1.06] tracking-[-0.025em] md:text-[52px] md:leading-[1.04] md:tracking-[-0.03em]'>
+            {t.title}
           </h1>
-          <p className='mt-6 text-xl text-gray-300 max-w-3xl'>{t('contact.hero.description')}</p>
-        </div>
-      </div>
+          <p className='mt-3.5 max-w-[58ch] text-[15px] leading-[1.62] text-body md:mt-5 md:text-[18.5px] md:leading-[1.6]'>
+            {t.description}
+          </p>
+        </Container>
+      </Section>
 
-      {/* Contact Form and Info */}
-      <div className='bg-white'>
-        <div className='max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8'>
-          <div className='max-w-lg mx-auto md:max-w-none md:grid md:grid-cols-2 md:gap-8'>
-            <div>
-              <h2 className='text-2xl font-extrabold text-gray-900 sm:text-3xl'>{t('contact.title')}</h2>
-              <div className='mt-3'>
-                <p className='text-lg text-gray-500'>{t('contact.description')}</p>
-              </div>
-              <div className='mt-9'>
-                <div className='mt-6 flex'>
-                  <div className='flex-shrink-0'>
-                    <svg className='h-6 w-6 text-gray-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-                      />
-                    </svg>
-                  </div>
-                  <div className='ml-3 text-base text-gray-500'>
-                    <p>{t('contact.phone')}</p>
-                  </div>
-                </div>
-
-                {/* <div className='mt-6 flex'>
-                  <div className='flex-shrink-0'>
-                    <svg className='h-6 w-6 text-gray-400' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                      />
-                    </svg>
-                  </div>
-                  <div className='ml-3 text-base text-gray-500'>
-                    <p>{t('contact.email')}</p>
-                  </div>
-                </div> */}
-
-
-              </div>
+      <Section>
+        <Container className='grid gap-3 md:grid-cols-2 md:gap-6'>
+          <div className='flex flex-col bg-ink p-5 px-4 text-ink-text md:p-9'>
+            <MonoLabel tone='accent-on-ink'>{t.phoneLabel}</MonoLabel>
+            {/* The number is the heading here: on the contact page it is the
+                content, not a call to action wrapped around a label. */}
+            <a
+              href={TEL_HREF}
+              className='mt-3 block text-[28px] font-semibold tracking-[-0.02em] transition-colors hover:text-accent-on-ink md:mt-3.5 md:text-[40px]'
+            >
+              {PHONE_DISPLAY}
+            </a>
+            <p className='mt-3 text-sm leading-[1.6] text-ink-muted md:mt-3.5 md:text-[15.5px]'>
+              {sr.common.hours.inline}
+            </p>
+            {/* Pushed to the foot of the card so it lines up with the hours
+                card beside it instead of leaving a third of the panel empty. */}
+            <div className='mt-6 grid grid-cols-2 gap-2.5 md:mt-auto md:gap-2.5 md:pt-8'>
+              <GhostAction href={VIBER_HREF} tone='dark' className='md:h-[52px] md:text-[15px]'>
+                {sr.actions.viber}
+              </GhostAction>
+              <GhostAction href={WHATSAPP_HREF} tone='dark' className='md:h-[52px] md:text-[15px]'>
+                {sr.actions.whatsapp}
+              </GhostAction>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Map Section */}
-      <div className='bg-gray-50'>
-        <div className='max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8'>
-          <h2 className='text-2xl font-extrabold text-gray-900 sm:text-3xl mb-8'>{t('contact.map.title')}</h2>
-          <div className='rounded-lg overflow-hidden'>
+          <Card className='p-4 px-4 md:p-9'>
+            <MonoLabel>{sr.common.hours.label}</MonoLabel>
+            <div className='mt-3 md:mt-3.5'>
+              <HoursTable />
+            </div>
+            <div className='mt-6 border-t border-line pt-5 md:mt-7 md:pt-6'>
+              <MonoLabel>{sr.common.areaLabel}</MonoLabel>
+              <p className='mt-2.5 text-[15px] leading-[1.55] md:mt-3 md:text-[17px]'>{sr.common.areaLong}</p>
+            </div>
+          </Card>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className='h-72 border border-line-strong md:h-[440px]'>
             <iframe
-              src={t('contact.map.embedUrl')}
+              src={t.mapEmbedUrl}
+              title={t.mapTitle}
               width='100%'
-              height='450'
+              height='100%'
               style={{ border: 0 }}
               allowFullScreen
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'
             />
           </div>
-        </div>
-      </div>
-    </div>
+        </Container>
+      </Section>
+    </>
   );
 }

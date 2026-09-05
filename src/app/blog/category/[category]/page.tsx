@@ -1,9 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { Metadata } from 'next';
+
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { Card, Container, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
 import { getCategories, getCategory, getPostsByCategory } from '@/lib/posts';
-import { OG_IMAGE } from '@/lib/site';
+import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
+import { sr } from '@/utils/translations/sr';
 
 export function generateStaticParams() {
   return getCategories().map((category) => ({ category: category.slug }));
@@ -13,23 +16,20 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   const category = getCategory(params.category);
 
   if (!category) {
-    return {
-      title: 'Kategorija Nije Pronađena | Ugradnja Euro Kuka',
-      robots: { index: false, follow: true },
-    };
+    return { title: sr.notFound.title, robots: { index: false, follow: true } };
   }
 
   const url = `/blog/category/${category.slug}`;
 
   return {
-    title: `${category.title} | Blog o Euro Kukama`,
+    title: `${category.title}: euro kuka i vuča prikolice`,
     description: category.description,
     alternates: { canonical: url },
     openGraph: {
       type: 'website',
-      locale: 'sr_RS',
+      locale: SITE_LOCALE,
       url,
-      title: `${category.title} | Blog o Euro Kukama`,
+      title: category.title,
       description: category.description,
       images: [OG_IMAGE],
     },
@@ -38,56 +38,56 @@ export function generateMetadata({ params }: { params: { category: string } }): 
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const category = getCategory(params.category);
-
-  if (!category) {
-    notFound();
-  }
+  if (!category) notFound();
 
   const posts = getPostsByCategory(category.slug);
 
   return (
-    <div className='bg-white'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32'>
-          <h1 className='text-3xl font-bold text-gray-900'>{category.title}</h1>
-          <p className='mt-4 text-xl text-gray-500'>{category.description}</p>
+    <>
+      <Breadcrumbs
+        trail={[
+          { name: sr.navigation.blog, path: '/blog' },
+          { name: category.title, path: `/blog/category/${category.slug}` },
+        ]}
+      />
 
-          <div className='mt-12 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0'>
+      <Section first>
+        <Container className='py-5 md:py-14'>
+          <h1 className='text-[30px] font-semibold leading-[1.06] tracking-[-0.025em] md:text-5xl md:tracking-[-0.03em]'>
+            {category.title}
+          </h1>
+          <p className='mt-3 max-w-[56ch] text-[15px] leading-[1.6] text-body md:mt-[18px] md:text-[18px]'>
+            {category.description}
+          </p>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <ul className='grid gap-2.5 md:grid-cols-3 md:gap-5'>
             {posts.map((post) => (
-              <div key={post.slug} className='group relative'>
-                <div className='relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64'>
-                  <Image
-                    src={`/images/blog/post.png`}
-                    alt={post.title}
-                    className='h-full w-full object-cover object-center'
-                    width={400}
-                    height={300}
-                  />
-                </div>
-                <h2 className='mt-6 text-lg font-semibold text-gray-900'>
-                  <Link href={`/blog/${post.slug}`}>
-                    <span className='absolute inset-0' />
-                    {post.title}
+              <li key={post.slug}>
+                <Card className='h-full'>
+                  <Link href={`/blog/${post.slug}`} className='flex h-full flex-col gap-3 p-4 px-4 md:gap-3.5 md:p-7'>
+                    <MonoLabel tone='accent' as='span' className='text-[10px]'>
+                      {post.category.title}
+                    </MonoLabel>
+                    <h2 className='text-[18px] font-semibold leading-[1.2] tracking-[-0.015em] md:text-[22px]'>
+                      {post.title}
+                    </h2>
+                    <p className='text-[14px] leading-[1.6] text-body md:text-[15px]'>{post.description}</p>
+                    <p className='mt-auto font-mono text-[11px] text-faint'>{post.readingTime}</p>
                   </Link>
-                </h2>
-                <p className='text-sm text-gray-500'>
-                  <time dateTime={post.datetime}>{post.date}</time>
-                </p>
-                <p className='mt-2 text-sm text-gray-500'>{post.description}</p>
-              </div>
+                </Card>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <div className='mt-12'>
-            <Link
-              href='/blog'
-              className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700'
-            >
-              Nazad na Blog
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+          <p className='mt-6 text-sm md:mt-8 md:text-[15px]'>
+            <TextLink href='/blog'>{sr.blog.backButton} &rarr;</TextLink>
+          </p>
+        </Container>
+      </Section>
+    </>
   );
 }

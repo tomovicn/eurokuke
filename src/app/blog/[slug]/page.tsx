@@ -1,77 +1,116 @@
-'use client';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useTranslation } from '@/utils/i18n';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import ContactActions from '@/components/ContactActions';
+import { Container, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
+import { getBlogPost, getBlogPosts } from '@/lib/posts';
+import { blogPostingSchema } from '@/lib/schema';
+import { OG_IMAGE, SITE_LOCALE, SITE_NAME } from '@/lib/site';
+import { sr } from '@/utils/translations/sr';
 
-interface BlogPost {
-  title: string;
-  date: string;
-  author: {
-    name: string;
-    role: string;
-  };
-  content: string;
+export function generateStaticParams() {
+  return getBlogPosts().map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const { t } = useTranslation();
-  const post = t(`blog.posts.${params.slug}`) as unknown as BlogPost;
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const post = getBlogPost(params.slug);
 
   if (!post) {
-    return (
-      <div className='bg-white min-h-screen flex items-center justify-center'>
-        <div className='text-center'>
-          <h1 className='text-4xl font-bold text-gray-900'>{t('blog.notFound.title')}</h1>
-          <p className='mt-4 text-xl text-gray-500'>{t('blog.notFound.description')}</p>
-          <Link
-            href='/blog'
-            className='mt-6 inline-block px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700'
-          >
-            {t('blog.notFound.backButton')}
-          </Link>
-        </div>
-      </div>
-    );
+    // A missing post must not be indexable, and must not inherit the section
+    // title as if it were a real article.
+    return { title: sr.notFound.title, robots: { index: false, follow: true } };
   }
 
+  const url = `/blog/${post.slug}`;
+
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      locale: SITE_LOCALE,
+      url,
+      title: post.title,
+      description: post.description,
+      publishedTime: post.datetime,
+      authors: [SITE_NAME],
+      section: post.category.title,
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [OG_IMAGE],
+    },
+  };
+}
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = getBlogPost(params.slug);
+
+  // A slug that does not exist is a 404, not a page that renders an apology
+  // with a 200 status. The old version returned 200 and was indexable.
+  if (!post) notFound();
+
   return (
-    <div className='bg-white'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32'>
-          <article>
-            <header className='mb-8'>
-              <h1 className='text-4xl font-bold text-gray-900'>{post.title}</h1>
-              <div className='mt-4 flex items-center'>
-                <div className='flex-shrink-0'>
-                  <span className='sr-only'>{post.author.name}</span>
-                  <div className='h-10 w-10 rounded-full bg-gray-200' />
-                </div>
-                <div className='ml-3'>
-                  <p className='text-sm font-medium text-gray-900'>{post.author.name}</p>
-                  <p className='text-sm text-gray-500'>{post.author.role}</p>
-                </div>
-                <div className='ml-auto'>
-                  <p className='text-sm text-gray-500'>{post.date}</p>
-                </div>
-              </div>
-            </header>
+    <>
+      <JsonLd data={blogPostingSchema(post)} />
+      <Breadcrumbs
+        trail={[
+          { name: sr.navigation.blog, path: '/blog' },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
 
-            <div className='prose prose-lg prose-red mx-auto'>
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <Section first>
+        <Container className='py-5 md:py-10'>
+          <article className='mx-auto max-w-[720px]'>
+            <MonoLabel tone='accent' as='p' className='text-[10.5px]'>
+              {post.category.title}
+            </MonoLabel>
+            <h1 className='mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.025em] md:mt-[18px] md:text-[46px] md:tracking-[-0.03em]'>
+              {post.title}
+            </h1>
+
+            <div className='mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-y border-line-strong py-3 font-mono text-[11px] text-faint md:mt-[22px] md:py-3.5 md:text-[11.5px]'>
+              <span className='text-ink-2'>{post.author.name}</span>
+              <span aria-hidden='true'>·</span>
+              <span>{post.readingTime}</span>
+              <span aria-hidden='true'>·</span>
+              <time dateTime={post.datetime}>{post.date}</time>
             </div>
 
-            <div className='mt-12'>
-              <Link
-                href='/blog'
-                className='inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700'
-              >
-                {t('blog.backButton')}
-              </Link>
+            <div
+              className='prose prose-lg mt-6 md:mt-7'
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+
+            <div className='mt-8 bg-ink p-5 px-4 text-ink-text md:mt-10 md:p-8'>
+              <p className='text-lg font-semibold tracking-[-0.015em] md:text-[22px]'>
+                {sr.blog.inArticleCta.title}
+              </p>
+              <p className='mt-2.5 max-w-[52ch] text-[14.5px] leading-[1.6] text-ink-muted md:text-[15.5px]'>
+                {sr.blog.inArticleCta.description}
+              </p>
+              <ContactActions ground='dark' solid='accent' size='md' className='mt-5 md:max-w-sm' />
             </div>
+
+            <footer className='mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line-strong pt-5 md:mt-12 md:pt-6'>
+              <p className='font-mono text-[11px] leading-relaxed text-faint md:text-[11.5px]'>
+                {sr.blog.authorLabel}: {post.author.name}
+                <br />
+                {sr.blog.publishedLabel}: {post.date}
+              </p>
+              <TextLink href='/blog' className='text-sm md:text-[15px]'>
+                {sr.blog.backButton} &rarr;
+              </TextLink>
+            </footer>
           </article>
-        </div>
-      </div>
-    </div>
+        </Container>
+      </Section>
+    </>
   );
 }
