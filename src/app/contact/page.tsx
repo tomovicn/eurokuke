@@ -1,70 +1,87 @@
-'use client';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import HoursTable from '@/components/HoursTable';
+import { GhostAction } from '@/components/ui/Actions';
+import { Card, Container, MonoLabel, Section } from '@/components/ui/primitives';
+import { PHONE_DISPLAY, TEL_HREF, VIBER_HREF, WHATSAPP_HREF } from '@/lib/contact';
+import { sr } from '@/utils/translations/sr';
 
-import ContactActions from '@/components/ContactActions';
-import { PHONE_DISPLAY, TEL_HREF } from '@/lib/contact';
-import { useTranslation } from '@/utils/i18n';
+const t = sr.contact;
 
-export default function Contact() {
-  const { t } = useTranslation();
-
+export default function ContactPage() {
   return (
-    <div className='bg-paper'>
-      <section className='bg-ink'>
-        <div className='mx-auto max-w-container px-4 py-20 sm:px-6 md:py-28 lg:px-8'>
-          <h1 className='max-w-3xl font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] text-paper md:text-6xl'>
-            {t('contact.hero.title')}
+    <>
+      <Breadcrumbs trail={[{ name: sr.navigation.contact, path: '/contact' }]} />
+
+      {/* No contact form, deliberately. The one that used to be here posted
+          nowhere; a phone call is also simply the faster channel for a job that
+          starts with "which car do you have". */}
+      <Section first>
+        <Container className='py-5 md:pb-0 md:pt-14'>
+          <h1 className='text-[34px] font-semibold leading-[1.06] tracking-[-0.025em] md:text-[52px] md:leading-[1.04] md:tracking-[-0.03em]'>
+            {t.title}
           </h1>
-          <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted-dark'>
-            {t('contact.hero.description')}
+          <p className='mt-3.5 max-w-[58ch] text-[15px] leading-[1.62] text-body md:mt-5 md:text-[18.5px] md:leading-[1.6]'>
+            {t.description}
           </p>
-          <ContactActions tone='dark' size='lg' className='mt-8' />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <section className='py-20 md:py-28'>
-        <div className='mx-auto grid max-w-container gap-12 px-4 sm:px-6 lg:grid-cols-[20rem_1fr] lg:px-8'>
-          <div>
-            <h2 className='font-display text-2xl font-extrabold tracking-[-0.03em]'>{t('contact.info.title')}</h2>
-
+      <Section>
+        <Container className='grid gap-3 md:grid-cols-2 md:gap-6'>
+          <div className='flex flex-col bg-ink p-5 px-4 text-ink-text md:p-9'>
+            <MonoLabel tone='accent-on-ink'>{t.phoneLabel}</MonoLabel>
+            {/* The number is the heading here: on the contact page it is the
+                content, not a call to action wrapped around a label. */}
             <a
               href={TEL_HREF}
-              className='mt-6 block font-display text-3xl font-extrabold tracking-[-0.03em] text-accent'
+              className='mt-3 block text-[28px] font-semibold tracking-[-0.02em] transition-colors hover:text-accent-on-ink md:mt-3.5 md:text-[40px]'
             >
               {PHONE_DISPLAY}
             </a>
-            <a href={`mailto:${t('contact.email')}`} className='mt-3 block text-muted transition-colors hover:text-ink'>
-              {t('contact.email')}
-            </a>
-
-            <h3 className='mt-10 font-display text-lg font-bold tracking-[-0.02em]'>
-              {t('contact.info.areaTitle')}
-            </h3>
-            <p className='mt-3 text-muted'>{t('common.area')}</p>
-
-            <h3 className='mt-8 font-display text-lg font-bold tracking-[-0.02em]'>
-              {t('contact.info.hoursTitle')}
-            </h3>
-            <div className='mt-3 space-y-1 text-muted'>
-              <p>{t('common.hours.weekdays')}</p>
-              <p>{t('common.hours.saturday')}</p>
-              <p>{t('common.hours.sunday')}</p>
+            <p className='mt-3 text-sm leading-[1.6] text-ink-muted md:mt-3.5 md:text-[15.5px]'>
+              {sr.common.hours.inline}
+            </p>
+            {/* Pushed to the foot of the card so it lines up with the hours
+                card beside it instead of leaving a third of the panel empty. */}
+            <div className='mt-6 grid grid-cols-2 gap-2.5 md:mt-auto md:gap-2.5 md:pt-8'>
+              <GhostAction href={VIBER_HREF} tone='dark' className='md:h-[52px] md:text-[15px]'>
+                {sr.actions.viber}
+              </GhostAction>
+              <GhostAction href={WHATSAPP_HREF} tone='dark' className='md:h-[52px] md:text-[15px]'>
+                {sr.actions.whatsapp}
+              </GhostAction>
             </div>
           </div>
 
-          <div className='overflow-hidden rounded-2xl border border-line'>
+          <Card className='p-4 px-4 md:p-9'>
+            <MonoLabel>{sr.common.hours.label}</MonoLabel>
+            <div className='mt-3 md:mt-3.5'>
+              <HoursTable />
+            </div>
+            <div className='mt-6 border-t border-line pt-5 md:mt-7 md:pt-6'>
+              <MonoLabel>{sr.common.areaLabel}</MonoLabel>
+              <p className='mt-2.5 text-[15px] leading-[1.55] md:mt-3 md:text-[17px]'>{sr.common.areaLong}</p>
+            </div>
+          </Card>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className='h-72 border border-line-strong md:h-[440px]'>
             <iframe
-              src={t('contact.map.embedUrl')}
-              title={t('contact.map.title')}
+              src={t.mapEmbedUrl}
+              title={t.mapTitle}
               width='100%'
-              height='480'
+              height='100%'
               style={{ border: 0 }}
               allowFullScreen
               loading='lazy'
               referrerPolicy='no-referrer-when-downgrade'
             />
           </div>
-        </div>
-      </section>
-    </div>
+        </Container>
+      </Section>
+    </>
   );
 }

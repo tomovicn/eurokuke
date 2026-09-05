@@ -5,23 +5,46 @@
 /*
  * Solid colours are stored as space-separated RGB channels, not hex, so that
  * Tailwind can inject an alpha value: `bg-ink/90` compiles to
- * `rgb(11 12 14 / 0.9)`. With a plain `--ink: #0b0c0e` every `/NN` opacity
+ * `rgb(28 26 23 / 0.9)`. With a plain `--ink: #1c1a17` every `/NN` opacity
  * modifier silently compiles to nothing, which would break the translucent
- * header and the mobile call bar. Colours that are already translucent are
- * stored whole and take no alpha modifier.
+ * header and the mobile call bar.
+ *
+ * Two grounds only: `paper` (light) and `ink` (dark). Everything with an
+ * `ink-` prefix is the value that role takes *on* the dark ground, so a dark
+ * section is a straight token swap rather than a pile of one-off overrides.
+ *
+ * `accent` carries the contact action and the eyebrow labels. It is never
+ * used for decoration; if a rule wants accent for its own sake, it is wrong.
  */
 :root {
-  --ink: 11 12 14;
-  --ink-2: 22 24 28;
-  --paper: 255 255 255;
-  --paper-2: 244 245 247;
-  --accent: 225 6 0;
-  --accent-ink: 255 255 255;
-  --line: 228 230 234;
-  --muted: 90 96 105;
+  /* light ground */
+  --paper: 246 243 236;
+  --surface: 255 253 248;
+  --surface-2: 241 237 226;
 
-  --line-dark: rgb(255 255 255 / 0.1);
-  --muted-dark: rgb(255 255 255 / 0.66);
+  --ink: 28 26 23;
+  --ink-2: 58 53 46;
+  --body: 85 80 74;
+  --muted: 110 103 92;
+  --faint: 138 130 114;
+
+  --line: 227 220 205;
+  --line-strong: 216 209 194;
+  --line-btn: 201 192 173;
+
+  --accent: 168 91 18;
+  --accent-ink: 255 253 248;
+  --accent-soft: 220 195 166;
+
+  /* dark ground */
+  --ink-surface: 34 31 27;
+  --ink-line: 52 48 42;
+  --ink-line-btn: 74 68 60;
+  --ink-text: 246 243 236;
+  --ink-body: 201 193 178;
+  --ink-muted: 166 156 137;
+  --ink-btn-text: 231 225 214;
+  --accent-on-ink: 201 138 62;
 }
 
 html {
@@ -32,6 +55,23 @@ html {
 body {
   background: rgb(var(--paper));
   color: rgb(var(--ink));
+}
+
+/* The design has no rounded corners anywhere. Safari still rounds the default
+   focus ring on anchors, which reads as a stray radius on square buttons. */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 0;
+}
+
+/* `<summary>` renders a disclosure triangle in Safari and Firefox that
+   `list-none` alone does not remove. The FAQ draws its own +/- marker. */
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
 }
 
 /* The mobile call bar is fixed to the bottom edge below md.

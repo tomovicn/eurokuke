@@ -1,396 +1,329 @@
+/**
+ * Every user-facing string on the site, in one place.
+ *
+ * Imported directly (`sr.home.hero.title`) rather than looked up through a
+ * dotted-path helper. The helper returned the key itself when a path did not
+ * exist, so a typo shipped silently: /contact rendered the literal text
+ * "contact.email" as its mailto link for as long as that key was missing.
+ * Property access makes the same mistake a build error.
+ *
+ * Dash convention: plain hyphen everywhere, including ranges (3-4 sata,
+ * 08:00-20:00, Ponedeljak - Petak). No em or en dashes.
+ */
+
 export const sr = {
   common: {
     companyName: 'Ugradnja Euro Kuka',
-    address: 'Beograd, Srbija',
-    email: 'info@eurokuka.rs',
+    companyShort: 'Euro Kuka',
+    tagline: 'Ugradnja sa atestom',
     area: 'Beograd i okolina',
+    areaLong: 'Beograd i okolina. Termin i tačnu lokaciju dogovaramo telefonom.',
+    areaLabel: 'Područje rada',
     hours: {
-      weekdays: 'Ponedeljak – Petak: 08:00 – 20:00',
-      saturday: 'Subota: 10:00 – 16:00',
-      sunday: 'Nedelja: zatvoreno',
+      label: 'Radno vreme',
+      rows: [
+        { day: 'Ponedeljak - Petak', dayShort: 'Pon - Pet', time: '08:00-20:00', closed: false },
+        { day: 'Subota', dayShort: 'Subota', time: '10:00-16:00', closed: false },
+        { day: 'Nedelja', dayShort: 'Nedelja', time: 'zatvoreno', closed: true },
+      ],
+      inline: 'Pon-Pet 08:00-20:00 · Sub 10:00-16:00 · Ned zatvoreno',
     },
   },
+
   navigation: {
     home: 'Početna',
     installation: 'Ugradnja',
     blog: 'Blog',
     contact: 'Kontakt',
     privacy: 'Politika privatnosti',
+    menu: 'Meni',
   },
+
   actions: {
-    call: 'Pozovi',
-    callLong: 'Pozovi 063 806 6462',
+    // The phone number is never the label of a button. The button says what
+    // happens; the number lives in the tel: href, in the JSON-LD and in the
+    // footer, where it reads as a fact rather than as a call to action.
+    call: 'Pozovite nas',
+    callAppointment: 'Pozovite za termin',
+    callAppointmentShort: 'Pozovi za termin',
+    callPrice: 'Pozovite i pitajte cenu',
+    callEyebrow: 'Termin u roku od 24 sata',
     viber: 'Viber',
     whatsapp: 'WhatsApp',
     openMenu: 'Otvori meni',
     closeMenu: 'Zatvori meni',
   },
+
   footer: {
-    copyright: '© {year} Ugradnja Euro Kuka. Sva prava zadržana.',
+    blurb: 'Ugradnja euro kuke sa atestom, Beograd i okolina. Bosal, Oris, Steinhof.',
+    pagesLabel: 'Strane',
+    contactLabel: 'Kontakt',
+    copyright: '© {year} Ugradnja Euro Kuka · ugradnjaeurokuka.com',
   },
+
   home: {
     hero: {
       eyebrow: 'Beograd · Sve marke vozila',
-      title: {
-        main: 'Ugradnja euro kuke',
-        accent: 'sa atestom',
-      },
+      title: 'Ugradnja euro kuke sa atestom',
       description:
-        'Montaža traje 3–4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija — sve na jednom mestu.',
+        'Montaža traje 3-4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija - sve na jednom mestu.',
       chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
-      imageAlt: 'Euro kuka za vuču spremna za ugradnju',
+      imageAlt: 'Ugrađena euro kuka na zadnjem delu vozila',
     },
+
     brands: {
       label: 'Ugrađujemo kuke proizvođača',
     },
+
     process: {
-      eyebrow: 'Proces montaže',
       title: 'Kako izgleda ugradnja',
       steps: [
-        { title: 'Pregled vozila', description: 'Proveravamo model, kompatibilnost i stanje vozila.' },
-        { title: 'Priprema', description: 'Pripremamo vozilo i biramo odgovarajuću kuku i elektro instalaciju.' },
-        { title: 'Montaža', description: 'Ugradnja po specifikaciji proizvođača, 3–4 sata u proseku.' },
-        { title: 'Atest i predaja', description: 'Testiramo instalaciju i izdajemo atest za registraciju.' },
+        { title: 'Pregled vozila', description: 'Proveravamo model i biramo odgovarajuću kuku.' },
+        { title: 'Priprema', description: 'Skidanje branika i priprema tačaka nosača.' },
+        { title: 'Montaža', description: 'Kuka i elektro-instalacija, 7 ili 13 pinova.' },
+        { title: 'Atest i predaja', description: 'Dobijate atest za registraciju i vozilo je gotovo.' },
       ],
+      note: 'Ceo posao traje 3-4 sata.',
+      link: 'Detaljno o ugradnji',
     },
+
     price: {
-      eyebrow: 'Cena',
+      eyebrow: 'Bez obaveze',
       title: 'Koliko košta ugradnja?',
       description:
-        'Cena zavisi od modela vozila i tipa kuke — fiksne cene ne postoje, jer se svako vozilo razlikuje. Pozovite nas ili pošaljite model vozila na Viber i dobijate tačnu cenu.',
-      note: 'Bez obaveze. Cenu dobijate odmah, pre nego što zakažete termin.',
+        'Jedna cena za sva vozila ne postoji, pa je ne objavljujemo - svaki broj na sajtu bio bi netačan za nekoga. Recite nam tri stvari i tačnu cenu za vaš auto čujete u istom razgovoru.',
+      inputs: [
+        { title: 'Vozilo', description: 'Marka, model, godina.' },
+        { title: 'Tip kuke', description: 'Fiksna ili odvojiva.' },
+        { title: 'Instalacija', description: '7 ili 13 pinova.' },
+      ],
+      cardTitle: 'Cena na telefonu, odmah',
+      cardNote: 'Poziv ne obavezuje na zakazivanje. Ako vam se cena ne uklapa, nema problema.',
     },
+
     guarantees: {
-      eyebrow: 'Zašto kod nas',
       title: 'Šta dobijate',
       items: [
-        { title: 'Atest i registracija', description: 'Izdajemo atest koji vam je potreban za upis kuke u saobraćajnu dozvolu.' },
-        { title: 'Garancija 2 godine', description: 'Garancija pokriva i ugrađenu kuku i elektro instalaciju.' },
-        { title: 'Originalni delovi', description: 'Ugrađujemo kuke proizvođača Bosal, Oris i Steinhof.' },
-        { title: 'Termin u roku od 24 sata', description: 'Sama montaža traje 3–4 sata i vozilo istog dana vraćate u upotrebu.' },
+        {
+          title: 'Atest i registracija',
+          description: 'Atest za euro kuku dobijate uz vozilo, spremno za tehnički pregled.',
+        },
+        {
+          title: 'Garancija 2 godine',
+          description: 'Na kuku i na elektro-instalaciju, ne samo na deo.',
+        },
+        {
+          title: 'Originalni delovi',
+          description: 'Kuke proizvođača Bosal, Oris i Steinhof, prema modelu vozila.',
+        },
+        {
+          title: 'Termin u roku od 24 sata',
+          description: 'Zovete danas, montaža je najčešće već sutra.',
+        },
       ],
     },
+
     vehicles: {
-      eyebrow: 'Marke vozila',
-      title: 'Radimo sa svim popularnim modelima',
-      note: 'Ne vidite svoje vozilo? Pozovite — radimo i sa markama koje nisu na listi.',
+      title: 'Kuka za vuču za sve marke vozila',
+      label: 'Najčešće ugradnje',
+      noteBefore: 'Ne vidite svoje vozilo? ',
+      noteLink: 'Pozovite',
+      noteAfter: ', radimo i sa markama koje nisu na listi.',
     },
+
     faq: {
-      eyebrow: 'Česta pitanja',
-      title: 'Ono što nas najčešće pitaju',
-      moreLink: 'Pogledajte ceo proces montaže',
+      title: 'Česta pitanja',
+      introBefore: 'Detaljnije o atestu i zakonu na strani ',
+      introLink: 'Ugradnja',
+      introAfter: '.',
+      moreLink: 'Sve o ugradnji i atestu',
     },
+
     visit: {
-      eyebrow: 'Radno vreme i lokacija',
-      title: 'Kada možete da dođete',
-      hoursTitle: 'Radno vreme',
-      mapTitle: 'Lokacija',
+      title: 'Radno vreme i lokacija',
+      mapTitle: 'Lokacija na mapi',
     },
+
     finalCta: {
       title: 'Spremni da montirate euro kuku?',
-      description: 'Pozovite nas i dobijate cenu za svoje vozilo odmah.',
-    },
-  },
-  installation: {
-    title: 'Montaža Euro Kuke',
-    description: 'Profesionalna montaža euro kuke sa garancijom kvaliteta.',
-    cta: {
-      title: 'Spremni da montirate euro kuku?',
-      subtitle: 'Kontaktirajte nas danas za besplatnu konsultaciju',
-      button: 'Zakažite termin',
-    },
-    process: {
-      title: 'Proces Montaže',
-      subtitle: 'Kako se izvodi montaža euro kuke',
-      description: 'Naš stručni tim koristi najnovije tehnike i alate za brzu i kvalitetnu montažu.',
-      steps: {
-        inspection: {
-          title: 'Pregled Vozila',
-          description: 'Detaljna provera kompatibilnosti i stanja vozila.',
-        },
-        preparation: {
-          title: 'Priprema',
-          description: 'Priprema vozila i potrebnih delova za montažu.',
-        },
-        installation: {
-          title: 'Montaža',
-          description: 'Profesionalna montaža euro kuke od strane sertifikovanih tehničara.',
-        },
-        testing: {
-          title: 'Testiranje',
-          description: 'Testiranje funkcionalnosti i bezbednosti nakon montaže.',
-        },
-      },
-    },
-    supportedBrands: {
-      title: 'Podržani Brendovi',
-      subtitle: 'Radimo sa svim popularnim modelima vozila',
-    },
-    pricing: {
-      title: 'Cena',
-      subtitle: 'Koliko košta ugradnja?',
       description:
-        'Cena zavisi od modela vozila i tipa kuke. Pozovite nas i dobijate tačnu cenu za svoje vozilo, bez obaveze.',
-    },
-    faq: {
-      title: 'Često Postavljana Pitanja',
-      subtitle: 'Odgovori na najčešća pitanja o montaži euro kuke',
-      questions: {
-        duration: {
-          question: 'Koliko traje montaža euro kuke?',
-          answer: 'Standardna montaža traje 3–4 sata, u zavisnosti od modela vozila.',
-        },
-        bumper: {
-          question: 'Da li je potrebno modifikovati branik?',
-          answer:
-            'U većini slučajeva je potrebno. Naši tehničari koriste metode koje minimalno utiču na izgled vozila.',
-        },
-        certification: {
-          question: 'Da li je potrebna registracija nakon montaže?',
-          answer: 'Da, nakon montaže je potrebno registrovati promenu na vozilu.',
-        },
-        warranty: {
-          question: 'Koje delove koristite?',
-          answer: 'Koristimo samo originalne delove sa garancijom proizvođača.',
-        },
-      },
+        'Jedan poziv i imate cenu, termin i odgovor da li radimo vaš model. Pon-Pet 08:00-20:00, Sub 10:00-16:00.',
     },
   },
+
+  installation: {
+    title: 'Montaža auto kuke, od pregleda do atesta',
+    description:
+      'Radimo ugradnju euro kuke na sve marke vozila u Beogradu. Posao traje 3-4 sata, obuhvata kuku, elektro-instalaciju i atest, i pokriven je garancijom od dve godine.',
+    descriptionShort:
+      'Ugradnja euro kuke na sve marke vozila u Beogradu. Posao traje 3-4 sata i obuhvata kuku, elektro-instalaciju i atest.',
+
+    summary: {
+      label: 'Ukratko',
+      rows: [
+        { label: 'Trajanje', value: '3-4 sata' },
+        { label: 'Termin', value: 'u roku od 24 sata' },
+        { label: 'Atest', value: 'uključen' },
+        { label: 'Garancija', value: '2 godine' },
+        { label: 'Kuke', value: 'Bosal · Oris · Steinhof' },
+      ],
+    },
+
+    includes: {
+      title: 'Šta ulazi u ugradnju',
+      items: [
+        {
+          title: 'Kuka za vuču',
+          description: 'Model kuke biramo prema marki, modelu i godini vozila.',
+        },
+        {
+          title: 'Elektro-instalacija',
+          description: '7 ili 13 pinova, sa proverom svetala na prikolici.',
+        },
+        {
+          title: 'Atest',
+          description: 'Dokument sa kojim kuku upisujete u saobraćajnu dozvolu.',
+        },
+        {
+          title: 'Garancija 2 godine',
+          description: 'Pokriva i kuku i ugrađenu instalaciju.',
+        },
+      ],
+    },
+
+    types: {
+      title: 'Fiksna ili odvojiva kuka',
+      items: [
+        {
+          title: 'Fiksna',
+          description:
+            'Kugla je stalno na vozilu. Jednostavnija i najčešće pristupačnija varijanta, pogodna ako prikolicu vučete redovno.',
+        },
+        {
+          title: 'Odvojiva',
+          description:
+            'Kugla se skida kada nije u upotrebi, pa zadnji deo vozila ostaje čist. Bira se kada je izgled ili parking senzor važan.',
+        },
+      ],
+      note: 'Koja varijanta postoji za vaše vozilo, proveravamo na poziv.',
+    },
+
+    atest: {
+      title: 'Atest i registracija',
+      description:
+        'Atest za euro kuku je potvrda da je kuka ugrađena u skladu sa propisima i da vozilo sa njom može na tehnički pregled. Bez atesta kuka se ne upisuje u saobraćajnu dozvolu. Atest izdajemo uz svaku ugradnju i predajemo ga sa vozilom.',
+      orderLabel: 'Redosled',
+      order: [
+        { title: 'Ugradnja i atest', description: 'Kod nas, istog dana.' },
+        { title: 'Tehnički pregled', description: 'Sa atestom i saobraćajnom.' },
+        { title: 'Upis u dozvolu', description: 'Kuka je zvanično na vozilu.' },
+      ],
+    },
+
+    faq: {
+      title: 'Česta pitanja o ugradnji',
+    },
+
+    aside: {
+      title: 'Cena zavisi od vozila',
+      description:
+        'Recite marku, model i godinu i tip kuke - tačnu cenu dobijate na telefonu, bez obaveze.',
+      descriptionShort: 'Tačnu cenu dobijate na telefonu, bez obaveze.',
+    },
+
+    cta: {
+      title: 'Zakažite montažu euro kuke',
+    },
+  },
+
+  contact: {
+    title: 'Kontakt',
+    description:
+      'Najbrže je telefonom - na poziv odmah znate da li radimo vaš model, koliko košta i kada možete da dođete. Viber i WhatsApp koristimo za slike i kada ne možete da zovete.',
+    phoneLabel: 'Telefon',
+    mapTitle: 'Lokacija na mapi',
+    mapEmbedUrl:
+      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.893371443454!2d20.457972776266095!3d44.81350437107897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7a9609031735%3A0x9c75611af2d66583!2sEuro%20Kuka%20Beograd!5e0!3m2!1sen!2srs!4v1709766543210!5m2!1sen!2srs',
+  },
+
   blog: {
-    title: 'Blog',
-    description: 'Saznajte više o montaži euro kuke i održavanju vašeg vozila',
-    backButton: 'Nazad na Blog',
-    notFound: {
-      title: 'Post Nije Pronađen',
-      description: 'Traženi blog post nije pronađen.',
-      backButton: 'Nazad na Blog',
+    title: 'Atest, zakon i vuča prikolice',
+    description:
+      'Tekstovi koje pišemo iz radionice: šta propis traži, šta se u praksi dešava i kako da ne izgubite dan na tehničkom pregledu.',
+    allLabel: 'Sve',
+    backButton: 'Svi tekstovi',
+    authorLabel: 'Autor',
+    publishedLabel: 'Objavljeno',
+    cta: {
+      title: 'Imate pitanje o atestu za vaše vozilo?',
+      description: 'Kraće je pitati telefonom nego čitati pet tekstova.',
     },
     categories: {
       legal: {
-        title: 'Pravne Informacije',
-        description: 'Sve što treba da znate o zakonskim regulativama i dokumentaciji',
+        title: 'Pravne informacije',
+        description:
+          'Atest, upis u saobraćajnu dozvolu, dozvoljena masa i sve što propis traži pre nego što zakačite prikolicu.',
       },
       guide: {
         title: 'Vodiči',
-        description: 'Korak po korak uputstva za održavanje i korišćenje euro kuke',
+        description:
+          'Kako izabrati tip kuke i elektro-instalaciju za svoje vozilo, objašnjeno bez tehničkog žargona.',
       },
       safety: {
         title: 'Bezbednost',
-        description: 'Saveti i preporuke za bezbednu vožnju sa euro kukom',
+        description:
+          'Provera pre polaska, raspored tereta i vožnja sa prikolicom bez neprijatnih iznenađenja.',
       },
     },
-    posts: {
-      'atest-euro-kuke': {
-        title: 'Atest Euro Kuke',
-        description: 'Sve što treba da znate o atestu euro kuke',
-        date: '16. Mart 2024',
-        datetime: '2024-03-16',
-        category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
-        author: {
-          name: 'Ugradnja Euro Kuka',
-        },
-        content: `
-          <h2>📝 Da li je potreban atest za euro kuku u Srbiji?</h2>
-
-          <p>Ugradnja euro kuke na automobil postala je sve popularnija u Srbiji, bilo da je reč o vuči prikolice, nosača za bicikle ili druge opreme. Međutim, jedno od najčešćih pitanja koje naši klijenti postavljaju jeste: „Da li je potreban atest za euro kuku?"</p>
-
-          <h2>✅ Kratak odgovor: Da, atest je potreban.</h2>
-
-          <p>Prema važećim zakonima u Srbiji, svaka naknadna izmena na vozilu koja utiče na njegovu konstrukciju ili bezbednost mora biti atestirana. To uključuje i ugradnju vučne kuke (euro kuke), bez obzira na to da li je fabrička ili naknadno ugrađena.</p>
-
-          <h2>🧾 Šta kaže zakon?</h2>
-
-          <p>U skladu sa Pravilnikom o podeli motornih i priključnih vozila i tehničkim uslovima, atest je obavezan u sledećim slučajevima:</p>
-          <ul>
-            <li>Ako je kuka ugrađena nakon prve registracije vozila.</li>
-            <li>Ako nije ušla u standardnu homologaciju vozila u Srbiji.</li>
-            <li>Ako nije ugrađena u ovlašćenom servisu sa validnim dokumentima.</li>
-          </ul>
-
-          <h2>📄 Koje papire treba da imate?</h2>
-
-          <p>Nakon ugradnje euro kuke, potrebno je:</p>
-          <ol>
-            <li>Potvrda o stručnoj ugradnji (od firme koja je ugradila kuku)</li>
-            <li>Uputstvo i atest proizvođača (Bosal, Oris, Steinhof…)</li>
-            <li>Račun sa nazivom i šifrom dela</li>
-            <li>Potvrda o ispitivanju u AMSS ili akreditovanom telu (tehnički pregled)</li>
-          </ol>
-
-          <h2>🛠️ Da li sve kuke mogu da se atestiraju?</h2>
-
-          <p>Ne. Samo sertifikovane i homologovane kuke — koje ispunjavaju evropske standarde — mogu dobiti atest.
-          Zato je važno da kupite i ugradite euro kuku kod proverenog servisa, koji vam može izdati svu potrebnu dokumentaciju.</p>
-
-          <h2>💡 Šta ako ne uradite atest?</h2>
-          <ul>
-            <li>Kazna može iznositi od 10.000 do 50.000 RSD.</li>
-            <li>Nećete moći da prođete tehnički pregled.</li>
-            <li>U slučaju saobraćajne nezgode, osiguranje može odbiti isplatu štete.</li>
-          </ul>
-
-          <h2>✅ Kako da izbegnete probleme?</h2>
-
-          <p>Najbolji način da budete sigurni je da ugradnju poverite sertifikovanim stručnjacima, koji koriste atestirane proizvode i obezbeđuju kompletnu dokumentaciju.</p>
-          
-          <p>U našem servisu:</p>
-          <ul>
-            <li>Ugrađujemo proverene euro kuke (Bosal, Oris, Steinhof)</li>
-            <li>Dajemo garanciju na ugradnju</li>
-          </ul>
-
-          <h2>📞 Zakažite ugradnju već danas!</h2>
-
-          <p>Ne rizikujte kazne i probleme na tehničkom pregledu.
-          Kontaktirajte nas i obezbedite legalnu, sigurnu i profesionalnu ugradnju euro kuke po najvišim standardima.</p>
-          
-          <p>📱 Pozovite nas direktno: +381 63 8066462</p>
-        `,
-      },
-      'certifikacija-euro-kuke': {
-        title: 'Razumevanje Zahteva za Certifikaciju Euro Kuke',
-        description:
-          'Saznajte sve o zahtevima za certifikaciju euro kuke u Srbiji i zašto su važni za vašu bezbednost.',
-        date: '16. Mart 2024',
-        datetime: '2024-03-16',
-        category: { title: 'Pravne Informacije', href: '/blog/category/legal' },
-        author: {
-          name: 'Ugradnja Euro Kuka',
-        },
-        content: `
-          <h2>Zašto je Certifikacija Važna</h2>
-          <p>Certifikacija euro kuke nije samo zakonski zahtev u Srbiji - to je ključna bezbednosna mera. Sertifikovane euro kuke obezbeđuju da vaše vozilo može bezbedno da vuče terete bez ugrožavanja strukturalnog integriteta ili bezbednosti drugih učesnika u saobraćaju.</p>
-
-          <h2>Proces Certifikacije</h2>
-          <p>Proces certifikacije uključuje nekoliko koraka:</p>
-          <ul>
-            <li>Montaža od strane sertifikovanih tehničara</li>
-            <li>Detaljna provera instalacije</li>
-            <li>Testiranje nosivosti euro kuke</li>
-            <li>Dokumentovanje procesa instalacije</li>
-            <li>Izdavanje zvanične certifikacije</li>
-          </ul>
-
-          <h2>Zakonski Zahtevi</h2>
-          <p>U Srbiji, sve instalacije euro kuke moraju biti sertifikovane prema EU standardima. Ova certifikacija je potrebna za:</p>
-          <ul>
-            <li>Registraciju vozila</li>
-            <li>Periodične tehničke preglede</li>
-            <li>Pokriće osiguranja</li>
-          </ul>
-
-          <h2>Izbor Sertifikovanog Montažera</h2>
-          <p>Prilikom izbora montažera, obratite pažnju da imaju:</p>
-          <ul>
-            <li>Odgovarajuću certifikaciju i obuku</li>
-            <li>Iskustvo sa markom i modelom vašeg vozila</li>
-            <li>Pristup kvalitetnim, sertifikovanim komponentama</li>
-            <li>Dokazane uspešne instalacije</li>
-          </ul>
-        `,
-      },
-      'izbor-pravog-modela-euro-kuke': {
-        title: 'Kako Izabrati Pravi Model Euro Kuke za Vaše Vozilo',
-        description:
-          'Sveobuhvatan vodič za izbor savršene euro kuke za vaše vozilo, uzimajući u obzir težinu, tip i kompatibilnost.',
-        date: '10. Mart 2024',
-        datetime: '2024-03-10',
-        category: { title: 'Vodič', href: '/blog/category/guide' },
-        author: {
-          name: 'Ugradnja Euro Kuka',
-        },
-        content: `
-          <h2>Razumevanje Tipova Euro Kuke</h2>
-          <p>Postoji nekoliko tipova euro kuke, od kojih je svaki pogodan za različite potrebe:</p>
-          <ul>
-            <li>Fiksne euro kuke - trajna instalacija</li>
-            <li>Raskidive euro kuke - mogu se ukloniti kada se ne koriste</li>
-            <li>Uvučive euro kuke - sklanjaju se kada nisu potrebne</li>
-            <li>Specijalizovane euro kuke - za specifične tipove vozila</li>
-          </ul>
-
-          <h2>Razmatranje Težine</h2>
-          <p>Prilikom izbora euro kuke, uzmite u obzir:</p>
-          <ul>
-            <li>Maksimalnu vučnu sposobnost vašeg vozila</li>
-            <li>Težinu tereta koji ćete vući</li>
-            <li>Vertikalno opterećenje na euro kuku</li>
-            <li>Maksimalnu dozvoljenu težinu vozila (GVWR)</li>
-          </ul>
-
-          <h2>Provera Kompatibilnosti</h2>
-          <p>Proverite da li je euro kuka kompatibilna sa vašim vozilom:</p>
-          <ul>
-            <li>Marku, model i godinu proizvodnje vozila</li>
-            <li>Postojeće modifikacije na vozilu</li>
-            <li>Tip i dizajn branika</li>
-            <li>Zahteve električnog sistema</li>
-          </ul>
-        `,
-      },
-      'profesionalna-montaza-euro-kuke': {
-        title: 'Važnost Profesionalne Montaže Euro Kuke',
-        description:
-          'Otkrijte zašto je profesionalna montaža ključna za performanse vaše euro kuke i bezbednost vašeg vozila.',
-        date: '5. Mart 2024',
-        datetime: '2024-03-05',
-        category: { title: 'Bezbednost', href: '/blog/category/safety' },
-        author: {
-          name: 'Ugradnja Euro Kuka',
-        },
-        content: `
-          <h2>Zašto je Profesionalna Montaža Važna</h2>
-          <p>Profesionalna montaža obezbeđuje:</p>
-          <ul>
-            <li>Pravilno poravnanje i postavljanje</li>
-            <li>Ispravne električne veze</li>
-            <li>Strukturalni integritet vašeg vozila</li>
-            <li>Usaglašenost sa bezbednosnim standardima</li>
-            <li>Važeće garancije</li>
-          </ul>
-
-          <h2>Proces Montaže</h2>
-          <p>Profesionalna montaža uključuje:</p>
-          <ul>
-            <li>Pregled i pripremu vozila</li>
-            <li>Pravilno montiranje i osiguravanje</li>
-            <li>Integraciju električnog sistema</li>
-            <li>Testiranje i kontrolu kvaliteta</li>
-            <li>Dokumentaciju i certifikaciju</li>
-          </ul>
-
-          <h2>Bezbednosna Razmatranja</h2>
-          <p>Profesionalni montažeri obezbeđuju:</p>
-          <ul>
-            <li>Pravilnu raspodelu opterećenja</li>
-            <li>Sigurne tačke pričvršćivanja</li>
-            <li>Ispravno ožičenje i veze</li>
-            <li>Usaglašenost sa bezbednosnim propisima</li>
-          </ul>
-        `,
-      },
+    inArticleCta: {
+      title: 'Radimo ugradnju sa atestom u Beogradu',
+      description:
+        'Recite marku, model i godinu vozila i odmah znate cenu i prvi slobodan termin. Poziv ne obavezuje.',
     },
   },
-  contact: {
-    hero: {
-      title: 'Kontaktirajte Nas',
-      description: 'Imate pitanja? Naš tim je tu da vam pomogne. Kontaktirajte nas i dobićete brz odgovor.',
-    },
-    map: {
-      title: 'Kako do nas',
-      embedUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.893371443454!2d20.457972776266095!3d44.81350437107897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7a9609031735%3A0x9c75611af2d66583!2sEuro%20Kuka%20Beograd!5e0!3m2!1sen!2srs!4v1709766543210!5m2!1sen!2srs',
-    },
-    info: {
-      title: 'Kontakt Informacije',
-      areaTitle: 'Područje rada',
-      hoursTitle: 'Radno vreme',
-    },
-  },
+
   notFound: {
     title: 'Stranica nije pronađena',
-    description: 'Žao nam je, tražena stranica ne postoji ili je premeštena.',
+    description:
+      'Tražena stranica ne postoji ili je premeštena. Odavde možete nazad na početnu ili pravo na telefon.',
     homeButton: 'Nazad na početnu',
-    contactButton: 'Kontaktirajte nas',
   },
-};
+
+  privacy: {
+    title: 'Politika privatnosti',
+    updatedLabel: 'Poslednja izmena',
+    updated: 'mart 2026.',
+    sections: [
+      {
+        title: 'Ko smo',
+        body: 'Sajt ugradnjaeurokuka.com predstavlja delatnost ugradnje euro kuka na području Beograda i okoline. Na sajtu nema korisničkih naloga, nema forme za poručivanje i nema prodavnice.',
+      },
+      {
+        title: 'Koje podatke prikupljamo',
+        body: 'Sajt ne sadrži formu za kontakt i ne traži od vas ime, adresu ni broj telefona. Kontakt se odvija isključivo preko telefona, Vibera ili WhatsAppa, na vašu inicijativu. Podaci koje nam tom prilikom sami saopštite, kao što su marka i model vozila, koriste se samo da bismo vam dali cenu i zakazali termin.',
+      },
+      {
+        title: 'Tehnički podaci',
+        body: 'Kao i svaki sajt, i ovaj beleži osnovne tehničke podatke o poseti na nivou servera, na primer IP adresu i tip pregledača. Ti podaci se koriste za bezbednost i ispravan rad sajta.',
+      },
+      {
+        title: 'Kolačići i ugrađeni sadržaj',
+        body: 'Sajt ne postavlja sopstvene kolačiće za praćenje. Strane Početna i Kontakt sadrže ugrađenu Google Maps mapu. Kada se mapa učita, Google može postaviti svoje kolačiće i obraditi podatke prema sopstvenoj politici privatnosti, na koju nemamo uticaj.',
+      },
+      {
+        title: 'Deljenje podataka',
+        body: 'Podatke koje nam saopštite telefonom ili porukom ne prodajemo, ne ustupamo i ne prosleđujemo trećim licima.',
+      },
+      {
+        title: 'Vaša prava',
+        body: 'U skladu sa Zakonom o zaštiti podataka o ličnosti imate pravo da tražite uvid u podatke koje o vama imamo, njihovu ispravku ili brisanje. Zahtev možete uputiti telefonom, na broj naveden na sajtu.',
+      },
+      {
+        title: 'Izmene ove politike',
+        body: 'Ako se način rada sajta promeni, izmenićemo i ovaj tekst i ažurirati datum poslednje izmene na vrhu strane.',
+      },
+    ],
+    contactTitle: 'Kontakt',
+    contactBody: 'Za sva pitanja u vezi sa ovom politikom pozovite nas na broj:',
+  },
+} as const;

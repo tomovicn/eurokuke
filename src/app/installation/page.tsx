@@ -1,150 +1,148 @@
-'use client';
-
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactActions from '@/components/ContactActions';
-import Button from '@/components/ui/Button';
+import Faq from '@/components/Faq';
+import { SolidAction } from '@/components/ui/Actions';
+import { Card, Container, H2, MonoLabel, Section } from '@/components/ui/primitives';
 import { TEL_HREF } from '@/lib/contact';
-import { getInstallationFaq } from '@/lib/faq';
-import { VEHICLE_BRANDS } from '@/lib/vehicles';
-import { useTranslation } from '@/utils/i18n';
+import { INSTALLATION_FAQ } from '@/lib/faq';
+import { sr } from '@/utils/translations/sr';
 
-export default function EuroTowbarInstallation() {
-  const { t } = useTranslation();
-  const faq = getInstallationFaq();
+const t = sr.installation;
 
+export default function InstallationPage() {
   return (
-    <div className='bg-paper'>
+    <>
+      <Breadcrumbs trail={[{ name: sr.navigation.installation, path: '/installation' }]} />
+
       {/* Hero */}
-      <section className='bg-ink'>
-        <div className='mx-auto max-w-container px-4 py-20 sm:px-6 md:py-28 lg:px-8'>
-          <h1 className='max-w-3xl font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] text-paper md:text-6xl'>
-            {t('installation.title')}
-          </h1>
-          <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted-dark'>
-            {t('installation.description')}
-          </p>
-          <ContactActions tone='dark' size='lg' className='mt-8' />
-        </div>
-      </section>
-
-      {/* Installation Process */}
-      <section className='bg-paper py-20 md:py-28'>
-        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
-          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
-            {t('installation.process.title')}
-          </p>
-          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
-            {t('installation.process.subtitle')}
-          </h2>
-          <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted'>
-            {t('installation.process.description')}
-          </p>
-
-          <ol className='mt-14 grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-2 lg:grid-cols-4'>
-            {[
-              {
-                title: t('installation.process.steps.inspection.title'),
-                description: t('installation.process.steps.inspection.description'),
-              },
-              {
-                title: t('installation.process.steps.preparation.title'),
-                description: t('installation.process.steps.preparation.description'),
-              },
-              {
-                title: t('installation.process.steps.installation.title'),
-                description: t('installation.process.steps.installation.description'),
-              },
-              {
-                title: t('installation.process.steps.testing.title'),
-                description: t('installation.process.steps.testing.description'),
-              },
-            ].map((step, index) => (
-              <li key={step.title} className='bg-paper-2 p-7'>
-                <span className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent'>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className='mt-5 font-display text-lg font-bold tracking-[-0.02em]'>{step.title}</h3>
-                <p className='mt-2 text-sm leading-relaxed text-muted'>{step.description}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Supported Brands */}
-      <section className='bg-paper-2 py-20 md:py-28'>
-        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
-          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
-            {t('installation.supportedBrands.title')}
-          </p>
-          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
-            {t('installation.supportedBrands.subtitle')}
-          </h2>
-          <ul className='mt-12 flex flex-wrap gap-3'>
-            {VEHICLE_BRANDS.map((brand) => (
-              <li
-                key={brand}
-                className='rounded-full border border-line px-5 py-2 text-sm font-medium text-muted'
-              >
-                {brand}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Price */}
-      <section className='bg-paper py-20 md:py-28'>
-        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
-          <div className='rounded-2xl border border-line bg-paper-2 p-8 md:p-14'>
-            <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
-              {t('installation.pricing.title')}
-            </p>
-            <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
-              {t('installation.pricing.subtitle')}
-            </h2>
-            <p className='mt-6 max-w-2xl text-lg leading-relaxed text-muted'>
-              {t('installation.pricing.description')}
-            </p>
-            <ContactActions tone='light' size='lg' className='mt-8' />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className='bg-paper-2 py-20 md:py-28'>
-        <div className='mx-auto max-w-container px-4 sm:px-6 lg:px-8'>
-          <p className='text-xs font-semibold uppercase tracking-[0.18em] text-accent'>
-            {t('installation.faq.title')}
-          </p>
-          <h2 className='mt-4 max-w-2xl font-display text-4xl font-extrabold tracking-[-0.03em] md:text-5xl'>
-            {t('installation.faq.subtitle')}
-          </h2>
-
-          <dl className='mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2'>
-            {faq.map((entry) => (
-              <div key={entry.question}>
-                <dt className='font-display text-lg font-bold tracking-[-0.02em]'>{entry.question}</dt>
-                <dd className='mt-2 leading-relaxed text-muted'>{entry.answer}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className='bg-accent py-16 md:py-20'>
-        <div className='mx-auto flex max-w-container flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8'>
+      <Section first>
+        <Container className='grid items-start gap-6 py-5 md:gap-16 md:py-10 lg:grid-cols-[1fr_420px]'>
           <div>
-            <h2 className='font-display text-3xl font-extrabold tracking-[-0.03em] text-accent-ink md:text-4xl'>
-              {t('installation.cta.title')}
-            </h2>
-            <p className='mt-3 text-lg text-white/85'>{t('installation.cta.subtitle')}</p>
+            <h1 className='max-w-[20ch] text-[30px] font-semibold leading-[1.08] tracking-[-0.025em] md:text-[52px] md:leading-[1.04] md:tracking-[-0.03em]'>
+              {t.title}
+            </h1>
+            <p className='mt-3.5 max-w-[62ch] text-[15px] leading-[1.62] text-body md:mt-[22px] md:text-[18.5px] md:leading-[1.6]'>
+              <span className='md:hidden'>{t.descriptionShort}</span>
+              <span className='hidden md:inline'>{t.description}</span>
+            </p>
           </div>
-          <Button href={TEL_HREF} tone='light' variant='solid' size='lg' className='shrink-0'>
-            {t('installation.cta.button')}
-          </Button>
-        </div>
-      </section>
-    </div>
+
+          <Card className='p-4 px-4 md:p-6'>
+            <MonoLabel>{t.summary.label}</MonoLabel>
+            <dl className='mt-3 md:mt-3.5'>
+              {t.summary.rows.map((row, index) => (
+                <div
+                  key={row.label}
+                  className={`flex items-baseline justify-between gap-4 py-2.5 text-[14.5px] md:py-[11px] md:text-[15px] ${
+                    index < t.summary.rows.length - 1 ? 'border-b border-line' : ''
+                  }`}
+                >
+                  <dt className='text-muted'>{row.label}</dt>
+                  <dd className='text-right font-medium'>{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <ContactActions solid='ink' size='md' className='mt-5' />
+          </Card>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className='grid items-start gap-8 md:gap-16 lg:grid-cols-[1fr_420px]'>
+          <div>
+            {/* What the job includes */}
+            <H2>{t.includes.title}</H2>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-2'>
+              {t.includes.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            {/* Fixed or detachable */}
+            <H2 className='mt-8 md:mt-14'>{t.types.title}</H2>
+            <ul className='mt-3.5 grid gap-2.5 md:mt-6 md:grid-cols-2 md:gap-5'>
+              {t.types.items.map((item) => (
+                <li key={item.title}>
+                  <Card accent className='h-full p-3.5 px-4 md:p-6'>
+                    <h3 className='text-[15.5px] font-semibold md:text-[19px]'>{item.title}</h3>
+                    <p className='mt-1.5 text-[13.5px] leading-[1.55] text-body md:mt-2.5 md:text-[15px] md:leading-[1.6]'>
+                      {item.description}
+                    </p>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+            <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.types.note}</p>
+
+            {/* Atest */}
+            <H2 className='mt-8 md:mt-14'>{t.atest.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.atest.description}
+            </p>
+            <Card className='mt-4 p-4 px-4 md:mt-5 md:p-6'>
+              <MonoLabel>{t.atest.orderLabel}</MonoLabel>
+              <ol className='mt-3 grid md:mt-4 md:grid-cols-3'>
+                {t.atest.order.map((step, index) => (
+                  <li
+                    key={step.title}
+                    className={`border-b border-line py-3 last:border-b-0 md:border-b-0 md:py-0 ${
+                      index < t.atest.order.length - 1 ? 'md:border-r md:border-line md:pr-5' : ''
+                    } ${index > 0 ? 'md:pl-5' : ''}`}
+                  >
+                    <span className='font-mono text-[11px] text-accent'>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className='mt-1.5 text-[15.5px] font-semibold md:mt-2'>{step.title}</h3>
+                    <p className='mt-1 text-sm leading-[1.5] text-muted md:mt-1.5'>{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+            </Card>
+
+            {/* FAQ */}
+            <H2 className='mt-8 md:mt-14'>{t.faq.title}</H2>
+            <div className='mt-3.5 md:mt-5'>
+              <Faq entries={INSTALLATION_FAQ} />
+            </div>
+          </div>
+
+          {/* Price aside. Sticky on desktop so the answer to "koliko košta"
+              stays reachable through a long page. */}
+          <aside className='lg:sticky lg:top-28'>
+            <div className='bg-ink p-4 px-4 text-ink-text md:p-6'>
+              <p className='text-lg font-semibold md:text-[19px]'>{t.aside.title}</p>
+              <p className='mt-2 text-sm leading-[1.55] text-ink-muted md:mt-2.5 md:text-[14.5px]'>
+                <span className='md:hidden'>{t.aside.descriptionShort}</span>
+                <span className='hidden md:inline'>{t.aside.description}</span>
+              </p>
+              <ContactActions ground='dark' solid='accent' size='md' className='mt-4 md:mt-[18px]' />
+            </div>
+          </aside>
+        </Container>
+      </Section>
+
+      {/* CTA band */}
+      <Section>
+        <Container>
+          <Card className='flex flex-col gap-4 p-4 px-4 md:flex-row md:items-center md:justify-between md:gap-10 md:p-10'>
+            <H2 className='max-w-[24ch] md:text-[32px] md:leading-[1.12]'>{t.cta.title}</H2>
+            <SolidAction
+              href={TEL_HREF}
+              tone='accent'
+              size='md'
+              block={false}
+              className='w-full justify-center md:h-[60px] md:w-auto md:px-7 md:text-[19px]'
+            >
+              {sr.actions.callAppointment}
+            </SolidAction>
+          </Card>
+        </Container>
+      </Section>
+    </>
   );
 }

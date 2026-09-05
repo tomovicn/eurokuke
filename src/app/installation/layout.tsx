@@ -1,18 +1,24 @@
-import { Metadata } from 'next';
-import { OG_IMAGE } from '@/lib/site';
-import { faqPageSchema, getInstallationFaq } from '@/lib/faq';
+import type { Metadata } from 'next';
+
+import { JsonLd } from '@/components/ui/primitives';
+import { INSTALLATION_FAQ } from '@/lib/faq';
+import { faqPageSchema } from '@/lib/schema';
+import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
+
+const TITLE = 'Ugradnja euro kuke: proces, atest i garancija';
+const DESCRIPTION =
+  'Kako teče montaža auto kuke: pregled vozila, priprema, ugradnja kuke i elektro-instalacije, atest. Fiksna ili odvojiva kuka, 7 ili 13 pinova, garancija 2 godine.';
 
 export const metadata: Metadata = {
-  title: 'Ugradnja Euro Kuke | Proces Montaže i Cene',
-  description:
-    'Kako izgleda profesionalna ugradnja euro kuke: pregled vozila, priprema, montaža i testiranje. Originalni delovi Bosal, Oris i Steinhof uz garanciju.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/installation' },
   openGraph: {
-    type: 'website',
-    locale: 'sr_RS',
+    type: 'article',
+    locale: SITE_LOCALE,
     url: '/installation',
-    title: 'Ugradnja Euro Kuke | Proces Montaže i Cene',
-    description: 'Profesionalna montaža euro kuke za sve marke vozila — proces, delovi i garancija.',
+    title: TITLE,
+    description: DESCRIPTION,
     images: [OG_IMAGE],
   },
 };
@@ -20,10 +26,10 @@ export const metadata: Metadata = {
 export default function InstallationLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema(getInstallationFaq())) }}
-      />
+      {/* The four questions here are not the four on the homepage, so the two
+          FAQPage blocks describe different content and the pages do not
+          compete for the same query. */}
+      <JsonLd data={faqPageSchema(INSTALLATION_FAQ)} />
       {children}
     </>
   );

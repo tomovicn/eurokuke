@@ -1,35 +1,25 @@
-'use client';
-
-import Link from 'next/link';
-import { useTranslation } from '@/utils/i18n';
+import ContactActions from '@/components/ContactActions';
+import { Container, Section, TextLink } from '@/components/ui/primitives';
+import { sr } from '@/utils/translations/sr';
 
 export default function NotFound() {
-  const { t } = useTranslation();
-
   return (
-    <div className='bg-paper min-h-[70vh] flex items-center'>
-      <div className='max-w-container mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8'>
-        <div className='max-w-3xl mx-auto text-center'>
-          <h1 className='font-display text-4xl font-extrabold tracking-[-0.03em] text-ink sm:text-5xl'>
-            {t('notFound.title')}
+    <Section first>
+      <Container className='py-14 md:py-24'>
+        <div className='max-w-[52ch]'>
+          <p className='font-mono text-[11px] uppercase tracking-label text-faint'>404</p>
+          <h1 className='mt-3 text-[30px] font-semibold leading-[1.06] tracking-[-0.025em] md:text-5xl md:tracking-[-0.03em]'>
+            {sr.notFound.title}
           </h1>
-          <p className='mt-4 text-xl text-muted'>{t('notFound.description')}</p>
-          <div className='mt-10 flex flex-wrap justify-center gap-4'>
-            <Link
-              href='/'
-              className='inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-accent-ink bg-accent hover:brightness-110'
-            >
-              {t('notFound.homeButton')}
-            </Link>
-            <Link
-              href='/contact'
-              className='inline-flex items-center px-4 py-2 border border-line text-base font-medium rounded-md text-ink bg-paper hover:bg-paper-2'
-            >
-              {t('notFound.contactButton')}
-            </Link>
-          </div>
+          <p className='mt-3.5 text-[15px] leading-[1.6] text-body md:mt-5 md:text-[18px]'>
+            {sr.notFound.description}
+          </p>
+          <ContactActions solid='ink' size='md' className='mt-6 md:mt-8 md:max-w-sm' />
+          <p className='mt-5 text-sm md:text-[15px]'>
+            <TextLink href='/'>{sr.notFound.homeButton} &rarr;</TextLink>
+          </p>
         </div>
-      </div>
-    </div>
+      </Container>
+    </Section>
   );
 }

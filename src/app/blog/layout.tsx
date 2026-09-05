@@ -1,17 +1,21 @@
-import { Metadata } from 'next';
-import { OG_IMAGE } from '@/lib/site';
+import type { Metadata } from 'next';
+
+import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
+
+const TITLE = 'Blog: atest, zakon i vuča prikolice';
+const DESCRIPTION =
+  'Tekstovi iz radionice o atestu za euro kuku, upisu u saobraćajnu dozvolu, dozvoljenoj masi prikolice i bezbednoj vožnji sa prikolicom.';
 
 export const metadata: Metadata = {
-  title: 'Blog | Saveti o Euro Kukama i Montaži',
-  description:
-    'Saveti o atestu, certifikaciji, izboru modela i profesionalnoj montaži euro kuke. Vodiči našeg tima sertifikovanih montažera.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/blog' },
   openGraph: {
     type: 'website',
-    locale: 'sr_RS',
+    locale: SITE_LOCALE,
     url: '/blog',
-    title: 'Blog | Saveti o Euro Kukama i Montaži',
-    description: 'Vodiči o atestu, izboru i montaži euro kuke.',
+    title: TITLE,
+    description: DESCRIPTION,
     images: [OG_IMAGE],
   },
 };

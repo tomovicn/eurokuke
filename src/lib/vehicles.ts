@@ -9,7 +9,7 @@ export const VEHICLE_BRANDS = [
   'Opel',
   'Peugeot',
   'Renault',
-  'Citroen',
+  'Citroën',
   'Hyundai',
   'Kia',
 ] as const;

@@ -1,6 +1,8 @@
 {
   "name": "Ugradnja Euro Kuka",
   "short_name": "Euro Kuka",
+  "lang": "sr",
+  "start_url": "/",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -13,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#f6f3ec",
+  "background_color": "#f6f3ec",
   "display": "standalone"
 }
