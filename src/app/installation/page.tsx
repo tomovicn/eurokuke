@@ -143,6 +143,14 @@ export default function InstallationPage() {
             </ul>
             <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.price.note}</p>
 
+            {/* Sales and delivery outside Belgrade, which the site had never
+                mentioned even though it has been part of the business for
+                years. */}
+            <H2 className='mt-8 md:mt-14'>{t.shipping.title}</H2>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.shipping.description}
+            </p>
+
             {/* FAQ */}
             <H2 className='mt-8 md:mt-14'>{t.faq.title}</H2>
             <div className='mt-3.5 md:mt-5'>

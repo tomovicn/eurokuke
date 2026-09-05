@@ -39,11 +39,9 @@ export const PHOTOS = {
  * The seller page, not a single advert: an advert expires and a `sameAs`
  * pointing at a dead URL is worse than none. Tracking parameters are stripped
  * for the same reason, they are not part of the identity of the page.
- *
- * Instagram is missing on purpose. The link supplied was a reel with a share
- * token in it, and `sameAs` needs the profile URL.
  */
 export const PROFILES = [
+  'https://www.instagram.com/euro.kuke/',
   'https://www.kupujemprodajem.com/nenad-zivkovic/svi-oglasi/452018/1',
 ] as const;
 

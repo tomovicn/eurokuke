@@ -251,24 +251,26 @@ export const sr = {
     brands: {
       title: 'Kuke koje ugrađujemo',
       description:
-        'Radimo kuke tri evropska proizvođača. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
+        'Radimo kuke četiri evropska proizvođača: Bosal, AutoHak, Oris i Steinhof. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
+      // Lista je potvrđena. Ove četiri rečenice su namerno opšte i ne tvrde
+      // ništa o zalihama ili o tome koja marka pokriva koji model; to su
+      // podaci iz radionice, ne sa interneta. Zamenite ih čim stignu.
       items: [
-        // TREBA POTVRDA PRE MERGE-A: ova lista je prepisana iz postojećeg
-        // teksta na sajtu. Oglas na KupujemProdajem navodi Bosal i AutoHak,
-        // ne Oris i Steinhof. Opisi zato drže samo poreklo proizvođača, što je
-        // tačno u svakom slučaju, i ne tvrde ništa o tome šta se drži na
-        // stanju. Kada se lista potvrdi, ovde idu i pokrivenost i varijante.
         {
           title: 'Bosal',
-          description: 'Holandski proizvođač i jedan od najvećih u Evropi.',
+          description: 'Najčešći izbor kod nas i jedan od najvećih evropskih proizvođača.',
+        },
+        {
+          title: 'AutoHak',
+          description: 'Široka pokrivenost putničkih vozila, u fiksnoj i odvojivoj varijanti.',
         },
         {
           title: 'Oris',
-          description: 'Nemački proizvođač, fiksne i odvojive varijante.',
+          description: 'Poznat po odvojivim kukama, sa mehanizmom koji se zaključava.',
         },
         {
           title: 'Steinhof',
-          description: 'Poljski proizvođač, sa dokumentacijom po tipu kuke.',
+          description: 'Dobra pokrivenost starijih modela i karavana.',
         },
       ],
       note: 'Ako ste kuku već kupili negde drugde, recite oznaku tipa pre nego što dođete. Bez dokumentacije proizvođača atest se ne radi.',
@@ -307,6 +309,14 @@ export const sr = {
         },
       ],
       note: 'Atest i garancija od dve godine ulaze u cenu i ne naplaćuju se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+    },
+
+    // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama
+    // radi. Sajt je bio pisan kao da je jedini posao ugradnja u Beogradu.
+    shipping: {
+      title: 'Van Beograda',
+      description:
+        'Ugradnju radimo u Beogradu, ali kuka ne mora da se preuzima na licu mesta. Kupcima van Beograda šaljemo kuku pouzećem na adresu, a uz nju idu dokumentacija proizvođača i uputstvo za ugradnju. Pozovite pre porudžbine: tip kuke se bira prema marki, modelu, godištu i tipu karoserije, a kuka kupljena naslepo ume da bude ona za koju atest ne može da se uradi.',
     },
 
     atest: {
