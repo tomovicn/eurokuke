@@ -1,7 +1,7 @@
 import type { FaqEntry } from './faq';
 import type { BlogPost } from './posts';
 import { PHONE_DIAL } from './contact';
-import { GEO, HERO_IMAGE, OG_IMAGE, SITE_NAME, SITE_URL } from './site';
+import { GEO, OG_IMAGE, PHOTOS, SITE_NAME, SITE_URL } from './site';
 import { sr } from '@/utils/translations/sr';
 
 /**
@@ -31,7 +31,10 @@ export function localBusinessSchema() {
     description:
       'Ugradnja euro kuke sa atestom na sve marke vozila u Beogradu. Bosal, Oris i Steinhof, garancija dve godine.',
     url: SITE_URL,
-    image: `${SITE_URL}${HERO_IMAGE}`,
+    // Google reads `image` on a LocalBusiness as the pictures of the business
+    // itself, so these are the three photographs of finished work rather than
+    // the share card. More than one gives it something to choose from.
+    image: Object.values(PHOTOS).map((path) => `${SITE_URL}${path}`),
     telephone: PHONE_DIAL,
     currenciesAccepted: 'RSD',
     address: {

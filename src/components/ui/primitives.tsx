@@ -39,7 +39,7 @@ export function MonoLabel({
   className = '',
   children,
 }: {
-  tone?: 'faint' | 'accent' | 'accent-on-ink' | 'ink-muted';
+  tone?: 'faint' | 'accent' | 'accent-on-ink' | 'accent-on-photo' | 'ink-muted';
   as?: 'p' | 'span' | 'div';
   className?: string;
   children: React.ReactNode;
@@ -48,6 +48,7 @@ export function MonoLabel({
     faint: 'text-faint',
     accent: 'text-accent',
     'accent-on-ink': 'text-accent-on-ink',
+    'accent-on-photo': 'text-accent-on-photo',
     'ink-muted': 'text-ink-muted',
   } as const;
 

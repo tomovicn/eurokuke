@@ -1,15 +1,14 @@
-import Image from 'next/image';
-
 import BrandStrip from '@/components/BrandStrip';
 import ContactActions from '@/components/ContactActions';
 import Faq from '@/components/Faq';
+import Hero, { HeroFacts } from '@/components/Hero';
 import HoursTable from '@/components/HoursTable';
-import { GhostAction, SolidAction } from '@/components/ui/Actions';
-import { Card, Chip, Container, H2, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
-import { TEL_HREF, VIBER_HREF, WHATSAPP_HREF } from '@/lib/contact';
+import ProofStrip from '@/components/ProofStrip';
+import { SolidAction } from '@/components/ui/Actions';
+import { Card, Container, H2, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
+import { TEL_HREF } from '@/lib/contact';
 import { HOME_FAQ } from '@/lib/faq';
 import { faqPageSchema, localBusinessSchema } from '@/lib/schema';
-import { HERO_IMAGE, HERO_IMAGE_HEIGHT, HERO_IMAGE_WIDTH } from '@/lib/site';
 import { VEHICLE_BRANDS } from '@/lib/vehicles';
 import { sr } from '@/utils/translations/sr';
 
@@ -22,72 +21,16 @@ export default function Home() {
       <JsonLd data={faqPageSchema(HOME_FAQ)} />
 
       {/* Hero. The h1 is the only one on the page. */}
-      <Section first>
-        <Container className='grid items-start gap-8 py-8 md:gap-16 md:py-[72px] lg:grid-cols-[1fr_520px]'>
-          <div>
-            <MonoLabel tone='accent'>{t.hero.eyebrow}</MonoLabel>
-            <h1 className='mt-3 max-w-[12ch] text-[34px] font-semibold leading-[1.08] tracking-[-0.02em] md:mt-[18px] md:text-6xl md:leading-[1.02] md:tracking-[-0.03em]'>
-              {t.hero.title}
-            </h1>
-            <p className='mt-3.5 max-w-[46ch] text-[15px] leading-[1.62] text-body md:mt-6 md:text-[18.5px] md:leading-[1.58]'>
-              {t.hero.description}
-            </p>
+      <Hero />
+      <HeroFacts />
 
-            <ul className='mt-[18px] flex flex-wrap gap-1.5 md:mt-7 md:gap-2'>
-              {t.hero.chips.map((chip) => (
-                <li key={chip}>
-                  <Chip>{chip}</Chip>
-                </li>
-              ))}
-            </ul>
+      <BrandStrip className='mt-6 md:mt-12' />
 
-            {/* One primary action. Viber and WhatsApp sit beside it on desktop
-                and beneath it on mobile, always bordered, never accent. */}
-            <div className='mt-[22px] flex flex-col gap-2 md:mt-9 md:flex-row md:items-stretch md:gap-3'>
-              <SolidAction
-                href={TEL_HREF}
-                tone='ink'
-                size='lg'
-                eyebrow={sr.actions.callEyebrow}
-                arrow
-                block={false}
-                className='md:min-w-[330px]'
-              >
-                {sr.actions.callAppointment}
-              </SolidAction>
-              <div className='grid grid-cols-2 gap-2 md:flex md:flex-col md:justify-between md:gap-1.5'>
-                <GhostAction href={VIBER_HREF} compact>
-                  {sr.actions.viber}
-                </GhostAction>
-                <GhostAction href={WHATSAPP_HREF} compact>
-                  {sr.actions.whatsapp}
-                </GhostAction>
-              </div>
-            </div>
-
-            <p className='mt-4 font-mono text-[11px] text-faint md:text-[11.5px]'>{sr.common.hours.inline}</p>
-          </div>
-
-          {/*
-            The one real photograph in the project, and the LCP element on both
-            layouts. `priority` skips lazy-loading; the fixed width/height keep
-            the box reserved so the hero never shifts as it decodes.
-          */}
-          <div className='border border-line-strong bg-surface'>
-            <Image
-              src={HERO_IMAGE}
-              alt={t.hero.imageAlt}
-              width={HERO_IMAGE_WIDTH}
-              height={HERO_IMAGE_HEIGHT}
-              sizes='(min-width: 1024px) 520px, 100vw'
-              className='h-auto w-full object-contain'
-              priority
-            />
-          </div>
-        </Container>
+      {/* Proof. Three photographs of finished work, directly under the
+          manufacturers whose parts went into it. */}
+      <Section>
+        <ProofStrip />
       </Section>
-
-      <BrandStrip />
 
       {/* Process */}
       <Section>
@@ -134,7 +77,7 @@ export default function Home() {
                   key={input.title}
                   className='flex items-baseline justify-between gap-3 border-b border-ink-line bg-ink px-3.5 py-3 last:border-b-0 md:flex-col md:items-start md:justify-start md:border-b-0 md:p-5'
                 >
-                  <span className='order-2 font-mono text-[11px] text-faint md:order-none'>
+                  <span className='order-2 font-mono text-[11px] text-accent-on-ink md:order-none'>
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span className='order-1 text-sm md:order-none md:mt-2.5 md:text-base md:font-semibold'>
@@ -159,7 +102,7 @@ export default function Home() {
               arrow
               className='mt-[18px] md:mt-[22px]'
             />
-            <p className='mt-4 font-mono text-[11px] leading-relaxed text-faint md:mt-[18px]'>
+            <p className='mt-4 font-mono text-[11px] leading-relaxed text-ink-muted md:mt-[18px]'>
               {sr.common.hours.inline}
             </p>
           </div>

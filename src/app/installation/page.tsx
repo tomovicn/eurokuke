@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactActions from '@/components/ContactActions';
 import Faq from '@/components/Faq';
@@ -5,6 +7,7 @@ import { SolidAction } from '@/components/ui/Actions';
 import { Card, Container, H2, MonoLabel, Section } from '@/components/ui/primitives';
 import { TEL_HREF } from '@/lib/contact';
 import { INSTALLATION_FAQ } from '@/lib/faq';
+import { PHOTO_HEIGHT, PHOTO_WIDTH, PHOTOS } from '@/lib/site';
 import { sr } from '@/utils/translations/sr';
 
 const t = sr.installation;
@@ -114,6 +117,23 @@ export default function InstallationPage() {
           {/* Price aside. Sticky on desktop so the answer to "koliko košta"
               stays reachable through a long page. */}
           <aside className='lg:sticky lg:top-28'>
+            {/* One photograph of finished work above the price card. It answers
+                the question the copy cannot: what it looks like when it is
+                done. Hidden below lg, where the card is already the third
+                thing on a long scroll and does not need a picture on top. */}
+            <div className='relative hidden aspect-[3/4] bg-ink lg:block'>
+              <Image
+                src={PHOTOS.boot}
+                alt={t.aside.photoAlt}
+                width={PHOTO_WIDTH}
+                height={PHOTO_HEIGHT}
+                sizes='(min-width: 1024px) 340px, 100vw'
+                className='h-full w-full object-cover'
+              />
+              <span className='absolute bottom-3 left-3 bg-surface px-[7px] py-[5px] font-mono text-[10px] tracking-[0.06em] text-ink'>
+                {t.aside.photoBadge}
+              </span>
+            </div>
             <div className='bg-ink p-4 px-4 text-ink-text md:p-6'>
               <p className='text-lg font-semibold md:text-[19px]'>{t.aside.title}</p>
               <p className='mt-2 text-sm leading-[1.55] text-ink-muted md:mt-2.5 md:text-[14.5px]'>

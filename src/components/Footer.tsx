@@ -64,7 +64,7 @@ export default function Footer() {
       </Container>
 
       <div className='border-t border-ink-line'>
-        <Container className='py-4 font-mono text-[10.5px] text-muted md:text-[11px]'>
+        <Container className='py-4 font-mono text-[10.5px] text-ink-muted md:text-[11px]'>
           {sr.footer.copyright.replace('{year}', String(new Date().getFullYear()))}
         </Container>
       </div>

@@ -25,12 +25,13 @@ const brands = [
 ];
 
 /**
- * No top margin: the section above already ends on its own padding, and adding
- * one here doubles the gap to about 144px.
+ * The caller sets the top margin. The gap depends on what sits above: after a
+ * section that ends on its own padding the strip needs nothing, and adding a
+ * margin here anyway doubled it to about 144px once already.
  */
-export default function BrandStrip() {
+export default function BrandStrip({ className = '' }: { className?: string }) {
   return (
-    <section className='border-y border-line bg-surface'>
+    <section className={`border-y border-line bg-surface ${className}`}>
       <Container className='flex flex-col gap-3 py-4 md:flex-row md:items-center md:gap-12 md:py-[26px]'>
         <MonoLabel className='shrink-0'>{sr.home.brands.label}</MonoLabel>
         <div className='flex items-center gap-8 md:gap-11'>

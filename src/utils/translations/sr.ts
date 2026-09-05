@@ -67,8 +67,36 @@ export const sr = {
       title: 'Ugradnja euro kuke sa atestom',
       description:
         'Montaža traje 3-4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija - sve na jednom mestu.',
-      chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi'],
-      imageAlt: 'Ugrađena euro kuka na zadnjem delu vozila',
+      chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi', 'Termin do 24 sata'],
+      imageAlt: 'Nosač euro kuke ispod zadnjeg branika, sa elektro-instalacijom',
+    },
+
+    /*
+     * Three frames from one job. The caption on each says what the picture
+     * shows, not how good the work is: the pictures are the claim, the words
+     * under them only point at it.
+     */
+    proof: {
+      title: 'Naše ugradnje',
+      label: 'Beograd · sve marke vozila',
+      badge: 'Naša ugradnja',
+      items: [
+        {
+          key: 'detachable',
+          caption: 'Kugla sa zaštitnom kapom, kuka spuštena.',
+          alt: 'Odvojiva Oris euro kuka sa zaštitnom kapom na kugli',
+        },
+        {
+          key: 'mount',
+          caption: 'Nosač i utičnica ispod branika.',
+          alt: 'Nosač euro kuke i utičnica za prikolicu ispod zadnjeg branika',
+        },
+        {
+          key: 'boot',
+          caption: 'Kuka ne smeta gepeku ni braniku.',
+          alt: 'Zadnji deo vozila sa ugrađenom euro kukom i otvorenim gepekom',
+        },
+      ],
     },
 
     brands: {
@@ -225,6 +253,8 @@ export const sr = {
     },
 
     aside: {
+      photoAlt: 'Zadnji deo vozila sa ugrađenom euro kukom i otvorenim gepekom',
+      photoBadge: 'Naša ugradnja',
       title: 'Cena zavisi od vozila',
       description:
         'Recite marku, model i godinu i tip kuke - tačnu cenu dobijate na telefonu, bez obaveze.',

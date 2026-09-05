@@ -26,7 +26,11 @@
   --ink-2: 58 53 46;
   --body: 85 80 74;
   --muted: 110 103 92;
-  --faint: 138 130 114;
+  /* `faint` used to be 138 130 114, which measured 3.6:1 on paper and failed AA
+     for the mono labels and meta lines it carries. It now holds the same value
+     as `muted` (5.05:1). The two names are kept apart because they mark
+     different roles: `faint` is mono meta, `muted` is secondary body copy. */
+  --faint: 110 103 92;
 
   --line: 227 220 205;
   --line-strong: 216 209 194;
@@ -45,6 +49,10 @@
   --ink-muted: 166 156 137;
   --ink-btn-text: 231 225 214;
   --accent-on-ink: 201 138 62;
+  /* Accent over a photograph rather than a flat ink fill. A scrim can only be
+     pushed so far before it swallows the image, so the eyebrow needs a lighter
+     accent than `accent-on-ink` to clear 4.5:1 against it. */
+  --accent-on-photo: 224 167 90;
 }
 
 html {
@@ -76,3 +84,37 @@ summary {
 
 /* The mobile call bar is fixed to the bottom edge below md.
    MobileCallBar renders a matching spacer so the footer is never occluded. */
+
+/*
+ * Hero scrim. The copy sits on the photograph from lg up, so this gradient is
+ * doing contrast work rather than decoration: it holds the text above 4.5:1 on
+ * the left and then gets out of the way before it reaches the tow bar, which
+ * is the only part of the frame worth showing. Written out in full because the
+ * four stops are the whole point; a two-stop Tailwind gradient veils the hook.
+ *
+ * Below lg the copy sits under the photo on paper, so only the top edge is
+ * darkened, and only enough to keep the corner badges legible.
+ *
+ * The breakpoint is repeated here rather than read from Tailwind: this file is
+ * plain CSS, so it must be kept in step with Hero.tsx by hand.
+ */
+.hero-scrim {
+  background: linear-gradient(
+    180deg,
+    rgb(20 18 16 / 0.62) 0%,
+    rgb(20 18 16 / 0.15) 40%,
+    rgb(20 18 16 / 0.05) 100%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-scrim {
+    background: linear-gradient(
+      90deg,
+      rgb(20 18 16 / 0.94) 0%,
+      rgb(20 18 16 / 0.88) 38%,
+      rgb(20 18 16 / 0.35) 62%,
+      rgb(20 18 16 / 0.1) 100%
+    );
+  }
+}

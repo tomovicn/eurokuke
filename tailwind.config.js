@@ -37,6 +37,7 @@ module.exports = {
                     ink: 'rgb(var(--accent-ink) / <alpha-value>)',
                     soft: 'rgb(var(--accent-soft) / <alpha-value>)',
                     'on-ink': 'rgb(var(--accent-on-ink) / <alpha-value>)',
+                    'on-photo': 'rgb(var(--accent-on-photo) / <alpha-value>)',
                 },
             },
             fontFamily: {
