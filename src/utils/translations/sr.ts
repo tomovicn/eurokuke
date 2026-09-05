@@ -292,6 +292,8 @@ export const sr = {
     backButton: 'Svi tekstovi',
     authorLabel: 'Autor',
     publishedLabel: 'Objavljeno',
+    updatedLabel: 'Dopunjeno',
+    relatedTitle: 'Pročitajte i ovo',
     cta: {
       title: 'Imate pitanje o atestu za vaše vozilo?',
       description: 'Kraće je pitati telefonom nego čitati pet tekstova.',

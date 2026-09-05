@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactActions from '@/components/ContactActions';
-import { Container, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
-import { getBlogPost, getBlogPosts } from '@/lib/posts';
+import { Card, Container, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
+import { formatPostDate, getBlogPost, getBlogPosts, getRelatedPosts } from '@/lib/posts';
 import { blogPostingSchema } from '@/lib/schema';
 import { OG_IMAGE, SITE_LOCALE, SITE_NAME } from '@/lib/site';
 import { sr } from '@/utils/translations/sr';
@@ -35,6 +36,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       title: post.title,
       description: post.description,
       publishedTime: post.datetime,
+      modifiedTime: post.updated ?? post.datetime,
       authors: [SITE_NAME],
       section: post.category.title,
       images: [OG_IMAGE],
@@ -54,6 +56,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   // A slug that does not exist is a 404, not a page that renders an apology
   // with a 200 status. The old version returned 200 and was indexable.
   if (!post) notFound();
+
+  const related = getRelatedPosts(post.slug);
 
   return (
     <>
@@ -98,11 +102,51 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <ContactActions ground='dark' solid='accent' size='md' className='mt-5 md:max-w-sm' />
             </div>
 
+            {/* Two more articles, so a reader who finishes this one has
+                somewhere to go that is not the back button, and so each post
+                passes something to the others instead of being a dead end. */}
+            {related.length > 0 && (
+              <section className='mt-8 md:mt-12' aria-labelledby='related-heading'>
+                <h2
+                  id='related-heading'
+                  className='text-[18px] font-semibold tracking-[-0.015em] md:text-[22px]'
+                >
+                  {sr.blog.relatedTitle}
+                </h2>
+                <ul className='mt-3.5 grid gap-2.5 md:mt-5 md:grid-cols-2 md:gap-5'>
+                  {related.map((item) => (
+                    <li key={item.slug}>
+                      <Card className='h-full'>
+                        <Link
+                          href={`/blog/${item.slug}`}
+                          className='flex h-full flex-col gap-2.5 p-4 md:gap-3 md:p-6'
+                        >
+                          <MonoLabel tone='accent' as='span' className='text-[10px]'>
+                            {item.category.title}
+                          </MonoLabel>
+                          <h3 className='text-[16.5px] font-semibold leading-[1.22] tracking-[-0.015em] md:text-[19px]'>
+                            {item.title}
+                          </h3>
+                          <p className='mt-auto font-mono text-[11px] text-faint'>{item.readingTime}</p>
+                        </Link>
+                      </Card>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             <footer className='mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line-strong pt-5 md:mt-12 md:pt-6'>
               <p className='font-mono text-[11px] leading-relaxed text-faint md:text-[11.5px]'>
                 {sr.blog.authorLabel}: {post.author.name}
                 <br />
                 {sr.blog.publishedLabel}: {post.date}
+                {post.updated && (
+                  <>
+                    <br />
+                    {sr.blog.updatedLabel}: <time dateTime={post.updated}>{formatPostDate(post.updated)}</time>
+                  </>
+                )}
               </p>
               <TextLink href='/blog' className='text-sm md:text-[15px]'>
                 {sr.blog.backButton} &rarr;

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { JsonLd } from '@/components/ui/primitives';
 import { INSTALLATION_FAQ } from '@/lib/faq';
-import { faqPageSchema } from '@/lib/schema';
+import { faqPageSchema, serviceSchema } from '@/lib/schema';
 import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
 
 const TITLE = 'Ugradnja euro kuke: proces, atest i garancija';
@@ -29,6 +29,9 @@ export default function InstallationLayout({ children }: { children: React.React
       {/* The four questions here are not the four on the homepage, so the two
           FAQPage blocks describe different content and the pages do not
           compete for the same query. */}
+      {/* The service described where it is explained, tied to the business on
+          the homepage by @id so the two are one entity. */}
+      <JsonLd data={serviceSchema()} />
       <JsonLd data={faqPageSchema(INSTALLATION_FAQ)} />
       {children}
     </>

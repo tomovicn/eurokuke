@@ -1,7 +1,7 @@
 import type { FaqEntry } from './faq';
 import type { BlogPost } from './posts';
 import { PHONE_DIAL } from './contact';
-import { GEO, OG_IMAGE, PHOTOS, SITE_NAME, SITE_URL } from './site';
+import { GEO, PHOTOS, SITE_NAME, SITE_URL } from './site';
 import { sr } from '@/utils/translations/sr';
 
 /**
@@ -79,6 +79,47 @@ export function localBusinessSchema() {
   };
 }
 
+/**
+ * The service itself, emitted on /installation.
+ *
+ * The homepage already carries `makesOffer` on the business; this is the same
+ * service described where it is actually explained, tied back to the business
+ * by `@id` so the two are one entity rather than two. `hasOfferCatalog` names
+ * the four things a caller actually has to choose between.
+ *
+ * No `offers` with a price: there is no published price. See docs/seo-podaci.md.
+ */
+export function serviceSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE_URL}/installation#service`,
+    name: 'Ugradnja euro kuke sa atestom',
+    serviceType: 'Ugradnja kuke za vuču',
+    description:
+      'Ugradnja fiksne ili odvojive euro kuke sa elektro-instalacijom od 7 ili 13 pinova, atest uz svaku ugradnju, garancija dve godine.',
+    url: `${SITE_URL}/installation`,
+    provider: { '@id': `${SITE_URL}/#business` },
+    areaServed: [
+      { '@type': 'City', name: 'Beograd' },
+      { '@type': 'Country', name: 'Srbija' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Tipovi kuke i elektro-instalacije',
+      itemListElement: [
+        'Fiksna euro kuka',
+        'Odvojiva euro kuka',
+        'Elektro-instalacija 7 pinova',
+        'Elektro-instalacija 13 pinova',
+      ].map((name) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name },
+      })),
+    },
+  };
+}
+
 export function faqPageSchema(entries: FaqEntry[]) {
   return {
     '@context': 'https://schema.org',
@@ -126,9 +167,14 @@ export function blogPostingSchema(post: BlogPost) {
     description: post.description,
     inLanguage: 'sr-RS',
     datePublished: post.datetime,
-    dateModified: post.datetime,
+    // Only claims a revision when there actually was one; `updated` is absent
+    // on a post that has not been touched since it went up.
+    dateModified: post.updated ?? post.datetime,
     articleSection: post.category.title,
-    image: `${SITE_URL}${OG_IMAGE}`,
+    // A photograph of the work, not the share card. Google reads `image` on an
+    // article as the picture that belongs to it, and the share card is the same
+    // 1200x630 graphic on all four posts, which tells it nothing.
+    image: Object.values(PHOTOS).map((path) => `${SITE_URL}${path}`),
     // The company is the author. There are no named writers on this site and
     // there never were: the four bylines the repo used to carry were invented.
     author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
