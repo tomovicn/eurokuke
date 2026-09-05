@@ -25,7 +25,10 @@ import { sr } from '@/utils/translations/sr';
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'AutoRepair',
+    // Two types, because the business is two things. It fits hooks in Belgrade
+    // and it sells and ships them across Serbia, and a node typed only
+    // AutoRepair describes half of that.
+    '@type': ['AutoRepair', 'AutoPartsStore'],
     '@id': `${SITE_URL}/#business`,
     name: SITE_NAME,
     description:
@@ -67,16 +70,34 @@ export function localBusinessSchema() {
         closes: '16:00',
       },
     ],
-    makesOffer: {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Ugradnja euro kuke sa atestom',
-        serviceType: 'Ugradnja kuke za vuču',
-        provider: { '@id': `${SITE_URL}/#business` },
-        areaServed: { '@type': 'City', name: 'Beograd' },
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Ugradnja euro kuke sa atestom',
+          serviceType: 'Ugradnja kuke za vuču',
+          provider: { '@id': `${SITE_URL}/#business` },
+          areaServed: { '@type': 'City', name: 'Beograd' },
+        },
       },
-    },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Product',
+          name: 'Auto kuka za vuču sa homologacijom',
+          category: 'Kuke za vuču',
+          brand: ['Bosal', 'AutoHak', 'Oris', 'Steinhof'].map((name) => ({
+            '@type': 'Brand',
+            name,
+          })),
+        },
+        // No `price`: none is published, and an invented one is worse than
+        // none. `availableDeliveryMethod` is the part that is true today.
+        availableDeliveryMethod: 'https://purl.org/goodrelations/v1#DeliveryModeMail',
+        areaServed: { '@type': 'Country', name: 'Srbija' },
+      },
+    ],
   };
 }
 

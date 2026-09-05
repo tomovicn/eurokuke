@@ -60,3 +60,25 @@ export const INSTALLATION_FAQ: FaqEntry[] = [
       'Cena zavisi od tipa kuke, broja pinova na instalaciji i od samog vozila. Atest i garancija od dve godine su uključeni. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
   },
 ];
+
+export const SALES_FAQ: FaqEntry[] = [
+  {
+    question: 'Da li šaljete kuke van Beograda?',
+    answer:
+      'Da. Kuku šaljemo pouzećem na adresu bilo gde u Srbiji, a uz nju idu dokumentacija proizvođača i uputstvo za ugradnju.',
+  },
+  {
+    question: 'Da li su kuke nove?',
+    answer: 'Da. Prodajemo nove kuke sa homologacijom i oznakom tipa proizvođača.',
+  },
+  {
+    question: 'Kako da znam koja kuka odgovara mom vozilu?',
+    answer:
+      'Javite marku, model, godinu i tip karoserije, pa proveravamo koji odobreni tip postoji za to vozilo. Kuka kupljena naslepo često ne može da se atestira.',
+  },
+  {
+    question: 'Mogu li kuku da ugradim kod svog majstora?',
+    answer:
+      'Možete. Uz kuku ide detaljno uputstvo sa grafičkim prikazom. Za atest se onda obraćate onome ko radi ugradnju.',
+  },
+];

@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactActions from '@/components/ContactActions';
 import Faq from '@/components/Faq';
 import { SolidAction } from '@/components/ui/Actions';
-import { Card, Container, H2, MonoLabel, Section } from '@/components/ui/primitives';
+import { Card, Container, H2, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
 import { TEL_HREF } from '@/lib/contact';
 import { INSTALLATION_FAQ } from '@/lib/faq';
 import { PHOTO_HEIGHT, PHOTO_WIDTH, PHOTOS } from '@/lib/site';
@@ -149,6 +149,9 @@ export default function InstallationPage() {
             <H2 className='mt-8 md:mt-14'>{t.shipping.title}</H2>
             <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
               {t.shipping.description}
+            </p>
+            <p className='mt-3 text-sm md:mt-4 md:text-[15px]'>
+              <TextLink href='/prodaja-auto-kuka'>{t.shipping.linkLabel} &rarr;</TextLink>
             </p>
 
             {/* FAQ */}
