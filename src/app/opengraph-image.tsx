@@ -26,6 +26,14 @@ export const contentType = 'image/png';
 const PHOTO_BOX = 456;
 
 /*
+ * Width of the rule under the logotype, in pixels. The component on the site
+ * lets the rule stretch to whatever the name measures; satori has no way to
+ * size a box to a sibling, so the measurement is written down. It is the width
+ * of `Ugradnja euro kuka` set at 26px in Plex Sans Semibold.
+ */
+const WORDMARK_RULE = 231;
+
+/*
  * satori has no object-fit, so the cover crop is worked out here: scale the
  * 3:4 frame until it fills the box on both axes, then pull it left by half the
  * overflow so it stays centred.
@@ -122,7 +130,7 @@ export default function OpengraphImage() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: 32 }}>
             <div
               style={{
                 display: 'flex',
@@ -137,7 +145,20 @@ export default function OpengraphImage() {
             >
               {sr.actions.callAppointment}
             </div>
-            <div style={{ fontSize: 22, color: '#A69C89' }}>ugradnjaeurokuka.com</div>
+
+            {/* The full logotype, the same one the footer carries. Written out
+                rather than imported: satori renders inline styles only, so the
+                Wordmark component's Tailwind classes mean nothing here, and it
+                has no way to size the rule to its sibling either. */}
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ fontSize: 26, fontWeight: 600, letterSpacing: -0.65, lineHeight: 1 }}>
+                {sr.common.wordmark}
+              </div>
+              <div style={{ display: 'flex', width: WORDMARK_RULE, height: 3, marginTop: 6, background: '#C98A3E' }} />
+              <div style={{ marginTop: 7, fontSize: 12, letterSpacing: 2.2, color: '#A69C89' }}>
+                {sr.common.wordmarkCity.toUpperCase()}
+              </div>
+            </div>
           </div>
         </div>
       </div>

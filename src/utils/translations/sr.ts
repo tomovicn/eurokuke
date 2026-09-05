@@ -15,6 +15,14 @@ export const sr = {
   common: {
     companyName: 'Ugradnja Euro Kuka',
     companyShort: 'Euro Kuka',
+    /*
+     * The logotype. Lower case on `euro kuka` because that is how the name is
+     * set in Serbian, and because it is drawn, not written: `companyName` above
+     * stays title case, since that is the business name the schema, the page
+     * titles and the share card all carry.
+     */
+    wordmark: 'Ugradnja euro kuka',
+    wordmarkCity: 'Beograd',
     tagline: 'Ugradnja sa atestom',
     area: 'Beograd i okolina',
     areaLong: 'Beograd i okolina. Termin i tačnu lokaciju dogovaramo telefonom.',

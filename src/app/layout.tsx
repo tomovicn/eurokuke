@@ -51,7 +51,11 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/site.webmanifest',
-  themeColor: '#f6f3ec',
+  // Ochre, not paper. This colours the Android browser bar and the task
+  // switcher card, and it is the one place the mark is allowed to be the
+  // brand rather than a contact action. Paper there is indistinguishable
+  // from Chrome's own chrome.
+  themeColor: '#a85b12',
   // Every phone number on the site is already a tel: link. Without this, iOS
   // wraps them a second time and restyles them out of the design.
   formatDetection: { telephone: false, address: false, email: false },

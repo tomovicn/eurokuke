@@ -26,7 +26,7 @@ const t = sr.home.hero;
  */
 export default function Hero() {
   return (
-    <section className='relative isolate bg-paper lg:min-h-[620px] lg:bg-ink'>
+    <section className='relative isolate bg-paper lg:min-h-[696px] lg:bg-ink'>
       <div className='relative h-[300px] bg-ink md:h-[420px] lg:absolute lg:inset-0 lg:h-auto'>
         {/*
           The LCP element. `priority` skips lazy-loading, and the box is sized
@@ -51,7 +51,13 @@ export default function Hero() {
         </span>
       </div>
 
-      <Container className='relative py-6 md:py-8 lg:flex lg:min-h-[620px] lg:flex-col lg:justify-center lg:py-16'>
+      {/*
+        The top padding is the header's resting height. From lg up the header
+        floats over this photograph with no ground of its own, so the copy has
+        to clear it by hand; `justify-center` then centres the block in what is
+        left rather than in the whole section.
+      */}
+      <Container className='relative py-6 md:py-8 lg:flex lg:min-h-[696px] lg:flex-col lg:justify-center lg:pb-0 lg:pt-[76px]'>
         <div className='lg:max-w-[640px]'>
           <MonoLabel tone='accent' className='lg:text-accent-on-photo'>
             {t.eyebrow}

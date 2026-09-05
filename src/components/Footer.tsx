@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Wordmark from '@/components/Wordmark';
 import { Container, MonoLabel } from '@/components/ui/primitives';
 import { PHONE_DISPLAY, TEL_HREF, VIBER_HREF, WHATSAPP_HREF } from '@/lib/contact';
 import { sr } from '@/utils/translations/sr';
@@ -16,8 +17,9 @@ export default function Footer() {
     <footer className='mt-7 bg-ink text-ink-muted md:mt-[72px]'>
       <Container className='grid gap-8 py-10 md:grid-cols-[1fr_200px_200px_260px] md:gap-10 md:py-11'>
         <div>
-          <p className='text-sm font-semibold text-ink-text md:text-[15px]'>{sr.common.companyName}</p>
-          <p className='mt-2.5 text-[13.5px] leading-relaxed'>{sr.footer.blurb}</p>
+          {/* The full logotype, with the city line the header leaves off. */}
+          <Wordmark full tone='paper' />
+          <p className='mt-4 text-[13.5px] leading-relaxed'>{sr.footer.blurb}</p>
         </div>
 
         <nav className='flex flex-col gap-2 text-[13.5px]' aria-label={sr.footer.pagesLabel}>
