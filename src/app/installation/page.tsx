@@ -68,7 +68,10 @@ export default function InstallationPage() {
 
             {/* Fixed or detachable */}
             <H2 className='mt-8 md:mt-14'>{t.types.title}</H2>
-            <ul className='mt-3.5 grid gap-2.5 md:mt-6 md:grid-cols-2 md:gap-5'>
+            <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
+              {t.types.description}
+            </p>
+            <ul className='mt-3.5 grid gap-2.5 md:mt-6 md:grid-cols-3 md:gap-5'>
               {t.types.items.map((item) => (
                 <li key={item.title}>
                   <Card accent className='h-full p-3.5 px-4 md:p-6'>

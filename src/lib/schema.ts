@@ -34,7 +34,7 @@ export function localBusinessSchema() {
     '@id': `${SITE_URL}/#business`,
     name: SITE_NAME,
     description:
-      'Ugradnja euro kuke sa atestom na sve marke vozila u Beogradu. Bosal, Oris i Steinhof, garancija dve godine.',
+      'Ugradnja i prodaja euro kuka na sve marke vozila, Novi Beograd. Bosal, AutoHak, Oris, Steinhof i Galia, garancija dve godine.',
     url: SITE_URL,
     // Google reads `image` on a LocalBusiness as the pictures of the business
     // itself, so these are the three photographs of finished work rather than
@@ -50,7 +50,7 @@ export function localBusinessSchema() {
     },
     // The floor price, which is the one figure the business publishes. A range
     // or a list is off the table; a starting point is not.
-    priceRange: 'od 15.000 RSD',
+    priceRange: 'od 200 EUR',
     areaServed: [
       { '@type': 'City', name: 'Beograd' },
       { '@type': 'City', name: 'Novi Beograd' },
@@ -81,7 +81,7 @@ export function localBusinessSchema() {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Ugradnja euro kuke sa atestom',
+          name: 'Ugradnja euro kuke',
           serviceType: 'Ugradnja kuke za vuču',
           provider: { '@id': `${SITE_URL}/#business` },
           areaServed: { '@type': 'City', name: 'Beograd' },
@@ -122,10 +122,10 @@ export function serviceSchema() {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${SITE_URL}/installation#service`,
-    name: 'Ugradnja euro kuke sa atestom',
+    name: 'Ugradnja euro kuke',
     serviceType: 'Ugradnja kuke za vuču',
     description:
-      'Ugradnja fiksne ili odvojive euro kuke sa elektro-instalacijom od 7 ili 13 pinova, atest uz svaku ugradnju, garancija dve godine.',
+      'Ugradnja euro kuke sa elektro-instalacijom od 7 ili 13 pinova, na dva šrafa, na ručicu ili brzopotezna. Dokumentacija za atest i garancija od dve godine.',
     url: `${SITE_URL}/installation`,
     provider: { '@id': `${SITE_URL}/#business` },
     areaServed: [
@@ -136,8 +136,9 @@ export function serviceSchema() {
       '@type': 'OfferCatalog',
       name: 'Tipovi kuke i elektro-instalacije',
       itemListElement: [
-        'Fiksna euro kuka',
-        'Odvojiva euro kuka',
+        'Euro kuka na dva šrafa',
+        'Euro kuka na ručicu',
+        'Brzopotezna euro kuka na ključ',
         'Elektro-instalacija 7 pinova',
         'Elektro-instalacija 13 pinova',
       ].map((name) => ({

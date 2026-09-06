@@ -23,7 +23,7 @@ export const sr = {
      */
     wordmark: 'Ugradnja euro kuka',
     wordmarkCity: 'Beograd',
-    tagline: 'Ugradnja sa atestom',
+    tagline: 'Euro kuke i ugradnja',
     area: 'Beograd i okolina',
     areaLong: 'Novi Beograd. Vozilo možete ostaviti i vratiti se po njega. U krugu Beograda izlazimo i na teren.',
     areaNote: 'Tačnu adresu i termin dogovaramo telefonom.',
@@ -65,7 +65,7 @@ export const sr = {
   },
 
   footer: {
-    blurb: 'Ugradnja euro kuke sa atestom, Beograd i okolina. Bosal, Oris, Steinhof.',
+    blurb: 'Ugradnja i prodaja euro kuka, Novi Beograd. Bosal, AutoHak, Oris, Steinhof, Galia.',
     pagesLabel: 'Strane',
     contactLabel: 'Kontakt',
     copyright: '© {year} Ugradnja Euro Kuka · ugradnjaeurokuka.com',
@@ -74,10 +74,10 @@ export const sr = {
   home: {
     hero: {
       eyebrow: 'Beograd · Sve marke vozila',
-      title: 'Ugradnja euro kuke sa atestom',
+      title: 'Ugradnja euro kuke u Beogradu',
       description:
-        'Montaža traje 3-4 sata, termin dobijate u roku od 24 sata. Originalni delovi, atest i garancija - sve na jednom mestu.',
-      chips: ['Atest uključen', 'Garancija 2 godine', 'Originalni delovi', 'Termin do 24 sata'],
+        'Montaža traje 3-4 sata, termin dobijate u roku od 24 sata. Originalni delovi, papiri za atest i garancija od dve godine.',
+      chips: ['Papiri za atest', 'Garancija 2 godine', 'Originalni delovi', 'Termin do 24 sata'],
       imageAlt: 'Nosač euro kuke ispod zadnjeg branika, sa elektro-instalacijom',
     },
 
@@ -119,7 +119,7 @@ export const sr = {
         { title: 'Pregled vozila', description: 'Proveravamo model i biramo odgovarajuću kuku.' },
         { title: 'Priprema', description: 'Skidanje branika i priprema tačaka nosača.' },
         { title: 'Montaža', description: 'Kuka i elektro-instalacija, 7 ili 13 pinova.' },
-        { title: 'Atest i predaja', description: 'Dobijate atest za registraciju i vozilo je gotovo.' },
+        { title: 'Papiri i predaja', description: 'Dobijate dokumentaciju za atest i vozilo je gotovo.' },
       ],
       note: 'Ceo posao traje 3-4 sata.',
       link: 'Detaljno o ugradnji',
@@ -129,10 +129,10 @@ export const sr = {
       eyebrow: 'Bez obaveze',
       title: 'Koliko košta ugradnja?',
       description:
-        'Jedna cena za sva vozila ne postoji, pa je ne objavljujemo - svaki broj na sajtu bio bi netačan za nekoga. Recite nam tri stvari i tačnu cenu za vaš auto čujete u istom razgovoru.',
+        'Kompletna kuka sa ugradnjom počinje od 200 evra, a odatle zavisi od vozila. Recite nam tri stvari i tačnu cenu za vaš auto čujete u istom razgovoru.',
       inputs: [
         { title: 'Vozilo', description: 'Marka, model, godina.' },
-        { title: 'Tip kuke', description: 'Fiksna ili odvojiva.' },
+        { title: 'Način skidanja', description: 'Šrafovi, ručica ili brzopotezna.' },
         { title: 'Instalacija', description: '7 ili 13 pinova.' },
       ],
       cardTitle: 'Cena na telefonu, odmah',
@@ -152,7 +152,7 @@ export const sr = {
         },
         {
           title: 'Originalni delovi',
-          description: 'Kuke proizvođača Bosal, Oris i Steinhof, prema modelu vozila.',
+          description: 'Kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, prema modelu vozila.',
         },
         {
           title: 'Termin u roku od 24 sata',
@@ -190,18 +190,18 @@ export const sr = {
   },
 
   installation: {
-    title: 'Montaža auto kuke, od pregleda do atesta',
+    title: 'Montaža auto kuke, od pregleda do papira',
     description:
-      'Radimo ugradnju euro kuke na sve marke vozila u Beogradu. Posao traje 3-4 sata, obuhvata kuku, elektro-instalaciju i atest, i pokriven je garancijom od dve godine.',
+      'Radimo ugradnju euro kuke na sve marke vozila, na Novom Beogradu. Posao traje 3-4 sata, obuhvata kuku i elektro-instalaciju, i pokriven je garancijom od dve godine. Uz vozilo dobijate dokumentaciju potrebnu za atest.',
     descriptionShort:
-      'Ugradnja euro kuke na sve marke vozila u Beogradu. Posao traje 3-4 sata i obuhvata kuku, elektro-instalaciju i atest.',
+      'Ugradnja euro kuke na sve marke vozila, Novi Beograd. Posao traje 3-4 sata i obuhvata kuku i elektro-instalaciju.',
 
     summary: {
       label: 'Ukratko',
       rows: [
         { label: 'Trajanje', value: '3-4 sata' },
         { label: 'Termin', value: 'u roku od 24 sata' },
-        { label: 'Atest', value: 'izdajemo uz ugradnju' },
+        { label: 'Za atest', value: 'papiri uz ugradnju' },
         { label: 'Garancija', value: '2 godine' },
         { label: 'Kuke', value: 'Bosal, AutoHak, Oris, Steinhof, Galia' },
         { label: 'Lokacija', value: 'Novi Beograd' },
@@ -220,9 +220,9 @@ export const sr = {
           description: '7 ili 13 pinova, sa proverom svetala na prikolici.',
         },
         {
-          title: 'Atest',
+          title: 'Papiri za atest',
           description:
-            'Dokument sa kojim kuku upisujete u saobraćajnu dozvolu. Izdajemo ga uz ugradnju i naplaćuje se posebno.',
+            'Kompletna dokumentacija sa kojom se vadi atest. Sam atest, ako hoćete, vadimo mi po dogovoru.',
         },
         {
           title: 'Garancija 2 godine',
@@ -232,17 +232,24 @@ export const sr = {
     },
 
     types: {
-      title: 'Fiksna ili odvojiva kuka',
+      title: 'Tri načina skidanja kuke',
+      description:
+        'Sve kuke koje ugrađujemo se skidaju. Razlikuju se po tome kako, i to je jedini izbor koji imate. Fiksnu kuku, onu koja ostaje na vozilu stalno, ne radimo.',
       items: [
         {
-          title: 'Fiksna',
+          title: 'Na dva šrafa',
           description:
-            'Kugla je stalno na vozilu. Jednostavnija i najčešće pristupačnija varijanta, pogodna ako prikolicu vučete redovno.',
+            'Kugla se skida odvrtanjem dva šrafa, alatom. Najjednostavnija varijanta, za onoga ko kuku skida retko.',
         },
         {
-          title: 'Odvojiva',
+          title: 'Na ručicu',
           description:
-            'Kugla se skida kada nije u upotrebi, pa zadnji deo vozila ostaje čist. Bira se kada je izgled ili parking senzor važan.',
+            'Vrat se otpušta ručicom i izvlači horizontalno, bez alata. Skidanje traje nekoliko sekundi kada se uhoda.',
+        },
+        {
+          title: 'Brzopotezna, na ključ',
+          description:
+            'Otključa se i vadi vertikalno naniže, na klik. Najbrža varijanta i najskuplja od tri.',
         },
       ],
       note: 'Koja varijanta postoji za vaše vozilo, proveravamo na poziv.',
@@ -266,11 +273,11 @@ export const sr = {
         },
         {
           title: 'AutoHak',
-          description: 'Široka pokrivenost putničkih vozila, u fiksnoj i odvojivoj varijanti.',
+          description: 'Široka pokrivenost putničkih vozila, u sva tri načina skidanja.',
         },
         {
           title: 'Oris',
-          description: 'Poznat po odvojivim kukama, sa mehanizmom koji se zaključava.',
+          description: 'Poznat po brzopoteznim kukama, sa mehanizmom koji se zaključava.',
         },
         {
           title: 'Steinhof',
@@ -278,7 +285,7 @@ export const sr = {
         },
         {
           title: 'Galia',
-          description: 'Fiksne i odvojive varijante, sa dokumentacijom po tipu kuke.',
+          description: 'Više varijanti skidanja, sa dokumentacijom po tipu kuke.',
         },
       ],
       note: 'Ako ste kuku već kupili negde drugde, recite oznaku tipa pre nego što dođete. Bez dokumentacije proizvođača atest se ne radi.',
@@ -296,14 +303,14 @@ export const sr = {
         'Cena ugradnje nije ista za svako vozilo i zato je ne objavljujemo kao jedan broj. Ovo je sve što je pomera, da biste znali šta vas čeka pre nego što pozovete.',
       items: [
         {
-          title: 'Tip kuke',
+          title: 'Način skidanja',
           description:
-            'Fiksna ima manje delova i po pravilu je povoljnija. Odvojiva nosi mehanizam koji se otključava, pa je skuplja.',
+            'Na dva šrafa je najjednostavnije i najpovoljnije. Ručica i brzopotezna nose mehanizam, pa su skuplje.',
         },
         {
           title: 'Instalacija',
           description:
-            'Sedam ili trinaest pinova, i da li vozilo traži običnu ili smart konekciju na fabričku elektroniku. Instalacija ulazi u cenu ugradnje.',
+            'Sedam ili trinaest pinova, i da li vozilo prima univerzalnu instalaciju ili traži CAN modul koji se povezuje na fabričku elektroniku. Instalacija ulazi u cenu.',
         },
         {
           title: 'Marka, model i godište',
@@ -316,7 +323,7 @@ export const sr = {
             'Kod većine modela branik mora da se skine, a najčešće i da se seče na mestu gde kuka izlazi. Koliko je to posla zavisi od vozila.',
         },
       ],
-      note: 'Ugradnja počinje od 15.000 dinara. Elektro-instalacija i garancija od dve godine ulaze u cenu, atest se plaća posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+      note: 'Kompletna kuka sa ugradnjom počinje od 200 evra, sa uračunatom elektro-instalacijom i garancijom od dve godine. Atest, ako ga vadimo mi, košta 15.000 dinara i dogovara se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
     },
 
     // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama
@@ -333,10 +340,10 @@ export const sr = {
     atest: {
       title: 'Atest i registracija',
       description:
-        'Atest za euro kuku je potvrda da je kuka ugrađena u skladu sa propisima i da vozilo sa njom može na tehnički pregled. Bez atesta kuka se ne upisuje u saobraćajnu dozvolu. Atest izdajemo uz svaku ugradnju i predajemo ga sa vozilom.',
+        'Atest za euro kuku je potvrda da je kuka ugrađena u skladu sa propisima i da vozilo sa njom može na tehnički pregled. Bez atesta kuka se ne upisuje u saobraćajnu dozvolu. Uz ugradnju dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest možemo da izvadimo umesto vas, po dogovoru, i košta 15.000 dinara.',
       orderLabel: 'Redosled',
       order: [
-        { title: 'Ugradnja i atest', description: 'Kod nas, istog dana.' },
+        { title: 'Ugradnja i papiri', description: 'Kod nas, istog dana.' },
         { title: 'Tehnički pregled', description: 'Sa atestom i saobraćajnom.' },
         { title: 'Upis u dozvolu', description: 'Kuka je zvanično na vozilu.' },
       ],
@@ -398,7 +405,7 @@ export const sr = {
   sales: {
     title: 'Prodaja auto kuka, sa slanjem po celoj Srbiji',
     description:
-      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu. Ugradnju radimo na Novom Beogradu.',
+      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu, za 1 do 5 radnih dana. Ugradnju radimo na Novom Beogradu.',
     descriptionShort:
       'Nove kuke sa homologacijom, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji.',
 
@@ -407,8 +414,9 @@ export const sr = {
       rows: [
         { label: 'Proizvođači', value: 'Bosal, AutoHak, Oris, Steinhof, Galia' },
         { label: 'Kuke', value: 'nove, sa homologacijom' },
-        { label: 'Slanje', value: 'cela Srbija, pouzećem' },
-        { label: 'Uz kuku', value: 'dokumentacija i uputstvo' },
+        { label: 'Isporuka', value: 'cela Srbija, 1 do 5 radnih dana' },
+        { label: 'Plaćanje', value: 'pouzećem' },
+        { label: 'Uz kuku', value: 'papiri za atest i uputstvo' },
         { label: 'Ugradnja', value: 'Novi Beograd' },
         { label: 'Takođe', value: 'nosači bicikala' },
       ],
@@ -425,7 +433,7 @@ export const sr = {
         {
           title: 'Dokumentacija proizvođača',
           description:
-            'Papiri koji povezuju taj tip kuke sa vašim modelom vozila. Bez njih ugradnja može biti uredna, a atest i dalje nemoguć.',
+            'Papiri koji povezuju taj tip kuke sa vašim modelom vozila, i sa kojima se vadi atest. Bez njih ugradnja može biti uredna, a atest i dalje nemoguć.',
         },
         {
           title: 'Uputstvo za ugradnju',
@@ -464,7 +472,28 @@ export const sr = {
         },
         {
           title: 'Šaljemo pouzećem',
-          description: 'Kuka stiže na vašu adresu, bilo gde u Srbiji, sa papirima i uputstvom.',
+          description:
+            'Kuka stiže na vašu adresu, bilo gde u Srbiji, za 1 do 5 radnih dana, sa papirima i uputstvom.',
+        },
+      ],
+    },
+
+    delivery: {
+      title: 'Isporuka i povraćaj',
+      items: [
+        {
+          title: 'Rok',
+          description:
+            'Kuka stiže za 1 do 5 radnih dana. Duži rok znači da se tip poručuje, jer se sve varijante ne drže na stanju.',
+        },
+        {
+          title: 'Plaćanje',
+          description: 'Pouzećem, prilikom preuzimanja pošiljke. Nema uplate unapred.',
+        },
+        {
+          title: 'Povraćaj',
+          description:
+            'Ako kuka ne odgovara, povraćaj je moguć. Uslove dogovaramo telefonom, pre nego što bilo šta šaljete nazad.',
         },
       ],
     },
@@ -472,7 +501,7 @@ export const sr = {
     install: {
       title: 'Ugradnja u Beogradu',
       description:
-        'Ako ste u Beogradu, kuku ne morate nigde da nosite. Ugradnju kuke i elektro-instalacije radimo sami na Novom Beogradu, posao traje 3-4 sata, vozilo možete ostaviti i vratiti se po njega. Atest izdajemo uz ugradnju, a na kuku i instalaciju ide garancija od dve godine.',
+        'Ako ste u Beogradu, kuku ne morate nigde da nosite. Ugradnju kuke i elektro-instalacije radimo sami na Novom Beogradu, posao traje 3-4 sata, vozilo možete ostaviti i vratiti se po njega. Uz ugradnju dobijate papire za atest, a na kuku i instalaciju garanciju od dve godine.',
       linkLabel: 'Kako teče ugradnja',
     },
 
@@ -521,7 +550,7 @@ export const sr = {
       },
     },
     inArticleCta: {
-      title: 'Radimo ugradnju sa atestom u Beogradu',
+      title: 'Radimo ugradnju euro kuka na Novom Beogradu',
       description:
         'Recite marku, model i godinu vozila i odmah znate cenu i prvi slobodan termin. Poziv ne obavezuje.',
     },

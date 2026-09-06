@@ -14,9 +14,9 @@ import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
  * also short enough that the brand suffix from the root template survives
  * instead of being cut off mid-word.
  */
-const TITLE = 'Ugradnja auto kuke sa atestom, Beograd';
+const TITLE = 'Ugradnja auto kuke i atest, Beograd';
 const DESCRIPTION =
-  'Ugradnja auto kuke na sve marke vozila u Beogradu. Fiksna ili odvojiva kuka, instalacija sa 7 ili 13 pinova, atest uz svaku ugradnju. Bosal, Oris i Steinhof.';
+  'Ugradnja auto kuke na sve marke vozila, Novi Beograd. Kuka na šrafove, na ručicu ili brzopotezna, instalacija 7 ili 13 pinova. Od 200 evra, papiri za atest.';
 
 export const metadata: Metadata = {
   title: TITLE,
