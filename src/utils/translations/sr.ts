@@ -152,7 +152,7 @@ export const sr = {
         },
         {
           title: 'Originalni delovi',
-          description: 'Kuke proizvođača Bosal, Oris i Steinhof, prema modelu vozila.',
+          description: 'Kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, prema modelu vozila.',
         },
         {
           title: 'Termin u roku od 24 sata',
@@ -405,7 +405,7 @@ export const sr = {
   sales: {
     title: 'Prodaja auto kuka, sa slanjem po celoj Srbiji',
     description:
-      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu. Ugradnju radimo na Novom Beogradu.',
+      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu, za 1 do 5 radnih dana. Ugradnju radimo na Novom Beogradu.',
     descriptionShort:
       'Nove kuke sa homologacijom, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji.',
 
@@ -414,7 +414,8 @@ export const sr = {
       rows: [
         { label: 'Proizvođači', value: 'Bosal, AutoHak, Oris, Steinhof, Galia' },
         { label: 'Kuke', value: 'nove, sa homologacijom' },
-        { label: 'Slanje', value: 'cela Srbija, pouzećem' },
+        { label: 'Isporuka', value: 'cela Srbija, 1 do 5 radnih dana' },
+        { label: 'Plaćanje', value: 'pouzećem' },
         { label: 'Uz kuku', value: 'papiri za atest i uputstvo' },
         { label: 'Ugradnja', value: 'Novi Beograd' },
         { label: 'Takođe', value: 'nosači bicikala' },
@@ -471,7 +472,28 @@ export const sr = {
         },
         {
           title: 'Šaljemo pouzećem',
-          description: 'Kuka stiže na vašu adresu, bilo gde u Srbiji, sa papirima i uputstvom.',
+          description:
+            'Kuka stiže na vašu adresu, bilo gde u Srbiji, za 1 do 5 radnih dana, sa papirima i uputstvom.',
+        },
+      ],
+    },
+
+    delivery: {
+      title: 'Isporuka i povraćaj',
+      items: [
+        {
+          title: 'Rok',
+          description:
+            'Kuka stiže za 1 do 5 radnih dana. Duži rok znači da se tip poručuje, jer se sve varijante ne drže na stanju.',
+        },
+        {
+          title: 'Plaćanje',
+          description: 'Pouzećem, prilikom preuzimanja pošiljke. Nema uplate unapred.',
+        },
+        {
+          title: 'Povraćaj',
+          description:
+            'Ako kuka ne odgovara, povraćaj je moguć. Uslove dogovaramo telefonom, pre nego što bilo šta šaljete nazad.',
         },
       ],
     },

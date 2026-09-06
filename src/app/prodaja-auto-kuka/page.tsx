@@ -107,6 +107,20 @@ export default function SalesPage() {
               ))}
             </ol>
 
+            {/* Delivery and returns. The two things a buyer at a distance asks
+                first, and the page could answer neither. */}
+            <H2 className='mt-8 md:mt-14'>{t.delivery.title}</H2>
+            <ul className='mt-3.5 grid gap-px border border-line-strong bg-line md:mt-6 md:grid-cols-3'>
+              {t.delivery.items.map((item) => (
+                <li key={item.title} className='bg-surface p-3.5 md:p-[22px]'>
+                  <h3 className='text-[15.5px] font-semibold md:text-[17px]'>{item.title}</h3>
+                  <p className='mt-1 text-[13.5px] leading-[1.55] text-muted md:mt-2 md:text-[14.5px]'>
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
             {/* Fitting, which stays in Belgrade */}
             <H2 className='mt-8 md:mt-14'>{t.install.title}</H2>
             <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>

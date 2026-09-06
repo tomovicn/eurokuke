@@ -30,6 +30,13 @@ export const HOME_FAQ: FaqEntry[] = [
       'Ugrađujemo kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia. Sve se skidaju, a razlikuju se po načinu: na dva šrafa, na ručicu ili brzopotezne na ključ.',
   },
   {
+    // Prema radionici, ovo je ubedljivo najčešća pogrešna pretpostavka s kojom
+    // ljudi dolaze: da branik ostaje netaknut.
+    question: 'Da li se seče branik?',
+    answer:
+      'Kod većine vozila da. Rez ide nisko na zadnjem delu branika, tamo gde vrat kuke i utičnica izlaze. To je standardan deo posla, a pre ugradnje vam kažemo tačno šta vas čeka na vašem modelu.',
+  },
+  {
     question: 'Kada mogu da dođem?',
     answer: 'Termin dogovaramo telefonom, najčešće u roku od 24 sata od poziva.',
   },
@@ -81,6 +88,16 @@ export const SALES_FAQ: FaqEntry[] = [
     question: 'Kako da znam koja kuka odgovara mom vozilu?',
     answer:
       'Javite marku, model, godinu i tip karoserije, pa proveravamo koji odobreni tip postoji za to vozilo. Kuka kupljena naslepo često ne može da se atestira.',
+  },
+  {
+    question: 'Za koliko dana stiže kuka?',
+    answer:
+      'Za 1 do 5 radnih dana. Duži rok znači da se tip poručuje, jer se sve varijante ne drže na stanju. Plaća se pouzećem, prilikom preuzimanja.',
+  },
+  {
+    question: 'Šta ako kuka ne odgovara mom vozilu?',
+    answer:
+      'Povraćaj je moguć, a uslove dogovaramo telefonom. Najbolje je ipak javiti marku, model, godinu i tip karoserije pre porudžbine, pa da tip proverimo zajedno.',
   },
   {
     question: 'Mogu li kuku da ugradim kod svog majstora?',

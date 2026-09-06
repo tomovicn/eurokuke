@@ -15,7 +15,7 @@ import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
  */
 const TITLE = 'Prodaja auto kuka i slanje po Srbiji';
 const DESCRIPTION =
-  'Nove auto kuke sa homologacijom: Bosal, AutoHak, Oris i Steinhof, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji, uz dokumentaciju i uputstvo.';
+  'Nove auto kuke sa homologacijom: Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji, za 1 do 5 radnih dana.';
 
 export const metadata: Metadata = {
   title: TITLE,
