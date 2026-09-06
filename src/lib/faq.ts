@@ -18,7 +18,7 @@ export const HOME_FAQ: FaqEntry[] = [
   {
     question: 'Da li dobijam atest za euro kuku?',
     answer:
-      'Uz ugradnju dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest možemo da izvadimo umesto vas, po dogovoru, i košta 15.000 dinara.',
+      'Uz ugradnju dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest košta 15.000 dinara i nije u ceni ugradnje. Možemo da ga izvadimo umesto vas, po dogovoru.',
   },
   {
     question: 'Koliko traje montaža auto kuke?',

@@ -222,7 +222,7 @@ export const sr = {
         {
           title: 'Papiri za atest',
           description:
-            'Kompletna dokumentacija sa kojom se vadi atest. Sam atest, ako hoćete, vadimo mi po dogovoru.',
+            'Kompletna dokumentacija sa kojom se vadi atest. Sam atest košta 15.000 dinara i možemo da ga izvadimo umesto vas, po dogovoru.',
         },
         {
           title: 'Garancija 2 godine',
@@ -323,7 +323,7 @@ export const sr = {
             'Kod većine modela branik mora da se skine, a najčešće i da se seče na mestu gde kuka izlazi. Koliko je to posla zavisi od vozila.',
         },
       ],
-      note: 'Kompletna kuka sa ugradnjom počinje od 200 evra, sa uračunatom elektro-instalacijom i garancijom od dve godine. Atest, ako ga vadimo mi, košta 15.000 dinara i dogovara se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+      note: 'Kompletna kuka sa ugradnjom počinje od 200 evra, sa uračunatom elektro-instalacijom i garancijom od dve godine. Sam atest košta 15.000 dinara i nije u toj ceni. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
     },
 
     // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama
@@ -340,7 +340,7 @@ export const sr = {
     atest: {
       title: 'Atest i registracija',
       description:
-        'Atest za euro kuku je potvrda da je kuka ugrađena u skladu sa propisima i da vozilo sa njom može na tehnički pregled. Bez atesta kuka se ne upisuje u saobraćajnu dozvolu. Uz ugradnju dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest možemo da izvadimo umesto vas, po dogovoru, i košta 15.000 dinara.',
+        'Atest za euro kuku je potvrda da je kuka ugrađena u skladu sa propisima i da vozilo sa njom može na tehnički pregled. Bez atesta kuka se ne upisuje u saobraćajnu dozvolu. Uz ugradnju dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest košta 15.000 dinara. Možemo da ga izvadimo umesto vas, i to se dogovara posebno.',
       orderLabel: 'Redosled',
       order: [
         { title: 'Ugradnja i papiri', description: 'Kod nas, istog dana.' },
