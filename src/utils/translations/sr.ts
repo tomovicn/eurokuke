@@ -25,7 +25,8 @@ export const sr = {
     wordmarkCity: 'Beograd',
     tagline: 'Ugradnja sa atestom',
     area: 'Beograd i okolina',
-    areaLong: 'Beograd i okolina. Termin i tačnu lokaciju dogovaramo telefonom.',
+    areaLong: 'Novi Beograd. Vozilo možete ostaviti i vratiti se po njega. U krugu Beograda izlazimo i na teren.',
+    areaNote: 'Tačnu adresu i termin dogovaramo telefonom.',
     areaLabel: 'Područje rada',
     hours: {
       label: 'Radno vreme',
@@ -178,7 +179,7 @@ export const sr = {
 
     visit: {
       title: 'Radno vreme i lokacija',
-      mapTitle: 'Lokacija na mapi',
+      photoAlt: 'Nosač euro kuke i utičnica za prikolicu ispod zadnjeg branika',
     },
 
     finalCta: {
@@ -200,9 +201,10 @@ export const sr = {
       rows: [
         { label: 'Trajanje', value: '3-4 sata' },
         { label: 'Termin', value: 'u roku od 24 sata' },
-        { label: 'Atest', value: 'uključen' },
+        { label: 'Atest', value: 'izdajemo uz ugradnju' },
         { label: 'Garancija', value: '2 godine' },
-        { label: 'Kuke', value: 'Bosal · Oris · Steinhof' },
+        { label: 'Kuke', value: 'Bosal, AutoHak, Oris, Steinhof, Galia' },
+        { label: 'Lokacija', value: 'Novi Beograd' },
       ],
     },
 
@@ -219,7 +221,8 @@ export const sr = {
         },
         {
           title: 'Atest',
-          description: 'Dokument sa kojim kuku upisujete u saobraćajnu dozvolu.',
+          description:
+            'Dokument sa kojim kuku upisujete u saobraćajnu dozvolu. Izdajemo ga uz ugradnju i naplaćuje se posebno.',
         },
         {
           title: 'Garancija 2 godine',
@@ -252,7 +255,7 @@ export const sr = {
     brands: {
       title: 'Kuke koje ugrađujemo',
       description:
-        'Radimo kuke četiri evropska proizvođača: Bosal, AutoHak, Oris i Steinhof. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
+        'Radimo kuke pet evropskih proizvođača: Bosal, AutoHak, Oris, Steinhof i Galia. Zajedničko im je ono što je za vas najbitnije: homologacija i dokumentacija po tipu kuke, bez koje se atest ne izdaje ma koliko ugradnja bila uredna. Koji od njih dolazi na vaše vozilo ne bira se po ukusu, nego po tome za koji model, godište i tip karoserije uopšte postoji odobren tip.',
       // Lista je potvrđena. Ove četiri rečenice su namerno opšte i ne tvrde
       // ništa o zalihama ili o tome koja marka pokriva koji model; to su
       // podaci iz radionice, ne sa interneta. Zamenite ih čim stignu.
@@ -272,6 +275,10 @@ export const sr = {
         {
           title: 'Steinhof',
           description: 'Dobra pokrivenost starijih modela i karavana.',
+        },
+        {
+          title: 'Galia',
+          description: 'Fiksne i odvojive varijante, sa dokumentacijom po tipu kuke.',
         },
       ],
       note: 'Ako ste kuku već kupili negde drugde, recite oznaku tipa pre nego što dođete. Bez dokumentacije proizvođača atest se ne radi.',
@@ -294,9 +301,9 @@ export const sr = {
             'Fiksna ima manje delova i po pravilu je povoljnija. Odvojiva nosi mehanizam koji se otključava, pa je skuplja.',
         },
         {
-          title: 'Broj pinova',
+          title: 'Instalacija',
           description:
-            'Instalacija sa 13 pinova ima više strujnih kola od one sa 7 i košta više. Bira se prema tome šta vučete, ne prema ceni.',
+            'Sedam ili trinaest pinova, i da li vozilo traži običnu ili smart konekciju na fabričku elektroniku. Instalacija ulazi u cenu ugradnje.',
         },
         {
           title: 'Marka, model i godište',
@@ -304,12 +311,12 @@ export const sr = {
             'Od toga zavisi koji tipovi kuke uopšte postoje za vaše vozilo i koliko posla treba da se dođe do fabričkih tačaka za pričvršćivanje.',
         },
         {
-          title: 'Priprema na vozilu',
+          title: 'Priprema branika',
           description:
-            'Kod nekih modela branik mora da se skine ili doradi. Neka vozila, opet, imaju fabričku pripremu za instalaciju, što skraćuje posao.',
+            'Kod većine modela branik mora da se skine, a najčešće i da se seče na mestu gde kuka izlazi. Koliko je to posla zavisi od vozila.',
         },
       ],
-      note: 'Atest i garancija od dve godine ulaze u cenu i ne naplaćuju se posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+      note: 'Ugradnja počinje od 15.000 dinara. Elektro-instalacija i garancija od dve godine ulaze u cenu, atest se plaća posebno. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
     },
 
     // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama
@@ -358,9 +365,21 @@ export const sr = {
     description:
       'Najbrže je telefonom - na poziv odmah znate da li radimo vaš model, koliko košta i kada možete da dođete. Viber i WhatsApp koristimo za slike i kada ne možete da zovete.',
     phoneLabel: 'Telefon',
-    mapTitle: 'Lokacija na mapi',
-    mapEmbedUrl:
-      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.893371443454!2d20.457972776266095!3d44.81350437107897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a7a9609031735%3A0x9c75611af2d66583!2sEuro%20Kuka%20Beograd!5e0!3m2!1sen!2srs!4v1709766543210!5m2!1sen!2srs',
+    locationLabel: 'Gde smo',
+    locationItems: [
+      {
+        title: 'Novi Beograd',
+        description: 'Tačnu adresu dobijate na telefonu, zajedno sa terminom.',
+      },
+      {
+        title: 'Ostavite vozilo',
+        description: 'Ne morate da čekate. Vozilo možete ostaviti i vratiti se po njega.',
+      },
+      {
+        title: 'Izlazak na teren',
+        description: 'U krugu Beograda izlazimo i na teren, po dogovoru.',
+      },
+    ],
   },
 
   /*
@@ -379,18 +398,19 @@ export const sr = {
   sales: {
     title: 'Prodaja auto kuka, sa slanjem po celoj Srbiji',
     description:
-      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris i Steinhof, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu. Ugradnju radimo u Beogradu.',
+      'Prodajemo nove kuke sa homologacijom, proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve marke putničkih vozila. Kupcima van Beograda šaljemo pouzećem na adresu. Ugradnju radimo na Novom Beogradu.',
     descriptionShort:
       'Nove kuke sa homologacijom, za sve marke putničkih vozila. Šaljemo pouzećem po celoj Srbiji.',
 
     summary: {
       label: 'Ukratko',
       rows: [
-        { label: 'Proizvođači', value: 'Bosal · AutoHak · Oris · Steinhof' },
+        { label: 'Proizvođači', value: 'Bosal, AutoHak, Oris, Steinhof, Galia' },
         { label: 'Kuke', value: 'nove, sa homologacijom' },
         { label: 'Slanje', value: 'cela Srbija, pouzećem' },
         { label: 'Uz kuku', value: 'dokumentacija i uputstvo' },
-        { label: 'Ugradnja', value: 'u Beogradu' },
+        { label: 'Ugradnja', value: 'Novi Beograd' },
+        { label: 'Takođe', value: 'nosači bicikala' },
       ],
     },
 
@@ -452,7 +472,7 @@ export const sr = {
     install: {
       title: 'Ugradnja u Beogradu',
       description:
-        'Ako ste u Beogradu, kuku ne morate nigde da nosite. Ugradnju kuke i elektro-instalacije radimo sami, posao traje 3-4 sata, atest izdajemo uz svaku ugradnju i na sve ide garancija od dve godine.',
+        'Ako ste u Beogradu, kuku ne morate nigde da nosite. Ugradnju kuke i elektro-instalacije radimo sami na Novom Beogradu, posao traje 3-4 sata, vozilo možete ostaviti i vratiti se po njega. Atest izdajemo uz ugradnju, a na kuku i instalaciju ide garancija od dve godine.',
       linkLabel: 'Kako teče ugradnja',
     },
 

@@ -1,7 +1,7 @@
 import type { FaqEntry } from './faq';
 import type { BlogPost } from './posts';
 import { PHONE_DIAL } from './contact';
-import { GEO, PHOTOS, PROFILES, SITE_NAME, SITE_URL } from './site';
+import { PHOTOS, PROFILES, SITE_NAME, SITE_URL } from './site';
 import { sr } from '@/utils/translations/sr';
 
 /**
@@ -18,9 +18,11 @@ import { sr } from '@/utils/translations/sr';
  * inventing an address is worse than omitting it. Google's local results favour
  * a complete PostalAddress, so add both here the day a real one exists.
  *
- * No priceRange and no email either. There is no published price band, and the
- * one address the repo used to carry (info@eurokuka.rs) is on a domain the site
- * does not run and was never confirmed to receive mail.
+ * `priceRange` carries only the floor the business is willing to publish. It
+ * refuses a price band or a list, so a starting point is what there is.
+ *
+ * Still no email: the one address the repo used to carry (info@eurokuka.rs) is
+ * on a domain the site does not run and was never confirmed to receive mail.
  */
 export function localBusinessSchema() {
   return {
@@ -46,16 +48,20 @@ export function localBusinessSchema() {
       addressLocality: 'Beograd',
       addressCountry: 'RS',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: GEO.latitude,
-      longitude: GEO.longitude,
-    },
+    // The floor price, which is the one figure the business publishes. A range
+    // or a list is off the table; a starting point is not.
+    priceRange: 'od 15.000 RSD',
     areaServed: [
       { '@type': 'City', name: 'Beograd' },
+      { '@type': 'City', name: 'Novi Beograd' },
       { '@type': 'Country', name: 'Srbija' },
     ],
-    knowsAbout: ['Ugradnja euro kuke', 'Atest za euro kuku', 'Elektro-instalacija za kuku'],
+    knowsAbout: [
+      'Ugradnja euro kuke',
+      'Atest za euro kuku',
+      'Elektro-instalacija za kuku',
+      'Nosači bicikala za auto kuku',
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -87,7 +93,7 @@ export function localBusinessSchema() {
           '@type': 'Product',
           name: 'Auto kuka za vuču sa homologacijom',
           category: 'Kuke za vuču',
-          brand: ['Bosal', 'AutoHak', 'Oris', 'Steinhof'].map((name) => ({
+          brand: ['Bosal', 'AutoHak', 'Oris', 'Steinhof', 'Galia'].map((name) => ({
             '@type': 'Brand',
             name,
           })),

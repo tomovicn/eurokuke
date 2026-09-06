@@ -61,25 +61,30 @@ export default function ContactPage() {
             <div className='mt-6 border-t border-line pt-5 md:mt-7 md:pt-6'>
               <MonoLabel>{sr.common.areaLabel}</MonoLabel>
               <p className='mt-2.5 text-[15px] leading-[1.55] md:mt-3 md:text-[17px]'>{sr.common.areaLong}</p>
+              <p className='mt-2 text-[13.5px] leading-[1.5] text-muted md:mt-2.5 md:text-sm'>
+                {sr.common.areaNote}
+              </p>
             </div>
           </Card>
         </Container>
       </Section>
 
+      {/* Where the workshop is, which is one of the four questions the phone
+          gets most. The map that used to be here pointed at a listing the
+          business does not own. */}
       <Section>
         <Container>
-          <div className='h-72 border border-line-strong md:h-[440px]'>
-            <iframe
-              src={t.mapEmbedUrl}
-              title={t.mapTitle}
-              width='100%'
-              height='100%'
-              style={{ border: 0 }}
-              allowFullScreen
-              loading='lazy'
-              referrerPolicy='no-referrer-when-downgrade'
-            />
-          </div>
+          <MonoLabel>{t.locationLabel}</MonoLabel>
+          <ul className='mt-3 grid gap-px border border-line-strong bg-line md:mt-5 md:grid-cols-3'>
+            {t.locationItems.map((item) => (
+              <li key={item.title} className='bg-surface p-4 md:p-7'>
+                <h2 className='text-[15.5px] font-semibold md:text-[19px]'>{item.title}</h2>
+                <p className='mt-1.5 text-[13.5px] leading-[1.55] text-muted md:mt-2.5 md:text-[15px]'>
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </Container>
       </Section>
     </>

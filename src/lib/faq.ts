@@ -27,7 +27,7 @@ export const HOME_FAQ: FaqEntry[] = [
   {
     question: 'Koje kuke ugrađujete?',
     answer:
-      'Ugrađujemo kuke proizvođača Bosal, Oris i Steinhof, u fiksnoj i odvojivoj varijanti.',
+      'Ugrađujemo kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, u fiksnoj i odvojivoj varijanti.',
   },
   {
     question: 'Kada mogu da dođem?',
@@ -57,7 +57,13 @@ export const INSTALLATION_FAQ: FaqEntry[] = [
   {
     question: 'Koliko košta ugradnja auto kuke?',
     answer:
-      'Cena zavisi od tipa kuke, broja pinova na instalaciji i od samog vozila. Atest i garancija od dve godine su uključeni. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+      'Ugradnja počinje od 15.000 dinara. Cena zavisi od marke i godišta vozila, tipa kuke i toga da li vozilo traži smart konekciju. Elektro-instalacija i garancija ulaze u cenu, atest se plaća posebno.',
+  },
+  {
+    // Jedno od četiri pitanja koja telefon najčešće dobija.
+    question: 'Da li atestirate kuku koju je ugradio neko drugi?',
+    answer:
+      'Ne. Atest izdajemo samo za kuke koje smo sami ugradili, jer atest potvrđuje upravo ugradnju.',
   },
 ];
 

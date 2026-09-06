@@ -45,4 +45,8 @@ export const PROFILES = [
   'https://www.kupujemprodajem.com/nenad-zivkovic/svi-oglasi/452018/1',
 ] as const;
 
-export const GEO = { latitude: '44.813504', longitude: '20.457973' } as const;
+/*
+ * No GEO. The coordinates that used to be here sat in central Belgrade while
+ * the workshop is on Novi Beograd, and a point in the wrong part of town is a
+ * worse signal than no point at all. They come back with a real address.
+ */
