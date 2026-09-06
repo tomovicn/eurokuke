@@ -36,6 +36,7 @@ export const POSTS: Record<string, PostContent> = {
       'Atest za kuku je potvrda da je kuka ugrađena po propisu. Šta sadrži, ko ga izdaje i kojim redom idu ugradnja, tehnički pregled i upis u saobraćajnu dozvolu.',
     date: '12. mart 2026.',
     datetime: '2026-03-12',
+    updated: '2026-09-06',
     readingTime: '8 min čitanja',
     category: { title: 'Pravne informacije', href: '/blog/category/legal' },
     author: { name: 'Ugradnja Euro Kuka' },
@@ -132,7 +133,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <h2>Kako to izgleda u praksi kod nas</h2>
 
-      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Uz vozilo dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest možemo da izvadimo umesto vas, po dogovoru, i košta 15.000 dinara. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
+      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Uz vozilo dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest košta 15.000 dinara i nije u ceni ugradnje. Možemo da ga izvadimo umesto vas, po dogovoru. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
 
       <p>Radimo kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve popularne marke automobila. Termin se obično dobija u roku od 24 sata od poziva.</p>
 
