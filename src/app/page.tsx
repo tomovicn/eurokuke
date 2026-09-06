@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import BrandStrip from '@/components/BrandStrip';
 import ContactActions from '@/components/ContactActions';
 import Faq from '@/components/Faq';
@@ -8,6 +10,7 @@ import { SolidAction } from '@/components/ui/Actions';
 import { Card, Container, H2, JsonLd, MonoLabel, Section, TextLink } from '@/components/ui/primitives';
 import { TEL_HREF } from '@/lib/contact';
 import { HOME_FAQ } from '@/lib/faq';
+import { PHOTO_HEIGHT, PHOTO_WIDTH, PHOTOS } from '@/lib/site';
 import { faqPageSchema, localBusinessSchema } from '@/lib/schema';
 import { VEHICLE_BRANDS } from '@/lib/vehicles';
 import { sr } from '@/utils/translations/sr';
@@ -171,8 +174,9 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* Hours and location. With no published street address, the hours and the
-          real map listing are the two verifiable things this business can show. */}
+      {/* Hours and location. The map that used to sit here pointed at a pin the
+          business does not own, in the wrong part of town, so it is a
+          photograph of the work instead until there is a listing to embed. */}
       <Section>
         <Container>
           <H2>{t.visit.title}</H2>
@@ -185,25 +189,27 @@ export default function Home() {
               <div className='mt-auto pt-5 md:pt-6'>
                 <MonoLabel>{sr.common.areaLabel}</MonoLabel>
                 <p className='mt-2.5 text-[15px] leading-[1.5] md:text-base'>{sr.common.areaLong}</p>
+                <p className='mt-2 text-[13.5px] leading-[1.5] text-muted md:text-sm'>
+                  {sr.common.areaNote}
+                </p>
                 <SolidAction href={TEL_HREF} tone='ink' size='md' className='mt-4 md:mt-[18px]'>
                   {sr.actions.callAppointment}
                 </SolidAction>
               </div>
             </Card>
 
-            {/* Height is reserved at both breakpoints so the lazy iframe cannot
-                shift the section as it loads. */}
-            <div className='h-60 border border-line-strong lg:h-[420px]'>
-              <iframe
-                src={sr.contact.mapEmbedUrl}
-                title={t.visit.mapTitle}
-                width='100%'
-                height='100%'
-                style={{ border: 0 }}
-                allowFullScreen
-                loading='lazy'
-                referrerPolicy='no-referrer-when-downgrade'
+            <div className='relative h-60 border border-line-strong lg:h-[420px]'>
+              <Image
+                src={PHOTOS.mount}
+                alt={t.visit.photoAlt}
+                width={PHOTO_WIDTH}
+                height={PHOTO_HEIGHT}
+                sizes='(min-width: 1024px) 60vw, 100vw'
+                className='h-full w-full object-cover object-[50%_60%]'
               />
+              <span className='absolute bottom-3 right-3 bg-surface px-[7px] py-[5px] font-mono text-[9.5px] tracking-[0.06em] text-ink'>
+                {t.proof.badge}
+              </span>
             </div>
           </div>
         </Container>
