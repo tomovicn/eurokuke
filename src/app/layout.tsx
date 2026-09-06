@@ -27,9 +27,9 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
-const TITLE = 'Ugradnja euro kuke Beograd | Auto kuka sa atestom';
+const TITLE = 'Ugradnja euro kuke Beograd | Auto kuka i atest';
 const DESCRIPTION =
-  'Ugradnja euro kuke sa atestom u Beogradu, za sve marke vozila. Montaža traje 3-4 sata, termin u roku od 24 sata, garancija 2 godine. Bosal, Oris i Steinhof.';
+  'Ugradnja euro kuke na Novom Beogradu, za sve marke vozila. Montaža traje 3-4 sata, termin u roku od 24 sata, papiri za atest i garancija 2 godine. Od 200 evra.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

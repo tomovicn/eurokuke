@@ -132,52 +132,62 @@ export const POSTS: Record<string, PostContent> = {
 
       <h2>Kako to izgleda u praksi kod nas</h2>
 
-      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Atest izdajemo uz svaku ugradnju, tako da odmah imate papir sa kojim možete na tehnički pregled i dalje na upis. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
+      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Uz vozilo dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest možemo da izvadimo umesto vas, po dogovoru, i košta 15.000 dinara. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
 
-      <p>Radimo kuke proizvođača Bosal, Oris i Steinhof, u fiksnoj i odvojivoj varijanti, za sve popularne marke automobila. Termin se obično dobija u roku od 24 sata od poziva.</p>
+      <p>Radimo kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve popularne marke automobila. Termin se obično dobija u roku od 24 sata od poziva.</p>
 
       <p>Ako niste sigurni koji tip kuke odgovara vašem vozilu, <a href="/contact">pozovite</a> pre nego što bilo šta kupite.</p>
     `,
   },
   'izbor-pravog-modela-euro-kuke': {
-    title: 'Fiksna ili odvojiva euro kuka: kako izabrati pravu za svoj auto',
+    /*
+     * Rewritten on 2026-09-06. The article was built on a choice between a
+     * fixed and a detachable hook, and that choice does not exist here: every
+     * euro kuka this shop fits comes off, and the only decision is how. The
+     * three mechanisms below are the ones actually sold.
+     */
+    title: 'Vrste euro kuka: na šrafove, na ručicu i brzopotezna',
     description:
-      'Razlika između fiksne i odvojive euro kuke, kada se koja isplati, šta je zajedničko obema i kako da izaberete elektro-instalaciju sa 7 ili 13 pinova.',
+      'Tri načina na koja se euro kuka skida, koliko se razlikuju u ceni i upotrebi, i kako da izaberete elektro-instalaciju sa 7 ili 13 pinova.',
     date: '9. april 2026.',
     datetime: '2026-04-09',
+    updated: '2026-09-06',
     readingTime: '7 min čitanja',
     category: { title: 'Vodiči', href: '/blog/category/guide' },
     author: { name: 'Ugradnja Euro Kuka' },
     content: `
-      <p>Kada čovek dođe u radionicu, prvo pitanje posle cene skoro uvek je isto: fiksna ili odvojiva. Odgovor ne zavisi od toga koja je bolja, nego od toga šta vučete, koliko često i šta imate na zadnjem delu vozila. Evo razlike bez uvijanja.</p>
+      <p>Kada čovek dođe u radionicu, prvo pitanje posle cene skoro uvek je isto: koja kuka. Odgovor je jednostavniji nego što ljudi očekuju, jer izbor nije toliko širok koliko se misli. Sve euro kuke se skidaju. Razlikuju se samo po tome kako, i po tome koliko taj mehanizam košta.</p>
 
-      <h2>Šta je fiksna, a šta odvojiva kuka</h2>
+      <h2>Fiksna kuka i euro kuka nisu isto</h2>
 
-      <p>Fiksna kuka je u jednom komadu i kugla ostaje na vozilu stalno. Skida se samo alatom i to se ne radi u svakodnevnoj upotrebi. Iza branika se vidi vrat kuke i kugla.</p>
+      <p>Ovo je nesporazum koji vredi raščistiti odmah. Fiksna kuka je ona kod koje kugla ostaje na vozilu stalno i skida se samo alatom, ako uopšte. Euro kuka je standard kod kojeg se vrat sa kuglom vadi iz ležišta, pa iza branika ostaje samo nosač koji je kod većine modela jedva primetan.</p>
 
-      <p>Odvojiva kuka ima isti nosač ispod branika, ali se vrat sa kuglom vadi iz ležišta. Otključa se, izvuče, i iza branika ostaje samo ležište koje je kod većine modela jedva primetno. Skidanje i vraćanje traje nekoliko sekundi kada se uhoda. Skinuti deo se drži u gepeku, obično u torbici koja ide uz kuku.</p>
+      <p>Mi radimo euro kuke. To znači da kugla ne mora da stoji napolju kada je ne koristite, i da se skinuti deo drži u gepeku, obično u torbici koja ide uz kuku.</p>
 
-      <p>Mehanički, oba tipa nose <a href="/blog/vuca-prikolice-masa-i-kategorija">ono za šta su odobrena</a>. Odvojiva nije slabija zato što se skida. Bitno je samo da se pravilno vrati u ležište i zaključa.</p>
+      <h2>Tri načina skidanja</h2>
 
-      <h2>Kada je fiksna dovoljna</h2>
+      <p>Mehanički, sve tri nose <a href="/blog/vuca-prikolice-masa-i-kategorija">ono za šta su odobrene</a>. Nijedna nije slabija zato što se brže skida. Bitno je samo da se pravilno vrati u ležište i osigura.</p>
+
+      <h3>Na dva šrafa</h3>
+
+      <p>Vrat se pričvršćuje sa dva šrafa i skida se ključem. Najjednostavnija konstrukcija, najmanje pokretnih delova i najpovoljnija varijanta. Ima smisla ako kuku skidate retko, na primer nekoliko puta godišnje, jer skidanje traži alat i par minuta.</p>
+
+      <h3>Na ručicu</h3>
+
+      <p>Vrat se otpušta ručicom i izvlači horizontalno, bez alata. Kada se uhoda, skidanje i vraćanje traju nekoliko sekundi. Sredina po ceni i po udobnosti, i najčešći izbor za nekoga ko kuku skida svakih par nedelja.</p>
+
+      <h3>Brzopotezna, na ključ</h3>
+
+      <p>Otključa se i vadi vertikalno naniže, na klik. Najbrža varijanta, sa najčistijim zadnjim delom kada je kugla skinuta, i najskuplja od tri. Bira se kada se kuka skida često ili kada je izgled vozila važan.</p>
+
+      <h2>Kada se isplati platiti brži mehanizam</h2>
 
       <ul>
-        <li>Vučete redovno, prikolicu ili nosač, i kuka vam praktično uvek treba.</li>
-        <li>Ne smeta vam izgled sa kuglom iza branika.</li>
-        <li>Vozilo nema senzore za parkiranje pozadi, ili kugla ne ulazi u njihovo polje.</li>
-        <li>Hoćete najjednostavnije rešenje, bez mehanizma koji se otključava i zaključava.</li>
-      </ul>
-
-      <p>Fiksna je i obično povoljnija varijanta, jer ima manje delova. Ako vučete svake nedelje, teško ćete naći razlog da platite više.</p>
-
-      <h2>Kada se odvojiva isplati</h2>
-
-      <ul>
-        <li><strong>Izgled.</strong> Ako vam smeta kugla na inače čistom braniku, odvojiva to rešava potpuno.</li>
-        <li><strong>Parking senzori.</strong> Kod nekih vozila kugla ulazi u zonu koju senzori vide, pa sistem javlja prepreku iako je nema. Skidanjem kugle problem nestaje.</li>
+        <li><strong>Izgled.</strong> Ako vam smeta kugla na inače čistom braniku, a skidate je često, brži mehanizam je jedina stvar koja to zaista rešava u praksi.</li>
+        <li><strong>Parking senzori.</strong> Kod nekih vozila kugla ulazi u zonu koju senzori vide, pa sistem javlja prepreku iako je nema. Skidanjem kugle problem nestaje, ali samo ako vam skidanje nije naporno.</li>
         <li><strong>Kamera za vožnju unazad.</strong> Kod pojedinih postavki kugla ulazi u donji deo slike i smeta pri manevrisanju.</li>
         <li><strong>Gradsko parkiranje.</strong> Kugla je nekoliko centimetara dužine vozila koje ne vidite. Pri parkiranju u nizu to je razlika između dodira i mirne noći.</li>
-        <li><strong>Retka upotreba.</strong> Ako vučete par puta godišnje, nema razloga da kuka stoji napolju ostatak godine.</li>
+        <li><strong>Retka upotreba.</strong> Ako vučete par puta godišnje, dva šrafa su sasvim dovoljna i nema razloga da plaćate mehanizam.</li>
       </ul>
 
       <h2>Šta se ne razlikuje</h2>
@@ -185,15 +195,15 @@ export const POSTS: Record<string, PostContent> = {
       <p>Ovde ljudi često očekuju neku kvaku, pa da raščistimo odmah.</p>
 
       <ul>
-        <li><strong>Atest.</strong> I fiksna i odvojiva kuka su naknadna izmena na vozilu. Za obe se izdaje <a href="/blog/atest-euro-kuke">atest</a> i obe se upisuju u saobraćajnu dozvolu. Odvojiva se ne prijavljuje manje zato što se skida.</li>
+        <li><strong>Papiri.</strong> Svaka naknadno ugrađena kuka je izmena na vozilu, bez obzira na mehanizam, i za sve se <a href="/blog/atest-euro-kuke">vadi atest</a> i sve se upisuju u saobraćajnu dozvolu. Brzopotezna se ne prijavljuje manje zato što se lakše skida.</li>
         <li><strong>Garancija.</strong> Kod nas je ista, 2 godine, i na kuku i na elektro-instalaciju, bez obzira na tip.</li>
-        <li><strong>Elektro-instalacija.</strong> Obe varijante je zahtevaju. Prikolica mora da ima svetla, a svetla se napajaju iz vozila.</li>
-        <li><strong>Vreme ugradnje.</strong> Posao traje 3-4 sata u oba slučaja.</li>
+        <li><strong>Elektro-instalacija.</strong> Sve varijante je zahtevaju. Prikolica mora da ima svetla, a svetla se napajaju iz vozila.</li>
+        <li><strong>Vreme ugradnje.</strong> Posao traje 3-4 sata u sva tri slučaja.</li>
       </ul>
 
-      <h2>Nema svaki model obe varijante</h2>
+      <h2>Nema svaki model sve tri varijante</h2>
 
-      <p>Ovo je deo koji ruši dosta planova. Izbor između fiksne i odvojive nije uvek vaš. Za neke modele i godišta proizvođači kao što su Bosal, Oris i Steinhof rade obe varijante, za neke samo fiksnu, a ponekad se odvojiva radi samo za određeni tip karoserije.</p>
+      <p>Ovo je deo koji ruši dosta planova. Izbor mehanizma nije uvek vaš. Za neke modele i godišta proizvođači kao što su Bosal, AutoHak, Oris, Steinhof i Galia rade sve tri varijante, za neke samo jednu, a ponekad se određena varijanta radi samo za određeni tip karoserije.</p>
 
       <p>Zato redosled treba da bude obrnut od onog na koji su ljudi navikli. Prvo se proveri šta uopšte postoji za vaš model, godište i karoseriju, pa se onda bira. Poziv pre kupovine traje minut i uštedi mnogo.</p>
 
@@ -207,11 +217,17 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Pravilo je jednostavno. Ako vučete običnu prikolicu ili nosač, sedam pinova je dovoljno. Ako imate ili planirate kamp prikolicu, idite odmah na trinaest. Postoje i adapteri između dva standarda, ali adapter dodaje još jedan spoj na mestu koje je stalno izloženo vlazi i vibracijama, pa je bolje odmah uraditi ono što vam stvarno treba.</p>
 
+      <h2>Univerzalna instalacija ili CAN modul</h2>
+
+      <p>Drugo pitanje kod instalacije nije koliko pinova, nego kako se ona povezuje na vozilo. Starija vozila primaju univerzalnu instalaciju, koja se veže direktno na svetla. Novija imaju elektroniku koja to ne dozvoljava i traže CAN modul, koji komunicira sa fabričkim računarom vozila umesto da se kalemi na kablove.</p>
+
+      <p>Nije stvar izbora nego vozila, i utiče na cenu. Zato se proverava unapred, zajedno sa tipom kuke, a ne na dan ugradnje.</p>
+
       <h2>Odluka u dva pitanja</h2>
 
       <ol>
-        <li>Koliko često vučete? Često znači fiksna. Retko znači da odvojiva ima smisla.</li>
-        <li>Šta imate pozadi? Senzori, kamera, usko parkiranje ili vam jednostavno smeta kugla, sve to gura ka odvojivoj.</li>
+        <li>Koliko često skidate kuku? Retko znači dva šrafa. Često znači ručica ili brzopotezna.</li>
+        <li>Šta imate pozadi? Senzori, kamera, usko parkiranje ili vam jednostavno smeta kugla, sve to gura ka bržem mehanizmu.</li>
       </ol>
 
       <p>Kada na to dodate proveru šta uopšte postoji za vaš model, odluka se sama napravi.</p>
@@ -319,7 +335,7 @@ export const POSTS: Record<string, PostContent> = {
         <li>Podignite potpornu nogu i pokušajte rukom da podignete vučnu glavu nagore. Ako se odvaja od kugle, nije sela.</li>
         <li>Bolja provera je da potpornom nogom malo podignete prikolicu na spoju. Ako zadnji deo vozila krene naviše zajedno sa njom, spoj drži.</li>
         <li>Pogledajte samu kuglu. Ako je masna od stare masti pomešane sa peskom, obrišite je. Ako ima vidljivo istrošenu ravan ili je primetno smanjenog prečnika, ide na proveru.</li>
-        <li>Kod odvojive kuke proverite i da je vrat kuke sedeo u ležištu i da je zaključan. Ključ vadite tek kada je zaključavanje potvrđeno.</li>
+        <li>Ako se kuka skida na ručicu ili na ključ, proverite i da je vrat seo u ležište i da je zaključan. Ključ vadite tek kada je zaključavanje potvrđeno.</li>
       </ul>
 
       <p>Na kraju potpornu nogu podignite do kraja i osigurajte. Zaboravljena spuštena noga je česta i skupa greška.</p>

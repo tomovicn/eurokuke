@@ -19,7 +19,7 @@ import { sr } from '@/utils/translations/sr';
  * once at build time with no server to fetch from, and satori has no loader for
  * a bare `/images/...` path.
  */
-export const alt = 'Ugradnja euro kuke sa atestom, Beograd';
+export const alt = 'Ugradnja euro kuke, Novi Beograd';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
