@@ -82,6 +82,9 @@ export default function SalesPage() {
             <p className='mt-4 max-w-[68ch] text-[14.5px] leading-[1.6] text-body md:mt-5 md:text-[15.5px]'>
               {t.choose.note}
             </p>
+            <p className='mt-3 text-sm md:text-[15px]'>
+              <TextLink href='/kuka-za-auto'>{t.choose.modelsLink} &rarr;</TextLink>
+            </p>
             <Card accent className='mt-4 p-3.5 px-4 md:mt-5 md:p-6'>
               <p className='max-w-[64ch] text-[14.5px] leading-[1.6] text-body md:text-[15.5px]'>
                 {t.choose.warning}

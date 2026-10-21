@@ -24,6 +24,10 @@ Ako nemate vremena za sve, preskočite na poslednji odeljak.
   uskladiti.
 - **Profili (5):** Instagram je upisan.
 - **Novo:** modeli vozila (9) i nosači bicikala (10), na dnu dokumenta.
+- **Modeli vozila (9), 21. oktobar:** stranice za Golf 7, Octaviju 3, Duster,
+  Passat B7/B8 i Sandero/Logan su objavljene pod `/kuka-za-auto`, sa javno
+  dostupnim podacima i izvorima. Bez cene po modelu i bez fotografija, jer to
+  može da da samo radionica. Čim stignu podaci iz odeljka 9, dopunjujem ih.
 
 ---
 

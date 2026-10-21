@@ -149,6 +149,28 @@ export function serviceSchema() {
   };
 }
 
+/**
+ * The same service, narrowed to one car model, emitted on each
+ * /kuka-za-auto/[model] page. Tied to the business and to the general service
+ * by `@id`, so Google reads it as one offer described per model rather than
+ * five unrelated services. No `offers` with a price, for the same reason as
+ * above: there is no per-model price.
+ */
+export function vehicleServiceSchema(vehicle: { slug: string; name: string; description: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${SITE_URL}/kuka-za-auto/${vehicle.slug}#service`,
+    name: `Ugradnja euro kuke, ${vehicle.name}`,
+    serviceType: 'Ugradnja kuke za vuču',
+    description: vehicle.description,
+    url: `${SITE_URL}/kuka-za-auto/${vehicle.slug}`,
+    provider: { '@id': `${SITE_URL}/#business` },
+    isRelatedTo: { '@id': `${SITE_URL}/installation#service` },
+    areaServed: { '@type': 'City', name: 'Beograd' },
+  };
+}
+
 export function faqPageSchema(entries: FaqEntry[]) {
   return {
     '@context': 'https://schema.org',

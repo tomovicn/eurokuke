@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 
+import { VEHICLES } from '@/content/vozila';
 import { getBlogPosts, getCategories, isCategoryIndexable } from '@/lib/posts';
 import { SITE_URL } from '@/lib/site';
 
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/installation`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/prodaja-auto-kuka`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${SITE_URL}/kuka-za-auto`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/contact`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/blog`, lastModified: latestPost, changeFrequency: 'weekly', priority: 0.7 },
   ];
@@ -37,5 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // /privacy is deliberately absent: it is noindex, and listing a noindex URL
   // in the sitemap is a Search Console warning, not a ranking signal.
-  return [...staticRoutes, ...categoryRoutes, ...postRoutes];
+  const vehicleRoutes: MetadataRoute.Sitemap = VEHICLES.map((vehicle) => ({
+    url: `${SITE_URL}/kuka-za-auto/${vehicle.slug}`,
+    lastModified: new Date(vehicle.checked),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...vehicleRoutes, ...categoryRoutes, ...postRoutes];
 }
