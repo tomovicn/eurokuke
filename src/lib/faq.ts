@@ -72,6 +72,13 @@ export const INSTALLATION_FAQ: FaqEntry[] = [
     answer:
       'Ne. Atest vadimo samo za kuke koje smo sami ugradili, jer atest potvrđuje upravo ugradnju.',
   },
+  {
+    // "ugradnja vučnih kuka" je najveći pojedinačni upit u Search Console-u,
+    // a sajt je tu reč skoro nigde nije koristio.
+    question: 'Da li je euro kuka isto što i vučna kuka?',
+    answer:
+      'Vučna kuka je opšti naziv za svaku kuku za vuču prikolice. Euro kuka je vučna kuka kod koje se vrat sa kuglom vadi iz ležišta, pa iza branika ostaje samo nosač. Mi ugrađujemo euro kuke.',
+  },
 ];
 
 export const SALES_FAQ: FaqEntry[] = [
