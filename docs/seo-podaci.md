@@ -9,6 +9,22 @@ njim uraditi, da biste mogli da procenite šta vredi vremena a šta ne.
 
 Ako nemate vremena za sve, preskočite na poslednji odeljak.
 
+## Stanje, 21. oktobar 2026.
+
+Šta je od ove liste stiglo, a šta još čeka:
+
+- **Search Console (1):** rešeno, pristup postoji. Od redizajna 5. septembra
+  klikovi su sa 43 porasli na 167 u 45 dana, pozicija sa 8,3 na 6,4.
+  Spoljnih linkova je i dalje nula.
+- **Cena (3):** delimično. Objavljena je donja granica, od 200 evra, i atest od
+  15.000 dinara. Rasponi po načinu skidanja (na šrafove, na ručicu,
+  brzopotezna) i dalje fale.
+- **Google Business Profile (2) i adresa (4):** i dalje čekaju. Profil na mapama
+  se zove "Euro Kuka Beograd", a sajt "Ugradnja Euro Kuka", pa nazive treba
+  uskladiti.
+- **Profili (5):** Instagram je upisan.
+- **Novo:** modeli vozila (9) i nosači bicikala (10), na dnu dokumenta.
+
 ---
 
 ## 1. Google Search Console
@@ -139,8 +155,9 @@ Ne mora tačan cenovnik po modelu vozila. Dovoljan je raspon.
 
 Treba mi:
 
-- Okvirna cena ugradnje **fiksne** kuke, od koliko do koliko.
-- Okvirna cena ugradnje **odvojive** kuke, od koliko do koliko.
+- Okvirna cena ugradnje kuke **na šrafove**, od koliko do koliko.
+- Okvirna cena ugradnje kuke **na ručicu** i **brzopotezne**, od koliko do
+  koliko.
 - Da li je elektro-instalacija uračunata ili se plaća posebno, i koliko je
   razlika između **7 i 13 pinova**.
 - Da li se atest plaća posebno.
@@ -249,6 +266,52 @@ Format nije bitan, šaljite kako vam je najlakše. Ja ću obraditi.
 
 ---
 
+## 9. Modeli vozila koje najčešće radite
+
+Najveća grupa pretraga koju sajt uopšte ne pokriva su pretrage po modelu
+vozila: `kuka za golf 4`, `kuka za golf 7`, `kuka za skoda octavia`,
+`euro kuka za dacia duster`, `euro kuka passat b7`, `kuka za qashqai`. Google
+ih sam predlaže dok se kuca, a u Search Console se već pojavljuju pojedinačni
+prikazi za `passat b7`, `duster 2023`, `nissan juke` i `sandero`, za koje sajt
+nema šta da ponudi.
+
+Konkurenti, `eurokuka.rs`, `euro-kuke.rs` i `autokuke.com`, imaju posebnu
+stranicu za svaki model i zato su prvi na tim pretragama.
+
+Mi to možemo da uradimo samo za modele o kojima imamo prave podatke. Stranica
+koja se od druge razlikuje samo po imenu modela je šablon, i Google je tako i
+tretira. Zato mi treba:
+
+- **Spisak 10 do 15 modela koje najčešće ugrađujete**, sa godištima ako je
+  bitno, na primer `Golf 7 (2012-2019)`.
+- Za svaki model: **koje varijante kuke postoje** (na šrafove, na ručicu,
+  brzopotezna) i koji proizvođač.
+- Za svaki model: **da li traži CAN modul** ili prima univerzalnu instalaciju.
+- **Cena ili raspon po modelu**, ako smete da je objavite. Ako ne, stranica
+  ide i bez cene, uz "od 200 evra".
+- **Bar jedna fotografija** te ugradnje, videti odeljak 8.
+- Bilo šta specifično za model što vredi reći: da li se seče branik, koliko
+  traje, česta pitanja vlasnika baš tog vozila.
+
+Dovoljno je da počnemo sa pet modela. Bolje pet pravih stranica nego petnaest
+praznih.
+
+---
+
+## 10. Nosači bicikala
+
+Pretraga `nosač bicikla kuka` se pojavljuje u Google predlozima, a konkurenti
+pominju nosače bicikala na kuku u svojoj ponudi.
+
+- Da li prodajete ili postavljate nosače bicikala koji idu na kuku?
+- Ako da: koje marke i od koje cene, i da li uz njih ide nešto posebno, na
+  primer instalacija sa 13 pinova zbog svetala na nosaču.
+
+Ako ne, napišite da ne. Onda ostaje samo rečenica u tekstu o
+elektro-instalaciji, i ništa više.
+
+---
+
 ## Šta radim sa svakim podatkom
 
 | Podatak | Šta menjam |
@@ -262,6 +325,8 @@ Format nije bitan, šaljite kako vam je najlakše. Ja ću obraditi.
 | Linkovi na profile | `sameAs` u strukturiranim podacima |
 | Analitika | Ugradnja i merenje klikova na poziv, Viber i WhatsApp |
 | Fotografije | Stranice po marki vozila, slike u tekstovima |
+| Modeli vozila | Stranica po modelu, sa varijantama, instalacijom i fotografijom |
+| Nosači bicikala | Odeljak na stranici za ugradnju ili prodaju, ako ih radite |
 
 ---
 
@@ -269,9 +334,8 @@ Format nije bitan, šaljite kako vam je najlakše. Ja ću obraditi.
 
 Tri stvari, ovim redom. Sve ostalo može da čeka.
 
-1. **Verifikujte Search Console.** Deset minuta posla, i sat vremena čekanja na
-   DNS. Podaci počinju da se skupljaju od tog trenutka, pa svaki dan odlaganja
-   je izgubljen dan istorije.
-2. **Recite mi da li Google Business Profile postoji.** Jedna rečenica.
-3. **Pošaljite okvirne cene**, makar samo `od koliko`. To otključava
-   najkomercijalnije pretrage u celoj niši.
+1. **Google Business Profile.** Pristup profilu "Euro Kuka Beograd" i odluka
+   kako se firma zove, da bi se naziv na mapama i na sajtu poklopio.
+2. **Spisak pet modela vozila koje najčešće radite**, sa podacima iz
+   odeljka 9. To otvara najveću grupu pretraga koju sada ne pokrivamo.
+3. **Adresa ili spisak opština**, iz odeljka 4.

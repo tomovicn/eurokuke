@@ -224,7 +224,7 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Drugo pitanje kod instalacije nije koliko pinova, nego kako se ona povezuje na vozilo. Starija vozila primaju univerzalnu instalaciju, koja se veže direktno na svetla. Novija imaju elektroniku koja to ne dozvoljava i traže CAN modul, koji komunicira sa fabričkim računarom vozila umesto da se kalemi na kablove.</p>
 
-      <p>Nije stvar izbora nego vozila, i utiče na cenu. Zato se proverava unapred, zajedno sa tipom kuke, a ne na dan ugradnje.</p>
+      <p>Nije stvar izbora nego vozila, i utiče na cenu. Zato se proverava unapred, zajedno sa tipom kuke, a ne na dan ugradnje. Raspored pinova i znaci loše urađene instalacije su u posebnom tekstu o <a href="/blog/elektro-instalacija-za-auto-kuku">elektro-instalaciji za auto kuku</a>.</p>
 
       <h2>Odluka u dva pitanja</h2>
 
@@ -369,7 +369,7 @@ export const POSTS: Record<string, PostContent> = {
         <li>Osvetljenje registarske tablice prikolice.</li>
       </ul>
 
-      <p><a href="/blog/izbor-pravog-modela-euro-kuke">Sedmopinski konektor</a> nosi pozicione lampe, oba žmigavca, stop svetla, zadnju maglenku i masu. Trinaestopinski nosi sve to plus svetlo za vožnju unazad i napajanja za potrošače u prikolici, sa odvojenim masama, što je bitno kamp prikolicama. Ako koristite adapter između dva standarda, njega proverite prvog, jer je najčešći uzrok kvara.</p>
+      <p><a href="/blog/izbor-pravog-modela-euro-kuke">Sedmopinski konektor</a> nosi pozicione lampe, oba žmigavca, stop svetla, zadnju maglenku i masu. Trinaestopinski nosi sve to plus svetlo za vožnju unazad i napajanja za potrošače u prikolici, sa odvojenim masama, što je bitno kamp prikolicama. Ako koristite adapter između dva standarda, njega proverite prvog, jer je najčešći uzrok kvara. Šta je na kom pinu piše u tekstu o <a href="/blog/elektro-instalacija-za-auto-kuku">elektro-instalaciji za kuku</a>.</p>
 
       <p>Pre kačenja pogledajte i kontakte u utičnici. Zelenkasta naslaga i voda u utičnici su razlog zašto svetla rade dok stojite u dvorištu, a otkažu posle pola sata vožnje po kiši.</p>
 
@@ -415,6 +415,98 @@ export const POSTS: Record<string, PostContent> = {
       <p>Posle prvih stotinak kilometara sa novom prikolicom stanite i proverite spoj, uže i vezivanje tereta. Tada se obično vidi šta se opustilo.</p>
 
       <p>Ako na proveri nešto ne štima na samoj kuki ili na <a href="/installation">elektro-instalaciji</a>, <a href="/contact">javite se</a> pre nego što krenete na put.</p>
+    `,
+  },
+  'elektro-instalacija-za-auto-kuku': {
+    /*
+     * Written on 2026-10-21 for `elektro instalacija za auto kuku`, a search
+     * Google suggests on its own and that nothing on the site answered except
+     * one section of the euro kuka types article. That article keeps the short
+     * 7 or 13 pins answer; this one covers the wiring itself, so the two do not
+     * compete for the same query. Second post in `guide`, which also takes that
+     * category over MIN_POSTS_TO_INDEX_CATEGORY and into the index.
+     *
+     * Only facts already published elsewhere on the site are used about the
+     * shop: wiring is in the price, the warranty covers it, the factory loom is
+     * not cut. The pin tables are ISO 1724 and ISO 11446.
+     */
+    title: 'Elektro-instalacija za auto kuku: pinovi i CAN modul',
+    description:
+      'Šta radi elektro-instalacija za kuku, raspored pinova na utičnici sa 7 i 13 pinova, kada vozilo traži CAN modul i kako se prepoznaje loše urađena instalacija.',
+    date: '21. oktobar 2026.',
+    datetime: '2026-10-21',
+    readingTime: '6 min čitanja',
+    category: { title: 'Vodiči', href: '/blog/category/guide' },
+    author: { name: 'Ugradnja Euro Kuka' },
+    content: `
+      <p>Kuka nosi prikolicu, ali instalacija je ono što prikolicu čini legalnom na putu. Bez nje prikolica nema ni žmigavce ni stop svetla, i vozač iza vas ne zna da kočite. Zato se kuka i instalacija ne posmatraju kao dva posla.</p>
+
+      <h2>Šta instalacija zapravo radi</h2>
+
+      <p>Elektro-instalacija za kuku prenosi signale sa svetala vozila na utičnicu pored kugle, a odatle preko kabla prikolice na njena svetla. Kada uključite levi žmigavac, mora da trepće i levi žmigavac na prikolici. Kada kočite, moraju da se upale i stop svetla prikolice.</p>
+
+      <p>Sastoji se iz tri dela: kablova koji idu od zadnjih svetala ili od elektronike vozila, utičnice na nosaču kuke i, kod novijih vozila, modula između to dvoje. Ovaj poslednji deo je ono od čega zavisi skoro sve ostalo.</p>
+
+      <h2>Utičnica sa 7 pinova</h2>
+
+      <p>Sedam pinova je standard za obične teretne prikolice i nosače bicikala sa svetlima. Raspored je propisan, pa je isti na svakoj prikolici i svakom vozilu:</p>
+
+      <ol>
+        <li>Levi žmigavac</li>
+        <li>Zadnja maglenka</li>
+        <li>Masa</li>
+        <li>Desni žmigavac</li>
+        <li>Desno poziciono svetlo i osvetljenje tablice</li>
+        <li>Stop svetla</li>
+        <li>Levo poziciono svetlo</li>
+      </ol>
+
+      <h2>Utičnica sa 13 pinova</h2>
+
+      <p>Trinaest pinova ima istih prvih sedam kola, plus ono što treba prikolici koja ima sopstvene potrošače:</p>
+
+      <ol start="8">
+        <li>Svetlo za vožnju unazad</li>
+        <li>Stalno napajanje</li>
+        <li>Napajanje dok je kontakt uključen</li>
+        <li>Masa za pin 10</li>
+        <li>Kodiranje, prepoznavanje da je prikolica zakačena</li>
+        <li>Masa za pin 9</li>
+      </ol>
+
+      <p>Odvojene mase za napajanja nisu sitnica. Kada frižider ili punjač u kamp prikolici vuče struju, ona se vraća svojom masom, a ne istom žicom kao svetla. Zato kod trinaest pinova svetla ne trepere kada se nešto u prikolici uključi.</p>
+
+      <p>Koji standard vam treba zavisi od toga šta vučete. Kratko pravilo je u tekstu o <a href="/blog/izbor-pravog-modela-euro-kuke">vrstama euro kuka</a>: obična prikolica ili nosač traže sedam, kamp prikolica trinaest.</p>
+
+      <h2>Univerzalna instalacija ili CAN modul</h2>
+
+      <p>Ovo je pitanje koje odlučuje koliko je posla, a ne broj pinova.</p>
+
+      <p><strong>Univerzalna instalacija</strong> se vezuje direktno na kablove zadnjih svetala. Tako se radilo godinama i i dalje je ispravno rešenje za vozila čija svetla rade na običnim strujnim kolima.</p>
+
+      <p><strong>CAN modul</strong> treba vozilima kod kojih svetlima upravlja računar. Takvo vozilo meri struju na svakoj sijalici. Ako se na kabl svetla samo nakalemi još jedan potrošač, računar to vidi kao kvar i javlja grešku, gasi svetlo ili isključuje funkciju. Modul zato čita signale sa sabirnice vozila i sam napaja utičnicu, pa računar ne vidi nikakvu promenu na fabričkim svetlima.</p>
+
+      <p>Kod nekih vozila modul radi i više od toga. Kada se prikolica zakači, vozilo to prepozna i, zavisno od modela, isključi zadnje senzore za parkiranje ili uključi stabilizaciju prikolice. Šta tačno vaše vozilo podržava zavisi od marke, modela i godišta.</p>
+
+      <p>Da li vozilo traži univerzalnu instalaciju ili modul nije stvar izbora. To određuje vozilo, i zato se proverava pre ugradnje, zajedno sa tipom kuke.</p>
+
+      <h2>Kako se prepoznaje loše urađena instalacija</h2>
+
+      <ul>
+        <li><strong>Žmigavac u vozilu kuca brže</strong> kada je prikolica zakačena. Vozilo misli da je sijalica pregorela, što znači da ne vidi potrošač na prikolici kako treba.</li>
+        <li><strong>Greške na instrument tabli</strong> posle ugradnje, ili svetla koja povremeno ne rade. Najčešći znak da je vozilu trebao modul, a dobilo je univerzalnu instalaciju.</li>
+        <li><strong>Svetla prikolice rade, ali slabo ili naizmenično.</strong> Obično loša masa ili oksidisan spoj.</li>
+        <li><strong>Utičnica u kojoj stoji voda</strong> ili sa zelenkastom naslagom na kontaktima. Poklopac se ne zatvara ili je utičnica postavljena tako da skuplja vodu.</li>
+        <li><strong>Isečeni ili spojeni fabrički kablovi</strong> sa izolir trakom. Takav spoj radi dok ga vlaga i vibracije ne pojedu.</li>
+      </ul>
+
+      <p>Ako svetla prikolice zakažu na putu, prvo proverite adapter, ako ga koristite, pa kontakte u utičnici. Tu je kvar u najvećem broju slučajeva. Detaljnija provera pre polaska je u tekstu o <a href="/blog/kacenje-prikolice-provera">kačenju prikolice</a>.</p>
+
+      <h2>Kako je to kod nas</h2>
+
+      <p><a href="/installation">Elektro-instalacija ulazi u cenu ugradnje</a>, a kompletna kuka sa ugradnjom počinje od 200 evra. Instalacija se vezuje bez presecanja fabričke instalacije, a garancija od dve godine pokriva i kuku i instalaciju. Svetla prikolice proveravamo pre nego što preuzmete vozilo.</p>
+
+      <p>Da li vaše vozilo traži modul i da li ima smisla ići na trinaest pinova, proverava se jednim pozivom. <a href="/contact">Pozovite</a> i recite marku, model i godište.</p>
     `,
   },
 };
