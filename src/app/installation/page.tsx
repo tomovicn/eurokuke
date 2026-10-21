@@ -128,8 +128,9 @@ export default function InstallationPage() {
               </ol>
             </Card>
 
-            {/* What moves the price. No numbers until there are published
-                ones, but the question is answered rather than ignored. */}
+            {/* The price. The floor leads, under a heading that says "cena",
+                because price searches land here and were ranking just off
+                page one. */}
             <H2 className='mt-8 md:mt-14'>{t.price.title}</H2>
             <p className='mt-3 max-w-[68ch] text-[15px] leading-[1.62] text-body md:mt-4 md:text-[17px] md:leading-[1.65]'>
               {t.price.description}

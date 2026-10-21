@@ -192,13 +192,14 @@ export const sr = {
   installation: {
     title: 'Montaža auto kuke, od pregleda do papira',
     description:
-      'Radimo ugradnju euro kuke na sve marke vozila, na Novom Beogradu. Posao traje 3-4 sata, obuhvata kuku i elektro-instalaciju, i pokriven je garancijom od dve godine. Uz vozilo dobijate dokumentaciju potrebnu za atest.',
+      'Radimo ugradnju euro kuke, odnosno vučne kuke koja se skida, na sve marke vozila, na Novom Beogradu. Posao traje 3-4 sata, obuhvata kuku i elektro-instalaciju, i pokriven je garancijom od dve godine. Uz vozilo dobijate dokumentaciju potrebnu za atest.',
     descriptionShort:
       'Ugradnja euro kuke na sve marke vozila, Novi Beograd. Posao traje 3-4 sata i obuhvata kuku i elektro-instalaciju.',
 
     summary: {
       label: 'Ukratko',
       rows: [
+        { label: 'Cena', value: 'od 200 evra' },
         { label: 'Trajanje', value: '3-4 sata' },
         { label: 'Termin', value: 'u roku od 24 sata' },
         { label: 'Za atest', value: 'papiri uz ugradnju' },
@@ -212,7 +213,7 @@ export const sr = {
       title: 'Šta ulazi u ugradnju',
       items: [
         {
-          title: 'Kuka za vuču',
+          title: 'Vučna kuka',
           description: 'Model kuke biramo prema marki, modelu i godini vozila.',
         },
         {
@@ -298,9 +299,9 @@ export const sr = {
     // an explanation. This is the version without numbers; the day there are
     // published prices, they go here.
     price: {
-      title: 'Od čega zavisi cena',
+      title: 'Cena ugradnje auto kuke',
       description:
-        'Cena ugradnje nije ista za svako vozilo i zato je ne objavljujemo kao jedan broj. Ovo je sve što je pomera, da biste znali šta vas čeka pre nego što pozovete.',
+        'Kompletna kuka sa ugradnjom počinje od 200 evra, sa uračunatom elektro-instalacijom i garancijom od dve godine. Konačna cena nije ista za svako vozilo. Ovo je sve što je pomera, da biste znali šta vas čeka pre nego što pozovete.',
       items: [
         {
           title: 'Način skidanja',
@@ -323,7 +324,7 @@ export const sr = {
             'Kod većine modela branik mora da se skine, a najčešće i da se seče na mestu gde kuka izlazi. Koliko je to posla zavisi od vozila.',
         },
       ],
-      note: 'Kompletna kuka sa ugradnjom počinje od 200 evra, sa uračunatom elektro-instalacijom i garancijom od dve godine. Sam atest košta 15.000 dinara i nije u toj ceni. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
+      note: 'Sam atest košta 15.000 dinara i nije u ceni ugradnje. Tačan iznos dobijate na telefonu, čim kažete marku, model i godinu vozila.',
     },
 
     // Cela ova usluga do sada nije postojala nigde na sajtu, iako se godinama

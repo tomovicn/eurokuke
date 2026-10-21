@@ -31,12 +31,12 @@ export const POSTS: Record<string, PostContent> = {
      * half was cut off in results anyway. The related queries `atest kuke`,
      * `atest kuke za auto` and `atest za kuku na autu` all match the new one.
      */
-    title: 'Atest za kuku: šta je, ko ga izdaje i kako se upisuje',
+    title: 'Atest za kuku: cena, šta je i kako se upisuje',
     description:
-      'Atest za kuku je potvrda da je kuka ugrađena po propisu. Šta sadrži, ko ga izdaje i kojim redom idu ugradnja, tehnički pregled i upis u saobraćajnu dozvolu.',
+      'Atest za kuku košta 15.000 dinara i bez njega se kuka ne upisuje u saobraćajnu. Šta sadrži, ko ga izdaje i kojim redom idu ugradnja, pregled i upis.',
     date: '12. mart 2026.',
     datetime: '2026-03-12',
-    updated: '2026-09-06',
+    updated: '2026-10-21',
     readingTime: '8 min čitanja',
     category: { title: 'Pravne informacije', href: '/blog/category/legal' },
     author: { name: 'Ugradnja Euro Kuka' },
@@ -131,9 +131,11 @@ export const POSTS: Record<string, PostContent> = {
 
       <p>Najjednostavnije je da pre kupovine pozovete i kažete marku, model i godište. Provera traje minut, a sprečava da platite kuku koja vam ne odgovara.</p>
 
-      <h2>Kako to izgleda u praksi kod nas</h2>
+      <h2>Koliko košta atest za kuku</h2>
 
-      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> traje 3-4 sata, pa vozilo preuzimate istog dana. Uz vozilo dobijate kompletnu dokumentaciju sa kojom se atest vadi. Sam atest košta 15.000 dinara i nije u ceni ugradnje. Možemo da ga izvadimo umesto vas, po dogovoru. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
+      <p>Sam atest košta 15.000 dinara i nije u ceni ugradnje. Možemo da ga izvadimo umesto vas, po dogovoru.</p>
+
+      <p><a href="/installation">Ugradnja kuke i elektro-instalacije</a> počinje od 200 evra i traje 3-4 sata, pa vozilo preuzimate istog dana. Uz vozilo dobijate kompletnu dokumentaciju sa kojom se atest vadi. Na kuku i na elektro-instalaciju ide garancija od 2 godine.</p>
 
       <p>Radimo kuke proizvođača Bosal, AutoHak, Oris, Steinhof i Galia, za sve popularne marke automobila. Termin se obično dobija u roku od 24 sata od poziva.</p>
 

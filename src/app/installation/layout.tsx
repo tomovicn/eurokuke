@@ -16,7 +16,7 @@ import { OG_IMAGE, SITE_LOCALE } from '@/lib/site';
  */
 const TITLE = 'Ugradnja auto kuke i atest, Beograd';
 const DESCRIPTION =
-  'Ugradnja auto kuke na sve marke vozila, Novi Beograd. Kuka na šrafove, na ručicu ili brzopotezna, instalacija 7 ili 13 pinova. Od 200 evra, papiri za atest.';
+  'Ugradnja auto kuke, odnosno vučne kuke, na sve marke vozila, Novi Beograd. Na šrafove, na ručicu ili brzopotezna, 7 ili 13 pinova. Od 200 evra, papiri za atest.';
 
 export const metadata: Metadata = {
   title: TITLE,
