@@ -84,6 +84,9 @@ export default function InstallationPage() {
               ))}
             </ul>
             <p className='mt-3 text-sm text-muted md:mt-4 md:text-[15px]'>{t.types.note}</p>
+            <p className='mt-2 text-sm md:text-[15px]'>
+              <TextLink href='/kuka-za-auto'>{t.types.modelsLink} &rarr;</TextLink>
+            </p>
 
             {/* Which makers. People search the maker names directly and the
                 page had one sentence about all three. */}

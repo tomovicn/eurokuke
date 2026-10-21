@@ -43,6 +43,7 @@ export const sr = {
     home: 'Početna',
     installation: 'Ugradnja',
     sales: 'Prodaja',
+    vehicles: 'Kuka po modelu',
     blog: 'Blog',
     contact: 'Kontakt',
     privacy: 'Politika privatnosti',
@@ -254,6 +255,7 @@ export const sr = {
         },
       ],
       note: 'Koja varijanta postoji za vaše vozilo, proveravamo na poziv.',
+      modelsLink: 'Koje kuke postoje za Golf 7, Octaviju, Duster, Passat i Sandero',
     },
 
     // Search Console, six months to 2026-09-05: `bosal kuke`, `oris kuke`,
@@ -454,6 +456,7 @@ export const sr = {
       description:
         'Kuka se ne bira po ceni nego po vozilu. Za jedan isti model često postoji više odobrenih tipova, a ponekad nijedan, u zavisnosti od godišta i tipa karoserije. Zato pre porudžbine treba da znamo četiri stvari.',
       items: ['Marka', 'Model', 'Godište', 'Tip karoserije'],
+      modelsLink: 'Varijante i vuča po modelu vozila',
       note: 'Novija vozila traže instalaciju koja se povezuje na fabričku elektroniku, takozvanu smart konekciju. I to se bira unapred, jer se ne rešava kablom nakalemljenim negde usput.',
       warning:
         'Najskuplja kuka je ona kupljena naslepo. Fizički stane, vijci ulaze, prikolica se kači, a onda se ispostavi da za taj tip nema dokumentacije za vaš model i ceo posao ide iz početka.',
@@ -516,6 +519,70 @@ export const sr = {
     cta: {
       title: 'Recite koje vozilo imate',
       description: 'Provera koji tip kuke postoji za vaš model traje minut. Poziv ne obavezuje.',
+    },
+  },
+
+  // Stranice po modelu vozila, /kuka-za-auto. Podaci o samim modelima su u
+  // src/content/vozila.ts, ovde je samo tekst oko njih.
+  vehicles: {
+    hub: {
+      breadcrumb: 'Kuka za auto',
+      metaTitle: 'Kuka za auto po modelu: Golf, Octavia, Duster, Passat',
+      metaDescription:
+        'Euro kuka za Golf 7, Octaviju 3, Duster, Passat, Sandero i Logan: koje varijante postoje, koliko sme da vuče i šta traži instalacija. Ugradnja od 200 evra.',
+      title: 'Kuka za auto, po modelu vozila',
+      description:
+        'Kuka se ne bira po ceni nego po vozilu. Za isti model često postoji više varijanti, ali ne za svako godište i karoseriju, a instalacija zavisi od elektronike vozila. Za modele ispod smo skupili šta postoji, koliko sme da vuče i na šta treba obratiti pažnju, sa izvorima.',
+      modelsTitle: 'Modeli',
+      cardPrefix: 'Kuka za',
+      cardLink: 'Varijante, vuča i instalacija',
+      otherTitle: 'Vaš model nije na listi',
+      otherDescription:
+        'Ugrađujemo kuke na sve marke putničkih vozila. Ovih pet modela imaju posebne stranice jer se za njih najčešće pita, a za svaki drugi model proveravamo isto: koje varijante postoje, koju instalaciju vozilo traži i koliko sme da vuče. Pozovite i recite marku, model i godište.',
+      checkTitle: 'Tri broja koja treba da se poklope',
+      checkSteps: [
+        {
+          title: 'Koliko sme vozilo',
+          description: 'Piše u saobraćajnoj dozvoli, odvojeno za prikolicu sa kočnicom i bez nje.',
+        },
+        {
+          title: 'Koliko sme kuka',
+          description: 'Piše na pločici kuke. Važi manji od ta dva broja, vozila i kuke.',
+        },
+        {
+          title: 'Šta pokriva dozvola',
+          description: 'B kategorija pokriva laku prikolicu. Za veću može da zatreba BE.',
+        },
+      ],
+      checkLink: 'Vuča prikolice: masa i kategorija',
+      aside: {
+        title: 'Koja kuka ide na vaš auto',
+        description:
+          'Recite marku, model, godište i karoseriju. Kažemo koje varijante postoje, koju instalaciju vozilo traži i koliko košta. Kompletna kuka sa ugradnjom počinje od 200 evra.',
+      },
+      installLink: 'Ugradnja auto kuke',
+      salesLink: 'Prodaja i slanje kuka po Srbiji',
+    },
+    page: {
+      h1Prefix: 'Kuka za',
+      summaryLabel: 'Ukratko',
+      variantsTitle: 'Koje kuke postoje za {name}',
+      towingTitle: 'Koliko {name} sme da vuče',
+      towingWarning:
+        'Tačan podatak za vaš auto je u saobraćajnoj dozvoli, kod dokumenata u evropskom formatu obično u poljima O.1 i O.2. Važi manji od dva broja: onaj za vozilo i onaj na pločici kuke. Više o tome u tekstu',
+      towingLink: 'vuča prikolice: masa i kategorija',
+      wiringTitle: 'Elektro-instalacija',
+      wiringLink: 'Elektro-instalacija za auto kuku, detaljno',
+      faqTitle: 'Česta pitanja za {name}',
+      sourcesTitle: 'Izvori',
+      sourcesNote:
+        'Podaci na ovoj stranici su iz javno dostupnih izvora ispod, provereni {date}. Varijante kuka su iz kataloga proizvođača i govore šta postoji za vozilo, ne šta je trenutno na stanju.',
+      aside: {
+        title: 'Pre ugradnje proveravamo vaš primerak',
+        description:
+          'Varijante i instalacija zavise od godišta, karoserije i opreme. Recite podatke o vozilu i dobijate tačan odgovor i cenu. Kompletna kuka sa ugradnjom počinje od 200 evra, atest od 15.000 dinara se plaća posebno.',
+      },
+      backLink: 'Svi modeli',
     },
   },
 

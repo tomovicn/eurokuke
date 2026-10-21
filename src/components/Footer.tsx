@@ -8,6 +8,7 @@ import { sr } from '@/utils/translations/sr';
 const PAGES = [
   { href: '/installation', label: sr.navigation.installation },
   { href: '/prodaja-auto-kuka', label: sr.navigation.sales },
+  { href: '/kuka-za-auto', label: sr.navigation.vehicles },
   { href: '/blog', label: sr.navigation.blog },
   { href: '/contact', label: sr.navigation.contact },
   { href: '/privacy', label: sr.navigation.privacy },
